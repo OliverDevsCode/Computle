@@ -1,0 +1,154 @@
+[
+  {
+    "topic": "Networks",
+    "phrases": [
+      "SERVER",
+      "CLIENT",
+      "PROTOCOL",
+      "HTML",
+      "MAC",
+      "LAN",
+      "WAN",
+      "TCP",
+      "DNS",
+      "URL",
+      "DOS",
+      "DDOS",
+      "ROUTER",
+      "HUB",
+      "MODEM"
+    ]
+  },
+  {
+    "topic": "Programming",
+    "phrases": [
+      "VARIABLE",
+      "FUNCTION",
+      "LOOP",
+      "STRING",
+      "CLASS",
+      "OBJECT",
+      "METHOD",
+      "OPCODE",
+      "INDEX",
+      "ARRAY",
+      "OPERAND",
+      "MACRO",
+      "BOOLEAN",
+      "OOP"
+    ]
+  },
+  {
+    "topic": "Processors",
+    "phrases": [
+      "CPU",
+      "ALU",
+      "MAR",
+      "MDR",
+      "CIR",
+      "CACHE",
+      "PIPELINE",
+      "REGISTER",
+      "CORE",
+      "BUS"
+    ]
+  },
+  {
+    "topic": "Storage",
+    "phrases": [
+      "RAM",
+      "ROM",
+      "SSD",
+      "HDD",
+      "CACHE",
+      "FLASH",
+      "VIRTUAL",
+      "ADDRESS",
+      "DATA",
+      "MEMORY"
+    ]
+  },
+  {
+    "topic": "Operating Systems",
+    "phrases": [
+      "BIOS",
+      "KERNEL",
+      "THREAD",
+      "SCHEDULER",
+      "PAGING",
+      "SEGMENTATION",
+      "INTERRUPT",
+      "QUEUE",
+      "DRIVER"
+    ]
+  },
+  {
+    "topic": "Security",
+    "phrases": [
+      "ENCRYPTION",
+      "HASH",
+      "FIREWALL",
+      "PASSWORD",
+      "VIRUS",
+      "SPYWARE",
+      "DDOS",
+      "PHISHING",
+      "TOKEN",
+      "2FA"
+    ]
+  },
+  {
+    "topic": "Data Structures",
+    "phrases": [
+      "LIST",
+      "STACK",
+      "QUEUE",
+      "TREE",
+      "GRAPH",
+      "NODE",
+      "EDGE",
+      "HASH",
+      "ARRAY",
+      "RECORD"
+    ]
+  },
+  {
+    "topic": "Algorithms",
+    "phrases": [
+      "SORT",
+      "SEARCH",
+      "MERGE",
+      "BINARY",
+      "DFS",
+      "BFS",
+      "HEURISTIC",
+      "TRAVERSAL",
+      "RECURSION"
+    ]
+  },
+  {
+    "topic": "Web Technologies",
+    "phrases": [
+      "HTML",
+      "CSS",
+      "SQL",
+      "XML",
+      "INDEX",
+      "SCRIPT",
+      "TABLE",
+      "QUERY",
+      "CSV"
+    ]
+  },
+  {
+    "topic": "Processor Types",
+    "phrases": [
+      "CISC",
+      "RISC",
+      "GPU",
+      "SISD",
+      "SIMD",
+      "MIMD"
+    ]
+  }
+]
