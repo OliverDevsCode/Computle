@@ -3,7 +3,7 @@ class Wordle{
   answer;
   topic;
   attempts;
-  solved;
+  #solved;
   input;
   correctLetters;
   wrongLetters;
@@ -15,7 +15,7 @@ class Wordle{
     this.answer = phrase
     this.topic = topic;
     this.attempts = 0;
-    this.solved = false;
+    this.#solved = false;
     this.input = [];
     this.correctLetters = [];
     this.wrongLetters = [];
@@ -25,7 +25,7 @@ class Wordle{
   
   inputLetter(string){
     //only add when input <= phrase.length
-    if(this.input.length == this.phrase.length || this.solved == true){
+    if(this.input.length == this.phrase.length || this.#solved == true){
       //full
       // console.log("full")
     }else{
@@ -102,7 +102,8 @@ class Wordle{
     //check if correct
     if(this.correctLetters.length == this.phrase.length){
       // console.log("Well Done Correct!")
-      this.solved = true
+      this.#solved = true
+      submitScore(1,this.#solved)
       return true
     }else{
       // console.log("try again")
@@ -194,7 +195,7 @@ class Wordle{
       }//end of if
     }
     
-    if(this.solved == true){
+    if(this.#solved == true){
       push()
       fill('#00FF00')
       rect(100,320,400,110,10)
@@ -207,7 +208,7 @@ class Wordle{
       pop()
     }
     
-    if(this.solved == false && this.attempts == 6){
+    if(this.#solved == false && this.attempts == 6){
       push()
       fill('#FCE205')
       rect(100,320,400,110,10)
