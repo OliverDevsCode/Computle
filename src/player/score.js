@@ -15,6 +15,29 @@ function submitScore(score, completed) {
   });
 }
 
+function getScore(){
+  fetch('https://computle-backend.vercel.app/api/getScore', {
+    method: 'GET',
+    // credentials: 'include'  // Ensures that cookies are sent with the request POTENTIAL FIX
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.score !== undefined) {
+      sessionScore = data.score; // Update sessionScore with the score from the server
+      console.log("Current score:", sessionScore);
+      document.getElementById('score-display').innerText = `Your score is: ${sessionScore}`; // Update the UI
+    } else {
+      console.error('Score not found in session.');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching score:', error);
+  });
+}
+
+
+setInterval(getScore, 5000);
+
 let sessionScore = 0;
 let answerStreak = 0;
 
