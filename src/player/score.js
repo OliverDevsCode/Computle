@@ -6,7 +6,7 @@ function submitScore(score, completed) {
   .then(data => {
     console.log('Server response:', data);
     if(data.message == 'valid'){
-      const sessionScore = data.score
+      sessionScore = data.score
       console.log("score updated",sessionScore)
     }
   })
@@ -17,27 +17,6 @@ function submitScore(score, completed) {
 
 let sessionScore = 0;
 let answerStreak = 0;
-
-function getScore(){
-  fetch('https://computle-backend.vercel.app/api/getScore', {
-    method: 'GET',
-    credentials: 'same-origin', // Include the session cookie with the request (same-origin for same-domain requests)
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.score !== undefined) {
-      sessionScore = data.score; // Update sessionScore with the score from the server
-      console.log("Current score:", sessionScore);
-      document.getElementById('score-display').innerText = `Your score is: ${sessionScore}`; // Update the UI
-    }
-  })
-  .catch(error => {
-    console.error('Error fetching score:', error);
-  });
-}
-
-getScore()
-
 
 function displayScore(){
   push()

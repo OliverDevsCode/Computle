@@ -45,20 +45,22 @@ function draw() {
 
 
 function keyPressed(){
-  if(keyCode == ENTER){
-    //do guess
-    result = csWordle.guess()
-    if(result == true){
-      goAgain.show()
+  if(mode ==! 1){
+    if(keyCode == ENTER){
+      //do guess
+      result = csWordle.guess()
+      if(result == true){
+        goAgain.show()
+      }
     }
-  }
-  if(keyCode == BACKSPACE){
-    csWordle.removeLetter()
-  }
-  if(keyCode >=65 && keyCode <=90){
-    let inputLetter = String.fromCharCode(keyCode)
-    // console.log("input letter",inputLetter)
-    csWordle.inputLetter(inputLetter)
+    if(keyCode == BACKSPACE){
+      csWordle.removeLetter()
+    }
+    if(keyCode >=65 && keyCode <=90){
+      let inputLetter = String.fromCharCode(keyCode)
+      // console.log("input letter",inputLetter)
+      csWordle.inputLetter(inputLetter)
+    }
   }
   
 }
