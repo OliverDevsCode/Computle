@@ -2,10 +2,14 @@ let csWordle;
 let goAgain;
 let resetButton;
 let complete = false;
+let mode = 1;
 
 function preload(){
-  dataset = loadJSON("src/Database/DATABASE.json", (data) => {
-    dataset = data; // Ensure it's assigned as an array
+  dataset = loadJSON("src/Database/CStopics.json", (data) => {
+    dataset = data; // assign as array
+  });
+  subjectsDB = loadJSON("src/Database/Subjects.json", (data) => {
+    subjectsDB = data; // assign as array
   });
 }
 function setup() {
@@ -27,16 +31,24 @@ function setup() {
   resetButton.style("border-radius","10px")
   resetButton.style("color","green")
   resetButton.hide()
+
+  getSubjects()
+  drawHomeScreen()
 }
 
 function draw() {
-  background(220);
-  csWordle.draw()
-  goAgain.mousePressed(newWordle)
-  resetButton.mousePressed(resetProgram)
-  if(complete==true){
-    completePopUp()
+  if(mode ==1){
+    //run on home screen
+  }else{
+    background(220);
+    csWordle.draw()
+    goAgain.mousePressed(newWordle)
+    resetButton.mousePressed(resetProgram)
+    if(complete==true){
+      completePopUp()
+    }
   }
+  
 }
 
 //PLAN
