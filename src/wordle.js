@@ -104,9 +104,13 @@ class Wordle{
       // console.log("Well Done Correct!")
       this.#solved = true
       submitScore(1,this.#solved)
+      answerStreak ++
       return true
     }else{
       // console.log("try again")
+      if(this.attempts==5){
+        answerStreak = 0
+      }
       return false
     }
       

@@ -32,6 +32,7 @@ function draw() {
     if(complete==true){
       completePopUp()
     }
+    displayScore()
   }
   
 }
@@ -92,15 +93,4 @@ function resetProgram(){
   
 }
 
-function submitScore(score, completed) {
-  fetch('https://computle-backend.vercel.app/api/verifyscore?score=' + score + '&completed=' + completed, {
-    method: 'GET',
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log('Server response:', data);
-  })
-  .catch(error => {
-    console.error('Error:', error);
-  });
-}
+
