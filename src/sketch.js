@@ -4,7 +4,7 @@ let resetButton;
 let complete = false;
 
 function preload(){
-  dataset = loadJSON("src/DATABASE.json", (data) => {
+  dataset = loadJSON("src/Database/DATABASE.json", (data) => {
     dataset = data; // Ensure it's assigned as an array
   });
 }
