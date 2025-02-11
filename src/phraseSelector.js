@@ -1,7 +1,7 @@
-let dataset;
+// let dataset;
 let previousPhrases = [];
-function selectPhrase(){
-  
+function selectPhrase(dataset){
+
   let datasetLength = 0;
   for(let i =0; i < dataset.length;i++){
     datasetLength += dataset[i].phrases.length;

@@ -1,7 +1,7 @@
-function drawHomeScreen(){
+function drawHomeScreen(subjects){
     background(220);
     //create a dropdown menu
-    let subjectSelect = createDropDown(getSubjects(),width/6,height/1.5,300,50)
+    let subjectSelect = createDropDown(subjects,width/6,height/1.5,300,50)
     let enterButton = createButton("SELECT")
     enterButton.position(width/6 + 320,height/1.5)
     enterButton.style("font-family","Inter")
@@ -19,42 +19,27 @@ function drawHomeScreen(){
     text("Select A Topic Below",width/2,height/2)
     pop()
 
-    enterButton.mousePressed(startWordle);
-    
+    enterButton.mousePressed(() => startWordle(subjectSelect,enterButton,subjects));
 }
 
-function startWordle(){
-    let wordle_data = selectPhrase()
-    csWordle = new Wordle(wordle_data[1],wordle_data[0])
-    mode = 0
-    enterButton.hide()
-    subjectSelect.hide()
+function startWordle(subjectSelect,enterButton,subject_list){
+    let subject = subjectSelect.value()// get user selected subject
+    let subject_path = getSubjectPath(subject,subject_list) // get path
+    loadSubject(subject_path)
+    console.log(`Subject Path ${subject_path}`)
+    enterButton.remove()
+    subjectSelect.remove()
 }
 
-
-/**
-   * Create populated drop down menu
-   * @function
-   * @param {array} subjectList 
-   * @param {*} x 
-   * @param {*} y
-   * @param {*} w 
-   * @param {*} h  
-   * @returns p5 object of a select.
-   */
-
-function createDropDown(subjectList,x,y,w,h){
-    let name = createSelect();
-    name.position(x, y);
-    name.size(w,h)
-    name.style('border-radius', '10px')
-    name.style('font-family', 'Inter');
-    name.style('font-size', '18px');
-    name.style('border', '3px solid black')
-    
-    for(let p=0;p < subjectList.length;p++){
-    let element = subjectList[p][0]
-    name.option(element);
+function getSubjectPath(input,list){
+    let path;
+    for(let i=0; i < list.length;i++){
+        if(list[i][0] == input){
+            path = list[i][1];
+        }
     }
-    return name
-  }
+    return path
+}
+
+
+

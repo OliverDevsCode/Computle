@@ -5,35 +5,20 @@ let complete = false;
 let mode = 1;
 
 function preload(){
-  dataset = loadJSON("src/Database/CStopics.json", (data) => {
-    dataset = data; // assign as array
-  });
   subjectsDB = loadJSON("src/Database/Subjects.json", (data) => {
     subjectsDB = data; // assign as array
   });
+  
 }
 function setup() {
   createCanvas(600, 800);
-  let wordle_data = selectPhrase()
-  csWordle = new Wordle(wordle_data[1],wordle_data[0])
-  goAgain = createButton("Go Again")
-  goAgain.position(200,450)
-  goAgain.style("font-family","Inter")
-  goAgain.style("font-size","40px")
-  goAgain.style("border-radius","10px")
-  goAgain.style("color","green")
+  goAgain = createCustomButton("Go Again",200,450,"green")
   goAgain.hide()
   
-  resetButton = createButton("Reset Button")
-  resetButton.position(180,450)
-  resetButton.style("font-family","Inter")
-  resetButton.style("font-size","40px")
-  resetButton.style("border-radius","10px")
-  resetButton.style("color","green")
+  resetButton = createCustomButton("Reset Button",180,450,"green")
   resetButton.hide()
 
-  getSubjects()
-  drawHomeScreen()
+  drawHomeScreen(getSubjects())
 }
 
 function draw() {
@@ -79,7 +64,7 @@ function keyPressed(){
 
 function newWordle(){
   console.log("new wordle generated")
-  let wordle_data = selectPhrase()
+  let wordle_data = selectPhrase(currentSubjectData)
   // csWordle = new Wordle("HTML")
   csWordle = new Wordle(wordle_data[1],wordle_data[0])
   goAgain.hide();

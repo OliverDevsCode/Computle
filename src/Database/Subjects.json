@@ -8,6 +8,11 @@
         "subject":"Mathematics",
         "filepath":"src/Database/MATHStopics.json"
         
+    },
+    {
+        "subject":"Physics",
+        "filepath":"src/Database/PHYSICSStopics.json"
+        
     }
 
 ]

@@ -11,3 +11,24 @@ function getSubjects(){
 
     return list_of_subjects
 }
+
+function loadSubject(filepath){
+    loadJSON(filepath,processData)
+}
+
+let currentSubjectData = [];
+function processData(data) {
+    if (data && data.items) {
+      itemsArray = data.items;
+    } else if (Array.isArray(data)) {
+      // If your JSON is just an array, assign it directly.
+      itemsArray = data;
+    }
+    // Log the loaded data to the console.
+    // console.log("JSON loaded and processed:", itemsArray);
+    currentSubjectData = itemsArray;
+    let wordle_data = selectPhrase(itemsArray);
+    console.log(wordle_data);
+    csWordle = new Wordle(wordle_data[1],wordle_data[0]);
+    mode = 0 
+  }
