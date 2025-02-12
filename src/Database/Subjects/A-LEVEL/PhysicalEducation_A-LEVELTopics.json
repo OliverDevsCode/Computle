@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Endure",
+    "phrases": [
+      "STAMINA",
+      "PERSIST",
+      "FORCE",
+      "ENERGY",
+      "RESIST"
+    ]
+  },
+  {
+    "topic": "Agility",
+    "phrases": [
+      "NIMBLE",
+      "SPRINT",
+      "LEAP",
+      "DODGE",
+      "FLIT"
+    ]
+  }
+]

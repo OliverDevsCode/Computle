@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Sound",
+    "phrases": [
+      "TONE",
+      "BEAT",
+      "MELODY",
+      "CHORD",
+      "VOICE"
+    ]
+  },
+  {
+    "topic": "Rhythm",
+    "phrases": [
+      "DRUM",
+      "BASS",
+      "TEMPO",
+      "TAP",
+      "SYNC"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Shape",
+    "phrases": [
+      "CIRCLE",
+      "SQUARE",
+      "TRIAD",
+      "ANGLE",
+      "CURVE"
+    ]
+  },
+  {
+    "topic": "Number",
+    "phrases": [
+      "ONE",
+      "TWO",
+      "THREE",
+      "FOUR",
+      "FIVE"
+    ]
+  }
+]

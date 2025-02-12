@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Land",
+    "phrases": [
+      "HILL",
+      "VALLEY",
+      "PLAIN",
+      "RIVER",
+      "OCEAN"
+    ]
+  },
+  {
+    "topic": "Maps",
+    "phrases": [
+      "ATLAS",
+      "CHART",
+      "SCALE",
+      "GRID",
+      "PAPER"
+    ]
+  }
+]

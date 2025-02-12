@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Visual",
+    "phrases": [
+      "FRAME",
+      "COLOR",
+      "LIGHT",
+      "MOTION",
+      "ANGLE"
+    ]
+  },
+  {
+    "topic": "Editing",
+    "phrases": [
+      "CUTS",
+      "FADE",
+      "MERGE",
+      "TRIM",
+      "SPLIT"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Past",
+    "phrases": [
+      "KING",
+      "WARS",
+      "MYTH",
+      "RELIC",
+      "AGE"
+    ]
+  },
+  {
+    "topic": "Time",
+    "phrases": [
+      "ERA",
+      "YEAR",
+      "EPOCH",
+      "EVENT",
+      "DATE"
+    ]
+  }
+]

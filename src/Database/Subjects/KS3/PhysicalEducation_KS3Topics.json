@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Sport",
+    "phrases": [
+      "RUN",
+      "JUMP",
+      "SWIM",
+      "PLAY",
+      "BALL"
+    ]
+  },
+  {
+    "topic": "Coach",
+    "phrases": [
+      "TRAIN",
+      "DRILL",
+      "FORM",
+      "PACE",
+      "TEAM"
+    ]
+  }
+]

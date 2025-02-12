@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Trade",
+    "phrases": [
+      "SELL",
+      "BUY",
+      "DEAL",
+      "BID",
+      "OFFER"
+    ]
+  },
+  {
+    "topic": "Money",
+    "phrases": [
+      "CASH",
+      "BANK",
+      "FUND",
+      "LOAN",
+      "BILL"
+    ]
+  }
+]

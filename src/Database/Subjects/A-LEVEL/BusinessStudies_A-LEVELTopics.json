@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Finance",
+    "phrases": [
+      "CREDIT",
+      "DEBT",
+      "ASSET",
+      "LIQUID",
+      "EQUITY"
+    ]
+  },
+  {
+    "topic": "Strategy",
+    "phrases": [
+      "PLAN",
+      "GOALS",
+      "TACTIC",
+      "RISK",
+      "MERGER"
+    ]
+  }
+]

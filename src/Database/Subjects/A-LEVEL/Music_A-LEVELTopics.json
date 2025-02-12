@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Ensemble",
+    "phrases": [
+      "STRING",
+      "BRASS",
+      "DRUMS",
+      "HARP",
+      "FLUTE"
+    ]
+  },
+  {
+    "topic": "Rhythm",
+    "phrases": [
+      "TEMPO",
+      "BEAT",
+      "SYNC",
+      "METRIC",
+      "PHASE"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Script",
+    "phrases": [
+      "PLOT",
+      "SCENE",
+      "DIALOG",
+      "FRAME",
+      "CUT"
+    ]
+  },
+  {
+    "topic": "Direct",
+    "phrases": [
+      "CAMERA",
+      "ANGLE",
+      "SHOOT",
+      "LIGHT",
+      "SCENE"
+    ]
+  }
+]

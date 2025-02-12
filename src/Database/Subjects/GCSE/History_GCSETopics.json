@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Empire",
+    "phrases": [
+      "ROME",
+      "GREEK",
+      "CAESAR",
+      "PHARAOH",
+      "VIKING"
+    ]
+  },
+  {
+    "topic": "Revolt",
+    "phrases": [
+      "MARCH",
+      "STRIKE",
+      "RALLY",
+      "PROTEST",
+      "RIOT"
+    ]
+  }
+]

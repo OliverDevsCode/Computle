@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Coding",
+    "phrases": [
+      "LOOP",
+      "ARRAY",
+      "CLASS",
+      "STACK",
+      "QUEUE"
+    ]
+  },
+  {
+    "topic": "System",
+    "phrases": [
+      "INPUT",
+      "OUTPUT",
+      "DEBUG",
+      "STORE",
+      "CACHE"
+    ]
+  }
+]

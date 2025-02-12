@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Binary",
+    "phrases": [
+      "CODE",
+      "DATA",
+      "BITS",
+      "BYTE",
+      "LOGIC"
+    ]
+  },
+  {
+    "topic": "Robot",
+    "phrases": [
+      "SENSOR",
+      "MOTOR",
+      "CHIP",
+      "ALGO",
+      "DEBUG"
+    ]
+  }
+]

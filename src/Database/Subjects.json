@@ -1,18 +1,139 @@
 [
     {
-        "subject":"Computer Science",
-        "filepath":"src/Database/CStopics.json"
-        
+      "subject": "Business Studies KS3",
+      "filepath": "src/Database/Subjects/KS3/BusinessStudies_KS3Topics.json"
     },
     {
-        "subject":"Mathematics",
-        "filepath":"src/Database/MATHStopics.json"
-        
+      "subject": "Business Studies GCSE",
+      "filepath": "src/Database/Subjects/GCSE/BusinessStudies_GCSETopics.json"
     },
     {
-        "subject":"Physics",
-        "filepath":"src/Database/PHYSICSStopics.json"
-        
+      "subject": "Business Studies A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/BusinessStudies_A-LEVELTopics.json"
+    },
+    {
+      "subject": "Computer Science KS3",
+      "filepath": "src/Database/Subjects/KS3/CStopics_KS3.json"
+    },
+    {
+      "subject": "Computer Science GCSE",
+      "filepath": "src/Database/Subjects/GCSE/CStopics_GCSE.json"
+    },
+    {
+      "subject": "Computer Science A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/CStopics_A-LEVEL.json"
+    },
+    {
+      "subject": "Drama KS3",
+      "filepath": "src/Database/Subjects/KS3/Drama_KS3Topics.json"
+    },
+    {
+      "subject": "Drama GCSE",
+      "filepath": "src/Database/Subjects/GCSE/Drama_GCSETopics.json"
+    },
+    {
+      "subject": "Drama A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/Drama_A-LEVELTopics.json"
+    },
+    {
+      "subject": "Film Studies GCSE",
+      "filepath": "src/Database/Subjects/GCSE/FilmStudies_GCSETopics.json"
+    },
+    {
+      "subject": "Film Studies A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/FilmStudies_A-LEVELTopics.json"
+    },
+    {
+      "subject": "Food Preparation and Nutrition GCSE",
+      "filepath": "src/Database/Subjects/GCSE/FoodPreparationAndNutrition_GCSETopics.json"
+    },
+    {
+      "subject": "Geography KS3",
+      "filepath": "src/Database/Subjects/KS3/Geography_KS3Topics.json"
+    },
+    {
+      "subject": "Geography GCSE",
+      "filepath": "src/Database/Subjects/GCSE/Geography_GCSETopics.json"
+    },
+    {
+      "subject": "Geography A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/Geography_A-LEVELTopics.json"
+    },
+    {
+      "subject": "History KS3",
+      "filepath": "src/Database/Subjects/KS3/History_KS3Topics.json"
+    },
+    {
+      "subject": "History GCSE",
+      "filepath": "src/Database/Subjects/GCSE/History_GCSETopics.json"
+    },
+    {
+      "subject": "History A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/History_A-LEVELTopics.json"
+    },
+    {
+      "subject": "Music KS3",
+      "filepath": "src/Database/Subjects/KS3/Music_KS3Topics.json"
+    },
+    {
+      "subject": "Music GCSE",
+      "filepath": "src/Database/Subjects/GCSE/Music_GCSETopics.json"
+    },
+    {
+      "subject": "Music A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/Music_A-LEVELTopics.json"
+    },
+    {
+      "subject": "Physical Education KS3",
+      "filepath": "src/Database/Subjects/KS3/PhysicalEducation_KS3Topics.json"
+    },
+    {
+      "subject": "Physical Education GCSE",
+      "filepath": "src/Database/Subjects/GCSE/PhysicalEducation_GCSETopics.json"
+    },
+    {
+      "subject": "Physical Education A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/PhysicalEducation_A-LEVELTopics.json"
+    },
+    {
+      "subject": "Sociology GCSE",
+      "filepath": "src/Database/Subjects/GCSE/Sociology_GCSETopics.json"
+    },
+    {
+      "subject": "Sociology A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/Sociology_A-LEVELTopics.json"
+    },
+    {
+      "subject": "Statistics and Further Maths GCSE",
+      "filepath": "src/Database/Subjects/GCSE/StatisticsAndFurtherMaths_GCSETopics.json"
+    },
+    {
+      "subject": "Statistics and Further Maths A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/StatisticsAndFurtherMaths_A-LEVELTopics.json"
+    },
+    {
+      "subject": "Mathematics KS3",
+      "filepath": "src/Database/Subjects/KS3/MATHStopics_KS3.json"
+    },
+    {
+      "subject": "Mathematics GCSE",
+      "filepath": "src/Database/Subjects/GCSE/MATHStopics_GCSE.json"
+    },
+    {
+      "subject": "Mathematics A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/MATHStopics_A-LEVEL.json"
+    },
+    {
+      "subject": "Physics KS3",
+      "filepath": "src/Database/Subjects/KS3/PHYSICSStopics_KS3.json"
+    },
+    {
+      "subject": "Physics GCSE",
+      "filepath": "src/Database/Subjects/GCSE/PHYSICSStopics_GCSE.json"
+    },
+    {
+      "subject": "Physics A-LEVEL",
+      "filepath": "src/Database/Subjects/A-LEVEL/PHYSICSStopics_A-LEVEL.json"
     }
-
-]
+  ]
+  

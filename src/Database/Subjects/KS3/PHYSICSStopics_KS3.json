@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Force",
+    "phrases": [
+      "PUSH",
+      "PULL",
+      "DRIVE",
+      "FRICT",
+      "IMPULS"
+    ]
+  },
+  {
+    "topic": "Energy",
+    "phrases": [
+      "HEAT",
+      "WORK",
+      "WATT",
+      "VOLT",
+      "JOULE"
+    ]
+  }
+]

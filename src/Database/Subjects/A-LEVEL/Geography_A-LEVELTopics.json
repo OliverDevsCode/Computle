@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Terrain",
+    "phrases": [
+      "RUGGED",
+      "PLATEAU",
+      "CANYON",
+      "DUNE",
+      "BASALT"
+    ]
+  },
+  {
+    "topic": "Nature",
+    "phrases": [
+      "FOREST",
+      "RIVER",
+      "DESERT",
+      "SWAMP",
+      "GLACIER"
+    ]
+  }
+]

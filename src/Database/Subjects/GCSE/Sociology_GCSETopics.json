@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Social",
+    "phrases": [
+      "GROUP",
+      "CUSTOM",
+      "NORM",
+      "VALUE",
+      "ETHICS"
+    ]
+  },
+  {
+    "topic": "Urban",
+    "phrases": [
+      "CITY",
+      "AVENUE",
+      "SUBURB",
+      "BLOCK",
+      "SQUARE"
+    ]
+  }
+]

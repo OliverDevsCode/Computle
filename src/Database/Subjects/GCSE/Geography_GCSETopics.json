@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Climate",
+    "phrases": [
+      "WIND",
+      "RAIN",
+      "SUNNY",
+      "CLOUD",
+      "STORM"
+    ]
+  },
+  {
+    "topic": "Earth",
+    "phrases": [
+      "SOIL",
+      "STONE",
+      "FAULT",
+      "QUAKE",
+      "ERODE"
+    ]
+  }
+]

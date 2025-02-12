@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Acting",
+    "phrases": [
+      "SCENE",
+      "SCRIPT",
+      "THEME",
+      "ROLE",
+      "CAST"
+    ]
+  },
+  {
+    "topic": "Stage",
+    "phrases": [
+      "LIGHT",
+      "SET",
+      "PROP",
+      "CURTAIN",
+      "MUSIC"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Market",
+    "phrases": [
+      "DEMAND",
+      "PRICE",
+      "SALES",
+      "BRAND",
+      "VALUE"
+    ]
+  },
+  {
+    "topic": "Profit",
+    "phrases": [
+      "GAIN",
+      "MARGIN",
+      "COST",
+      "INCOME",
+      "BENEFIT"
+    ]
+  }
+]

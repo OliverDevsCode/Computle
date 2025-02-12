@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Algebra",
+    "phrases": [
+      "XPLUS",
+      "YMINU",
+      "SOLVE",
+      "EQUATE",
+      "FACTOR"
+    ]
+  },
+  {
+    "topic": "Geometry",
+    "phrases": [
+      "ANGLE",
+      "CIRCLE",
+      "SQUARE",
+      "TRIAD",
+      "LINE"
+    ]
+  }
+]

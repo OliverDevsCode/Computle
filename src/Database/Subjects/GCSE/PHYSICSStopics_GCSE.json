@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Motion",
+    "phrases": [
+      "SPEED",
+      "ACCEL",
+      "VECTOR",
+      "DRIFT",
+      "SHIFT"
+    ]
+  },
+  {
+    "topic": "Wave",
+    "phrases": [
+      "SOUND",
+      "LIGHT",
+      "RADIO",
+      "MICRO",
+      "ULTRA"
+    ]
+  }
+]

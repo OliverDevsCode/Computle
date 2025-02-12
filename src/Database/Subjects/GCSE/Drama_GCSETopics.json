@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Theatre",
+    "phrases": [
+      "DRAMA",
+      "ACTOR",
+      "SCENE",
+      "SCRIPT",
+      "PLAY"
+    ]
+  },
+  {
+    "topic": "Comedy",
+    "phrases": [
+      "JOKE",
+      "SKIT",
+      "PRANK",
+      "LAUGH",
+      "FUNNY"
+    ]
+  }
+]

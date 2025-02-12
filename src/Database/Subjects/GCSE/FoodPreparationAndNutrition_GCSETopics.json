@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Meals",
+    "phrases": [
+      "BREAK",
+      "LUNCH",
+      "SNACK",
+      "DINER",
+      "SUPPER"
+    ]
+  },
+  {
+    "topic": "Diet",
+    "phrases": [
+      "VEGAN",
+      "PALEO",
+      "KETO",
+      "OMNIV",
+      "RAW"
+    ]
+  }
+]

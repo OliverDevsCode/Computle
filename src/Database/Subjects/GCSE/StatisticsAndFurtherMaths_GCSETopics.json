@@ -1,0 +1,22 @@
+[
+  {
+    "topic": "Number",
+    "phrases": [
+      "DIGIT",
+      "SUM",
+      "RATIO",
+      "QUOTA",
+      "FACTOR"
+    ]
+  },
+  {
+    "topic": "Stats",
+    "phrases": [
+      "MEAN",
+      "MEDIAN",
+      "MODE",
+      "RANGE",
+      "VARIANCE"
+    ]
+  }
+]
