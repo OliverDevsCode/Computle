@@ -26,7 +26,7 @@ function startWordle(subjectSelect,enterButton,subject_list){
     let subject = subjectSelect.value()// get user selected subject
     let subject_path = getSubjectPath(subject,subject_list) // get path
     loadSubject(subject_path)
-    console.log(`Subject Path ${subject_path}`)
+    // console.log(`Subject Path ${subject_path}`)
     enterButton.remove()
     subjectSelect.remove()
 }

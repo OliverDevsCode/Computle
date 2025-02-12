@@ -7,7 +7,7 @@ function getSubjects(){
         list_of_subjects.push([subjectsDB[i].subject,subjectsDB[i].filepath])
     }
 
-    console.log(list_of_subjects)
+    // console.log(list_of_subjects)
 
     return list_of_subjects
 }

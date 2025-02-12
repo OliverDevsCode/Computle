@@ -3,6 +3,7 @@ let goAgain;
 let resetButton;
 let complete = false;
 let mode = 1;
+let userdata;
 
 function preload(){
   subjectsDB = loadJSON("src/Database/Subjects.json", (data) => {
@@ -19,6 +20,8 @@ function setup() {
   resetButton.hide()
 
   drawHomeScreen(getSubjects())
+
+  createUser()
 }
 
 function draw() {

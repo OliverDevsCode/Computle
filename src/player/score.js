@@ -1,3 +1,6 @@
+//session variables
+let answerStreak = 0;
+
 function submitScore(score, completed) {
   fetch('https://computle-backend.vercel.app/api/verifyscore?score=' + score + '&completed=' + completed, {
     method: 'GET',
@@ -6,8 +9,8 @@ function submitScore(score, completed) {
   .then(data => {
     console.log('Server response:', data);
     if(data.message == 'valid'){
-      sessionScore = data.score
-      console.log("score updated",sessionScore)
+      userdata.addScore(data.score)
+      console.log("Current score:", userdata.score);
     }
   })
   .catch(error => {
@@ -36,10 +39,9 @@ function getScore(){
 }
 
 
-setInterval(getScore, 5000);
+// setInterval(getScore, 5000);
 
-let sessionScore = 0;
-let answerStreak = 0;
+
 
 function displayScore(){
   push()
@@ -49,10 +51,27 @@ function displayScore(){
   textStyle(BOLD)
   textSize(25)
   if(answerStreak>0){
-    text(`Score: ${sessionScore+(Math.floor(answerStreak*0.5))}`,width/2,height-10)
+    text(`Score: ${userdata.score+(Math.floor(answerStreak*0.5))}`,width/2,height-10)
   }else{
-    text(`Score: ${sessionScore}`,width/2,height-10)
+    text(`Score: ${userdata.score}`,width/2,height-10)
   }
-  console.log("answer streak",answerStreak)
   pop()
 }
+
+function sendScore(score,username){
+  fetch('https://computle-backend.vercel.app/api/enterScore',{
+    method: 'post',
+    headers: {
+      'Content-type':'application/json'
+    },
+    body: JSON.stringify({score:score, username: username})      
+  })
+  .then(response => response.text())
+  .then(data => console.log(data))
+  .then(error => {
+    if(error!= undefined){
+      console.log('Error:',error)
+    }
+    })
+}
+
