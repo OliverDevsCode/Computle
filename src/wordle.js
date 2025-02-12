@@ -112,7 +112,7 @@ class Wordle{
     }//end of for loop
   
     this.attempts ++ // increment attempts 
-    this.input = [] //reset input
+    
       
     // console.log("Correct Letters",JSON.stringify(this.correctLetters))
     // console.log("Missplaced Letters",JSON.stringify(this.missplacedLetters))
@@ -120,18 +120,37 @@ class Wordle{
       
     //check if correct
     if(this.correctLetters.length == this.phrase.length){
-      // console.log("Well Done Correct!")
-      this.#solved = true
-      submitScore(1,this.#solved)
-      answerStreak ++
-      return true
+      let solvedCorrectly = true
+      for(let j =0;j<this.phrase.length;j++){
+        if(this.input[j] != this.phrase[j]){
+          solvedCorrectly = false
+          console.log("NOT SOLVED")
+        }
+      }
+      if(solvedCorrectly == true){
+        // console.log("Well Done Correct!")
+          this.#solved = true
+          submitScore(1,this.#solved)
+          answerStreak ++
+          this.input = [] //reset input
+          return true
+      }else{
+          if(this.attempts==5){
+          answerStreak = 0
+          }
+          this.input = [] //reset input
+          return false
+      }
+      
     }else{
       // console.log("try again")
       if(this.attempts==5){
         answerStreak = 0
       }
+      this.input = [] //reset input
       return false
     }
+
       
     }//end of else
     
