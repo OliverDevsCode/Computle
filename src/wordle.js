@@ -21,6 +21,7 @@ class Wordle{
     this.wrongLetters = [];
     this.missplacedLetters = [];
     this.previousInputs = [];
+    this.repeatedLetters = [];
   }
   
   inputLetter(string){
@@ -41,6 +42,7 @@ class Wordle{
   }
   
   guess(){
+    
     // console.log("Correct Word",this.phrase)
     if(this.input.length<this.phrase.length){
       // console.log("PLEASE COMPLETE WORD")
@@ -62,7 +64,22 @@ class Wordle{
         }  
       }
       if(this.phrase.includes(this.input[i]) == true && (this.input[i]==this.phrase[i]) == false){
-        //wrong place
+
+        let letterToCheck = this.phrase.filter(letter => letter === this.input[i]);
+        let occurence = 0;
+        for(let k = 0; k < this.correctLetters.length;k++){
+          if(this.correctLetters[k][0] == this.input[i]){
+            // console.log("this.correctLetters[k][0]",this.correctLetters[k][0])
+            // console.log("this.input[i]",this.input[i])
+            occurence ++
+          }
+        }
+
+        if(occurence == letterToCheck.length){
+          // console.log("letter already solved")
+          this.repeatedLetters.push([this.input[i],i])
+        }else{
+          //wrong place
         let value = [this.input[i],i]
         let add = true;
         for(let k =0; k < this.missplacedLetters.length;k++){
@@ -72,8 +89,10 @@ class Wordle{
         }
         if(add == true){
         this.missplacedLetters.push([this.input[i],i])
-        
         } 
+        }
+        
+        
       }
       if(this.phrase.includes(this.input[i]) == false){
         //wrong letter
@@ -139,6 +158,14 @@ class Wordle{
       for(let i =0;i<this.wrongLetters.length;i++){
         if(this.wrongLetters[i][0] == letter && (this.wrongLetters[i][1] == index)){
         return "#FF0000"
+        }
+      }
+    }//if end
+
+    if(this.repeatedLetters.length > 0){
+      for(let i =0;i<this.repeatedLetters.length;i++){
+        if(this.repeatedLetters[i][0] == letter && (this.repeatedLetters[i][1] == index)){
+        return "#71797E"
         }
       }
     }//if end
