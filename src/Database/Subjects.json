@@ -1,0 +1,18 @@
+[
+    {
+        "subject":"Computer Science",
+        "filepath":"src/Database/CStopics.json"
+        
+    },
+    {
+        "subject":"Mathematics",
+        "filepath":"src/Database/MATHStopics.json"
+        
+    },
+    {
+        "subject":"Physics",
+        "filepath":"src/Database/PHYSICSStopics.json"
+        
+    }
+
+]

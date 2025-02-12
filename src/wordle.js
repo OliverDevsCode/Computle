@@ -3,7 +3,7 @@ class Wordle{
   answer;
   topic;
   attempts;
-  solved;
+  #solved;
   input;
   correctLetters;
   wrongLetters;
@@ -15,17 +15,18 @@ class Wordle{
     this.answer = phrase
     this.topic = topic;
     this.attempts = 0;
-    this.solved = false;
+    this.#solved = false;
     this.input = [];
     this.correctLetters = [];
     this.wrongLetters = [];
     this.missplacedLetters = [];
     this.previousInputs = [];
+    this.repeatedLetters = [];
   }
   
   inputLetter(string){
     //only add when input <= phrase.length
-    if(this.input.length == this.phrase.length || this.solved == true){
+    if(this.input.length == this.phrase.length || this.#solved == true){
       //full
       // console.log("full")
     }else{
@@ -41,12 +42,13 @@ class Wordle{
   }
   
   guess(){
+    
     // console.log("Correct Word",this.phrase)
     if(this.input.length<this.phrase.length){
       // console.log("PLEASE COMPLETE WORD")
     }else{
     this.previousInputs.push(this.input)
-    for(let i=0; i<this.input.length;i++){
+    for(let i =0; i <this.input.length;i++){
       if(this.input[i]==this.phrase[i]){
         //correct place
         let value = [this.input[i],i]
@@ -61,8 +63,28 @@ class Wordle{
         
         }  
       }
+    }//correct letters loop - must got before rest to find duplicates
+    for(let i=0; i<this.input.length;i++){
+      
       if(this.phrase.includes(this.input[i]) == true && (this.input[i]==this.phrase[i]) == false){
-        //wrong place
+
+        let letterToCheck = this.phrase.filter(letter => letter === this.input[i]);
+        let occurence = 0;
+        for(let k = 0; k < this.correctLetters.length;k++){
+          console.log("this.correctLetters[k][0]",this.correctLetters[k][0])
+          console.log("this.input[i]",this.input[i])
+          if(this.correctLetters[k][0] == this.input[i]){
+            occurence ++
+          }
+        }
+        console.log("compaer to:",letterToCheck.length)
+        console.log("occurence",occurence)
+
+        if(occurence == letterToCheck.length){
+          // console.log("letter already solved")
+          this.repeatedLetters.push([this.input[i],i])
+        }else{
+          //wrong place
         let value = [this.input[i],i]
         let add = true;
         for(let k =0; k < this.missplacedLetters.length;k++){
@@ -72,8 +94,10 @@ class Wordle{
         }
         if(add == true){
         this.missplacedLetters.push([this.input[i],i])
-        
         } 
+        }
+        
+        
       }
       if(this.phrase.includes(this.input[i]) == false){
         //wrong letter
@@ -93,7 +117,7 @@ class Wordle{
     }//end of for loop
   
     this.attempts ++ // increment attempts 
-    this.input = [] //reset input
+    
       
     // console.log("Correct Letters",JSON.stringify(this.correctLetters))
     // console.log("Missplaced Letters",JSON.stringify(this.missplacedLetters))
@@ -101,13 +125,37 @@ class Wordle{
       
     //check if correct
     if(this.correctLetters.length == this.phrase.length){
-      // console.log("Well Done Correct!")
-      this.solved = true
-      return true
+      let solvedCorrectly = true
+      for(let j =0;j<this.phrase.length;j++){
+        if(this.input[j] != this.phrase[j]){
+          solvedCorrectly = false
+          console.log("NOT SOLVED")
+        }
+      }
+      if(solvedCorrectly == true){
+        // console.log("Well Done Correct!")
+          this.#solved = true
+          submitScore(1,this.#solved)
+          answerStreak ++
+          this.input = [] //reset input
+          return true
+      }else{
+          if(this.attempts==5){
+          answerStreak = 0
+          }
+          this.input = [] //reset input
+          return false
+      }
+      
     }else{
       // console.log("try again")
+      if(this.attempts==5){
+        answerStreak = 0
+      }
+      this.input = [] //reset input
       return false
     }
+
       
     }//end of else
     
@@ -134,6 +182,14 @@ class Wordle{
       for(let i =0;i<this.wrongLetters.length;i++){
         if(this.wrongLetters[i][0] == letter && (this.wrongLetters[i][1] == index)){
         return "#FF0000"
+        }
+      }
+    }//if end
+
+    if(this.repeatedLetters.length > 0){
+      for(let i =0;i<this.repeatedLetters.length;i++){
+        if(this.repeatedLetters[i][0] == letter && (this.repeatedLetters[i][1] == index)){
+        return "#71797E"
         }
       }
     }//if end
@@ -194,7 +250,7 @@ class Wordle{
       }//end of if
     }
     
-    if(this.solved == true){
+    if(this.#solved == true){
       push()
       fill('#00FF00')
       rect(100,320,400,110,10)
@@ -207,7 +263,7 @@ class Wordle{
       pop()
     }
     
-    if(this.solved == false && this.attempts == 6){
+    if(this.#solved == false && this.attempts == 6){
       push()
       fill('#FCE205')
       rect(100,320,400,110,10)

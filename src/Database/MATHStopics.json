@@ -1,0 +1,137 @@
+[
+  {
+    "topic": "Algebra",
+    "phrases": [
+      "VARIABLE",
+      "EQUATION",
+      "FUNCTION",
+      "POLYNOMIAL",
+      "EXPONENT",
+      "FACTOR",
+      "ROOT",
+      "COEFF",
+      "QUADRATIC",
+      "MATRIX"
+    ]
+  },
+  {
+    "topic": "Geometry",
+    "phrases": [
+      "ANGLE",
+      "TRIANGLE",
+      "CIRCLE",
+      "RADIUS",
+      "DIAMETER",
+      "PERIMETER",
+      "AREA",
+      "VOLUME",
+      "PYTHAGORAS",
+      "THETA"
+    ]
+  },
+  {
+    "topic": "Calculus",
+    "phrases": [
+      "DERIV",
+      "INTEGRAL",
+      "LIMIT",
+      "TANGENT",
+      "SEQUENCE",
+      "DIFF",
+      "CONTINUITY",
+      "RATE",
+      "GRADIENT",
+      "SERIES"
+    ]
+  },
+  {
+    "topic": "StatsProb",
+    "phrases": [
+      "MEAN",
+      "MEDIAN",
+      "MODE",
+      "VARIANCE",
+      "STDDEV",
+      "PROB",
+      "DISTRIB",
+      "HYPOTHESIS",
+      "REGRESS",
+      "CORREL"
+    ]
+  },
+  {
+    "topic": "Trig",
+    "phrases": [
+      "SINE",
+      "COSINE",
+      "TANGENT",
+      "SECANT",
+      "COSEC",
+      "COTAN",
+      "IDENT",
+      "SINLAW",
+      "COSLAW",
+      "UNITCIRC"
+    ]
+  },
+  {
+    "topic": "NumTheory",
+    "phrases": [
+      "PRIME",
+      "COMP",
+      "FACT",
+      "MODULO",
+      "DIVIS",
+      "GCD",
+      "LCM",
+      "FIBO",
+      "GOLDRATIO",
+      "CONGRU"
+    ]
+  },
+  {
+    "topic": "SetTheory",
+    "phrases": [
+      "UNION",
+      "INTER",
+      "SUBSET",
+      "SUPREMUM",
+      "CARD",
+      "EMPTYSET",
+      "VENN",
+      "COMPLEM",
+      "FINITE",
+      "INFINITE"
+    ]
+  },
+  {
+    "topic": "GraphTheory",
+    "phrases": [
+      "VERTEX",
+      "EDGE",
+      "DEGREE",
+      "CONNECTED",
+      "TREE",
+      "CYCLE",
+      "WEIGHTED",
+      "DIRECTED",
+      "ADJACENT",
+      "PATH"
+    ]
+  },
+  {
+    "topic": "Logic",
+    "phrases": [
+      "PROP",
+      "IMPLY",
+      "BICON",
+      "CONTRA",
+      "DISJUNCT",
+      "CONJUNCT",
+      "NEGATE",
+      "TRUTH",
+      "PROOF",
+      "QUANT"
+    ]
+  }
+]
