@@ -4,6 +4,7 @@ let resetButton;
 let complete = false;
 let mode = 1;
 let userdata;
+let hiddenInput;
 
 function preload(){
   subjectsDB = loadJSON("src/Database/Subjects.json", (data) => {
@@ -22,6 +23,10 @@ function setup() {
   drawHomeScreen(getSubjects())
 
   createUser()
+
+  //mobile UI
+  hiddenInput = createInput();
+  hiddenInput.position(width/2,-1000)
 }
 
 function draw() {
@@ -66,6 +71,12 @@ function keyPressed(){
     }
   }
   
+}
+
+//Mobile UI
+
+function touchStarted(){
+  hiddenInput.elt.focus();
 }
 
 function newWordle(){
