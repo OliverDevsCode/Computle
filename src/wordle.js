@@ -48,7 +48,7 @@ class Wordle{
       // console.log("PLEASE COMPLETE WORD")
     }else{
     this.previousInputs.push(this.input)
-    for(let i=0; i<this.input.length;i++){
+    for(let i =0; i <this.input.length;i++){
       if(this.input[i]==this.phrase[i]){
         //correct place
         let value = [this.input[i],i]
@@ -63,17 +63,22 @@ class Wordle{
         
         }  
       }
+    }//correct letters loop - must got before rest to find duplicates
+    for(let i=0; i<this.input.length;i++){
+      
       if(this.phrase.includes(this.input[i]) == true && (this.input[i]==this.phrase[i]) == false){
 
         let letterToCheck = this.phrase.filter(letter => letter === this.input[i]);
         let occurence = 0;
         for(let k = 0; k < this.correctLetters.length;k++){
+          console.log("this.correctLetters[k][0]",this.correctLetters[k][0])
+          console.log("this.input[i]",this.input[i])
           if(this.correctLetters[k][0] == this.input[i]){
-            // console.log("this.correctLetters[k][0]",this.correctLetters[k][0])
-            // console.log("this.input[i]",this.input[i])
             occurence ++
           }
         }
+        console.log("compaer to:",letterToCheck.length)
+        console.log("occurence",occurence)
 
         if(occurence == letterToCheck.length){
           // console.log("letter already solved")
