@@ -9,6 +9,8 @@ function getSubjects(){
 
     // console.log(list_of_subjects)
 
+    list_of_subjects.sort()
+
     return list_of_subjects
 }
 
