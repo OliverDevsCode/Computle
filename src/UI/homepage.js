@@ -2,12 +2,7 @@ function drawHomeScreen(subjects){
     background(220);
     //create a dropdown menu
     let subjectSelect = createDropDown(subjects,width/6,height/1.5,300,50)
-    let enterButton = createButton("SELECT")
-    enterButton.position(width/6 + 320,height/1.5)
-    enterButton.style("font-family","Inter")
-    enterButton.style("font-size","40px")
-    enterButton.style("border-radius","10px")
-    enterButton.style("color","green")
+    let enterButton = createCustomButton("SELECT",width/6 + 320,height/1.5,"#00FF00")
     push()
     fill(255,0,255)
     textAlign(CENTER)
@@ -23,7 +18,10 @@ function drawHomeScreen(subjects){
 }
 
 function startWordle(subjectSelect,enterButton,subject_list){
+    //create menu
+    createMenu(width-40,10)
     let subject = subjectSelect.value()// get user selected subject
+    userdata.currentSubject = subject
     let subject_path = getSubjectPath(subject,subject_list) // get path
     loadSubject(subject_path)
     // console.log(`Subject Path ${subject_path}`)

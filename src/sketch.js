@@ -30,8 +30,15 @@ function setup() {
 }
 
 function draw() {
-  if(mode ==1){
-    //run on home screen
+  if(mode == 1){
+    //start screen idle mode
+  }else if (mode ==-1){
+    drawMenu(userdata)
+    mode == 1
+  }else if(mode == 2){
+    //change subject idle
+  }else if(mode ==3){
+    // change leaderboard idle
   }else{
     background(220);
     csWordle.draw()

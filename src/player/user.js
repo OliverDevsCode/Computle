@@ -21,6 +21,7 @@ async function getUsername(){
     #username;
     #score;
     #streak;
+    #curentSubject;
   
     constructor(){
       this.#score = 0
@@ -39,6 +40,11 @@ async function getUsername(){
     addStreak(val){
       this.#streak += val
     }
+
+    set currentSubject(str){
+      this.#curentSubject = str
+      this.#score = 0
+    }
   
     get score(){
       return this.#score
@@ -46,6 +52,10 @@ async function getUsername(){
   
     get username(){
       return this.#username
+    }
+
+    get currentSubject(){
+      return this.#curentSubject
     }
     
   
