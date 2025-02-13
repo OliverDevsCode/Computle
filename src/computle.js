@@ -185,7 +185,7 @@ class Computle{
       if(solvedCorrectly == true){
         // console.log("Well Done Correct!")
           this.#solved = true
-          submitScore(1,this.#solved)
+          submitScore(parseInt(userdata.score) + 1,this.#solved)
           answerStreak ++
           this.input = [] //reset input
           return true
