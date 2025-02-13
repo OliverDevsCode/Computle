@@ -16,6 +16,8 @@ function preload(){
 }
 function setup() {
   canvas = createCanvas(600, 800);
+  canvas.style('border', '4px solid black')
+  canvas.style("border-radius","10px")
   centreCanvas()
   goAgain = createCustomButton("Go Again",200,450,"green")
   goAgain.hide()
@@ -49,7 +51,7 @@ function draw() {
   }else if(mode ==3){
     // change leaderboard idle
   }else{
-    background(220);
+    background(canvasColour);
     sessionComputle.draw()
     goAgain.mousePressed(newcomputle)
     resetButton.mousePressed(resetProgram)

@@ -38,7 +38,7 @@ function drawMenu(user){
   returnButton.show()
   changeSubject.show()
   submitScoreButton.hide()
-  background(220)
+  background(canvasColour)
   push()
   // line(width/2,0,width/2,height) // for position debugging
   textAlign(CENTER)
@@ -60,7 +60,7 @@ function changeSubjectMenu(){
     closeMenu()
     mode = 2
     let subjects = getSubjects();
-    background(220);
+    background(canvasColour);
     //create a dropdown menu
     let subjectSelect = createDropDown(subjects,width/6,height/1.5,300,50)
     let enterButton = createCustomButton("SELECT",width/6 + 320,height/1.5,"#00FF00")

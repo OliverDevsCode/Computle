@@ -26,7 +26,7 @@ function getLeaderboard(){
     textStyle(NORMAL)
     closeMenu();
     mode = 3;
-    background(220);
+    background(canvasColour);
     try {
       // Wait until getLeaderboard resolves
       let boardData = (await getLeaderboard()).data;
