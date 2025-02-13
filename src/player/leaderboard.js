@@ -64,7 +64,7 @@ function getLeaderboard(){
   }
 
   async function updateLeaderboard(){
-    await sendScore(userdata.score,userdata.username,userdata.currentSubject)
+    await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashScore)
     await displayLeaderBoard()
   }
   

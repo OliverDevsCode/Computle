@@ -62,6 +62,10 @@ async function getUsername(){
     get currentSubject(){
       return this.#curentSubject
     }
+
+    get hashValue(){
+      return this.#hashScore
+    }
     
   
   }

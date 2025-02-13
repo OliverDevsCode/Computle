@@ -10,6 +10,7 @@ function submitScore(score, completed) {
     console.log('Server response:', data);
     if(data.message == 'valid'){
       userdata.addScore(data.score)
+      userdata.setHashScore(data.hashValue)
       console.log("Current score:", userdata.score);
     }
   })
@@ -51,20 +52,21 @@ function displayScore(){
   textStyle(BOLD)
   textSize(25)
   if(answerStreak>0){
-    text(`Score: ${userdata.score+(Math.floor(answerStreak*0.5))}`,width/2,height-10)
+    // text(`Score: ${userdata.score+(Math.floor(answerStreak*0.5))}`,width/2,height-10) might be added 
+    text(`Score: ${userdata.score}`,width/2,height-10)
   }else{
     text(`Score: ${userdata.score}`,width/2,height-10)
   }
   pop()
 }
 
-async function sendScore(score,username,subject){
+async function sendScore(score,username,subject,hash){
   return fetch('https://computle-backend.vercel.app/api/enterScore',{
     method: 'post',
     headers: {
       'Content-type':'application/json'
     },
-    body: JSON.stringify({score:score, username: username, subject: subject})      
+    body: JSON.stringify({score:score, username: username, subject: subject, hash:hash})      
   })
   .then(response => response.text())
   .then(data => console.log(data))
