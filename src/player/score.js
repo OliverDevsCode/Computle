@@ -70,8 +70,12 @@ async function sendScore(score,username,subject,hash){
     },
     body: JSON.stringify({score:score, username: username, subject: subject, hash: hash})      
   })
-  .then(response => response.text())
-  .then(data => console.log(data))
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    console.log(data.leaderboardID);
+    userdata.setLeaderboardID(data.leaderboardID);
+  })
   .then(error => {
     if(error!= undefined){
       console.log('Error:',error)

@@ -23,7 +23,7 @@ async function getUsername(){
     #streak;
     #curentSubject;
     #hashScore;
-  
+    #leaderboardID;  
     constructor(){
       this.#score = 0
       this.#streak = 0
@@ -46,6 +46,10 @@ async function getUsername(){
       this.#hashScore = val
     }
 
+    setLeaderboardID(str){
+      this.#leaderboardID = str
+    }
+
     exportUser(){
       console.log("starting export")
       push()
@@ -60,6 +64,7 @@ async function getUsername(){
       text(`Subject: ${this.#curentSubject}`,width/2,height/2 + 150)
       const date = new Date();
       text(`Date: ${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`,width/2,height/2 + 200)
+      text(`Leaderboard ID: ${this.#leaderboardID}`,width/2,height/2 + 250)
       saveCanvas(`Score EXPORT ${this.#username}`, 'jpg')
       pop()
     }
@@ -83,6 +88,10 @@ async function getUsername(){
 
     get hashValue(){
       return this.#hashScore
+    }
+
+    get leaderboardID(){
+      return this.#leaderboardID
     }
     
   
