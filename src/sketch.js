@@ -6,6 +6,8 @@ let mode = 1;
 let userdata;
 let hiddenInput;
 
+let canvas;
+
 function preload(){
   subjectsDB = loadJSON("src/Database/Subjects.json", (data) => {
     subjectsDB = data; // assign as array
@@ -13,7 +15,8 @@ function preload(){
   
 }
 function setup() {
-  createCanvas(600, 800);
+  canvas = createCanvas(600, 800);
+  centreCanvas()
   goAgain = createCustomButton("Go Again",200,450,"green")
   goAgain.hide()
   
@@ -27,6 +30,12 @@ function setup() {
   //mobile UI
   hiddenInput = createInput();
   hiddenInput.position(width/2,-1000)
+}
+
+function centreCanvas() {
+  let x = (windowWidth - width) / 2;
+  let y = (windowHeight - height) / 2;
+  canvas.position(x, y);
 }
 
 function draw() {

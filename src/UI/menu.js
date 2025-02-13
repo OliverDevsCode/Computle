@@ -5,7 +5,9 @@ let returnButton;
 let submitScoreButton;
 function createMenu(x,y){
   menuButton = createButton("☰")
-  menuButton.position(x,y)
+  let xOFFSET = (windowWidth - width) / 2;
+  let yOFFSET = (windowHeight - height) / 2;
+  menuButton.position(x+xOFFSET,y+yOFFSET)
   menuButton.mousePressed(openMenu)
   leaderBoardButton = createCustomButton('View Leaderboard',125,height/2,'#00FF00')
   changeSubject = createCustomButton('Change Subject',140,height/1.70,'#60779e')

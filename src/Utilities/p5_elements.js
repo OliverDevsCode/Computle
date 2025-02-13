@@ -1,6 +1,8 @@
 function createCustomButton(label,x,y,colour){
   let button = createButton(label)
-  button.position(x,y)
+  let xOFFSET = (windowWidth - width) / 2;
+  let yOFFSET = (windowHeight - height) / 2;
+  button.position(x+xOFFSET,y+yOFFSET)
   button.style("font-family","Inter")
   button.style("font-size","40px")
   button.style("border-radius","10px")
@@ -30,8 +32,10 @@ function createCustomButton(label,x,y,colour){
    */
 
 function createDropDown(subjectList,x,y,w,h){
+  let xOFFSET = (windowWidth - width) / 2;
+  let yOFFSET = (windowHeight - height) / 2;
   let name = createSelect();
-  name.position(x, y);
+  name.position(x+xOFFSET, y+yOFFSET);
   name.size(w,h)
   name.style('border-radius', '10px')
   name.style('font-family', 'Inter');
