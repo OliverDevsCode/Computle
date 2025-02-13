@@ -66,7 +66,7 @@ async function sendScore(score,username,subject,hash){
     headers: {
       'Content-type':'application/json'
     },
-    body: JSON.stringify({score:score, username: username, subject: subject, hash:hash})      
+    body: JSON.stringify({score:score, username: username, subject: subject, hash: hash})      
   })
   .then(response => response.text())
   .then(data => console.log(data))
