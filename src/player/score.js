@@ -2,8 +2,10 @@
 let answerStreak = 0;
 
 function submitScore(score, completed) {
+  console.log("submit called")
   fetch('https://computle-backend.vercel.app/api/verifyscore?score=' + score + '&completed=' + completed, {
     method: 'GET',
+    credentials: 'include'
   })
   .then(response => response.json())
   .then(data => {

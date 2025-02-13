@@ -35,7 +35,7 @@ async function getUsername(){
     }
   
     addScore(val){
-      this.#score += val
+      this.#score = val
     }
   
     addStreak(val){
@@ -44,6 +44,12 @@ async function getUsername(){
 
     setHashScore(val){
       this.#hashScore = val
+    }
+
+    exportUser(){
+      push()
+      background(canvasColour);
+      pop()
     }
 
     set currentSubject(str){
