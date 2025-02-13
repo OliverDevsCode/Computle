@@ -27,6 +27,7 @@ function getLeaderboard(){
     closeMenu();
     mode = 3;
     background(canvasColour);
+    text(`You: ${userdata.username} ${userdata.score} points`,width/2,600)
     try {
       // Wait until getLeaderboard resolves
       let boardData = (await getLeaderboard()).data;
@@ -37,7 +38,7 @@ function getLeaderboard(){
       numEntries = boardData.length
       console.log(numEntries)
       if(numEntries > 10){
-        for(let i =0; i < 10;i ++){
+        for(let i =0; i < 15;i ++){
           text(boardData[i].score + ' points',80,100+(i*30))
           text(boardData[i].username,width/2,100+(i*30))
         }
