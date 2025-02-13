@@ -4,6 +4,10 @@ let changeSubject;
 let returnButton;
 let submitScoreButton;
 let exportButton;
+let validateButton;
+let usernameINPUT;
+let leaderIdINPUT;
+let submitButton;
 function createMenu(x,y){
   menuButton = createButton("☰")
   let xOFFSET = (windowWidth - width) / 2;
@@ -15,11 +19,19 @@ function createMenu(x,y){
   returnButton = createCustomButton('Return',230,height/1.5,'#887986')
   submitScoreButton = createCustomButton('Submit Score',160,height/1.2,'#00FF00')
   exportButton = createCustomButton("Export Score",170,height/1.25,'#60779e')
+  validateButton = createCustomButton("Validate Previous Score",72,height/1.1,'#FFA500')
+  submitButton = createCustomButton("Submit Details",160,height/1.5,'#00FF00')
+  usernameINPUT = createCustomInput(35,height/2.5)
+  leaderIdINPUT = createCustomInput(35,height/1.8)
+  usernameINPUT.hide()
+  leaderIdINPUT.hide()
+  validateButton.hide()
   leaderBoardButton.hide()
   returnButton.hide()
   changeSubject.hide()
   submitScoreButton.hide()
   exportButton.hide()
+  submitButton.hide()
 }
 
 function openMenu(){
@@ -32,6 +44,10 @@ function openMenu(){
   if(mode ==2){
     alert("Please Change Subject")
   }
+  if(mode == 4){
+    closeMenu()
+    mode = -1
+  }
   console.log("menu pressed")
 }
 
@@ -42,9 +58,10 @@ function drawMenu(user){
   changeSubject.show()
   exportButton.show()
   submitScoreButton.hide()
+  validateButton.show()
   background(canvasColour)
-  push()
   // line(width/2,0,width/2,height) // for position debugging
+  push()
   textAlign(CENTER)
   textFont("Inter")
   textStyle(BOLD)
@@ -59,6 +76,7 @@ function drawMenu(user){
   changeSubject.mousePressed(changeSubjectMenu)
   returnButton.mousePressed(closeMenu)
   exportButton.mousePressed(exportScore)
+  validateButton.mousePressed(validatePreviousScoreMenu)
 }
 
 function changeSubjectMenu(){
@@ -89,10 +107,58 @@ function closeMenu(){
  returnButton.hide()
  submitScoreButton.hide()
  exportButton.hide()
+ validateButton.hide()
+ usernameINPUT.hide()
+ leaderIdINPUT.hide()
+ submitButton.hide()
  mode = 0
 }
 
 function exportScore(){
   closeMenu()
   userdata.exportUser()
+}
+
+function validatePreviousScoreMenu(){
+  closeMenu()
+  mode = 4
+  background(canvasColour)
+  push()
+  textAlign(CENTER)
+  textFont("Inter")
+  textStyle(BOLD)
+  textSize(25)
+  text("Welcome to Leaderboard Verification",width/2,80)
+  textSize(20)
+  textWrap(WORD)
+  text("To verify if a score is on the leaderboard please enter the following:",0,200,600)
+  text("Username",width/2,(height/2.5)-30)
+  text("Leaderboard ID",width/2,(height/1.8)-30)
+  pop()
+  usernameINPUT.show()
+  leaderIdINPUT.show()
+  submitButton.show()
+  submitButton.mousePressed(getVerificationResult)
+}
+
+async function getVerificationResult(){
+ validatePreviousScoreMenu()
+ const username = usernameINPUT.value()
+ const ID = leaderIdINPUT.value()
+ const result = await verifyLeaderBoardID(ID,username);
+ if(result == null){
+  console.log("error fetching verification")
+  alert("Error Fetching Verification")
+ }else{
+  push()
+  textSize(25)
+  textFont("Inter")
+  textAlign(CENTER)
+  textStyle(BOLD)
+  textSize(25)
+  text(`${result.message}`,width/2,height/1.25)
+  text(`Score: ${result.score}`,width/2,height/1.15)
+  pop()
+ }
+ 
 }

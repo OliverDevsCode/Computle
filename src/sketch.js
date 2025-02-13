@@ -49,6 +49,8 @@ function draw() {
     //change subject idle
   }else if(mode ==3){
     // change leaderboard idle
+  }else if(mode ==4){
+    // verify leaderboard idle
   }else{
     background(canvasColour);
     sessionComputle.draw()

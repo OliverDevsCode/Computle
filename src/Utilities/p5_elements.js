@@ -48,3 +48,25 @@ function createDropDown(subjectList,x,y,w,h){
   }
   return name
 }
+
+function createCustomInput(x,y,colour){
+  let input = createInput()
+  let xOFFSET = (windowWidth - width) / 2;
+  let yOFFSET = (windowHeight - height) / 2;
+  input.position(x+xOFFSET,y+yOFFSET)
+  input.style("font-family","Inter")
+  input.style("font-size","40px")
+  input.style("border-radius","10px")
+  input.style("color",colour)
+  // Add hover effects
+  input.mouseOver(() => {
+    input.style("background-color", colour); 
+    input.style("color", "black"); 
+  });
+
+  input.mouseOut(() => {
+    input.style("background-color", "white"); 
+    input.style("color", colour); 
+  });
+  return input;
+}

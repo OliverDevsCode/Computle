@@ -72,4 +72,28 @@ function getLeaderboard(){
     await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue)
     await displayLeaderBoard()
   }
+
+  async function verifyLeaderBoardID(leaderboardID, username) {
+    try {
+      const response = await fetch('https://computle-backend.vercel.app/api/verifyLeaderboard', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ leaderboardID, username })
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+      return null; // Return null or some error object
+    }
+  }
+  
   
