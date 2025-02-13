@@ -77,6 +77,13 @@ class Wordle{
             occurence ++
           }
         }
+        for(let k = 0; k < this.missplacedLetters.length;k++){
+          console.log("this.missplacedLetters[k][0]",this.missplacedLetters[k][0])
+          console.log("this.input[i]",this.input[i])
+          if(this.missplacedLetters[k][0] == this.input[i]){
+            occurence ++
+          }
+        }
         console.log("compaer to:",letterToCheck.length)
         console.log("occurence",occurence)
 
@@ -189,7 +196,8 @@ class Wordle{
     if(this.repeatedLetters.length > 0){
       for(let i =0;i<this.repeatedLetters.length;i++){
         if(this.repeatedLetters[i][0] == letter && (this.repeatedLetters[i][1] == index)){
-        return "#71797E"
+        // return "#71797E"// grey for debugging and testing
+        return "##FF0000"// actual colour
         }
       }
     }//if end
