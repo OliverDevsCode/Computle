@@ -22,6 +22,7 @@ async function getUsername(){
     #score;
     #streak;
     #curentSubject;
+    #hashScore;
   
     constructor(){
       this.#score = 0
@@ -39,6 +40,10 @@ async function getUsername(){
   
     addStreak(val){
       this.#streak += val
+    }
+
+    setHashScore(val){
+      this.#hashScore = val
     }
 
     set currentSubject(str){
