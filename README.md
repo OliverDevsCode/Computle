@@ -1,6 +1,6 @@
 # Computle
-A Wordle inspired interactive learning program aimed at A-Level Computer Science Students
+A Wordle inspired interactive learning program originally aimed at A-Level Computer Science Students hence Computle. Since then, Computle has been expanded to a variety of subjects across a range of different levels, making learning fun and engaging.
 
 # Play The Game Yourself 
-I have embedded the github pages link to allow you to use it yourself
+Play the game now on GitHub Pages:
 https://oliverdevscode.github.io/Computle/
