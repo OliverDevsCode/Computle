@@ -66,18 +66,18 @@ class Wordle{
         }
         if(add == true){
         //check if missplaced includes it and remove it
-        console.log("TRUE -- missplaced",JSON.stringify(this.missplacedLetters))
-        console.log("checking if",JSON.stringify([this.input[i],i]))
+        // console.log("TRUE -- missplaced",JSON.stringify(this.missplacedLetters))
+        // console.log("checking if",JSON.stringify([this.input[i],i]))
 
         for(let p=0; p< this.missplacedLetters.length;p++){
           if(this.missplacedLetters.includes([this.input[i],i])){
-            console.log("missplaced",JSON.stringify(this.missplacedLetters))
-            console.log("REMOVE from missplaced now")
+            // console.log("missplaced",JSON.stringify(this.missplacedLetters))
+            // console.log("REMOVE from missplaced now")
             this.missplacedLetters.slice(p,p)
           }
         }
 
-        console.log(" END OF TRUE IF The list of missplaced letters is",this.missplacedLetters)
+        // console.log(" END OF TRUE IF The list of missplaced letters is",this.missplacedLetters)
 
         this.correctLetters.push([this.input[i],i,'#00FF00'])
         currentGuess.push([this.input[i],i,'#00FF00'])
@@ -89,33 +89,33 @@ class Wordle{
       
       if(this.phrase.includes(this.input[i]) == true && (this.input[i]==this.phrase[i]) == false){
 
-        console.log(`${this.phrase} INCLUDES ${this.input[i]}`)
+        // console.log(`${this.phrase} INCLUDES ${this.input[i]}`)
 
         let letterToCheck = this.phrase.filter(letter => letter === this.input[i]);
         let occurence = 0;
         for(let k = 0; k < this.correctLetters.length;k++){
-          console.log("this.correctLetters[k][0]",this.correctLetters[k][0])
-          console.log("this.input[i]",this.input[i])
+          // console.log("this.correctLetters[k][0]",this.correctLetters[k][0])
+          // console.log("this.input[i]",this.input[i])
           if(this.correctLetters[k][0] == this.input[i]){
             occurence ++
           }
         }
-        console.log(`How many time,${this.phrase[i]}, appears in phrase ${letterToCheck.length}`)
-        console.log("Repeated Letters",JSON.stringify(this.repeatedLetters))
-        console.log("OCCURENCE BEFORE SECOND LOOP",occurence)
+        // console.log(`How many time,${this.phrase[i]}, appears in phrase ${letterToCheck.length}`)
+        // console.log("Repeated Letters",JSON.stringify(this.repeatedLetters))
+        // console.log("OCCURENCE BEFORE SECOND LOOP",occurence)
         if(occurence != letterToCheck.length){
-          console.log("Checking repeated aswell")
+          // console.log("Checking repeated aswell")
           for(let k = 0; k < this.missplacedLetters.length;k++){
-            console.log("this.missplacedLetters[k][0]",this.missplacedLetters[k][0])
-            console.log("this.input[i]",this.input[i])
+            // console.log("this.missplacedLetters[k][0]",this.missplacedLetters[k][0])
+            // console.log("this.input[i]",this.input[i])
             if(this.missplacedLetters[k][0] == this.input[i]){
               occurence ++
             }
         } 
         }
-        console.log("compaer to:",letterToCheck.length)
-        console.log("occurence",occurence)
-        console.log("Repeated letters",JSON.stringify(this.repeatedLetters))
+        // console.log("compaer to:",letterToCheck.length)
+        // console.log("occurence",occurence)
+        // console.log("Repeated letters",JSON.stringify(this.repeatedLetters))
 
         if(occurence == letterToCheck.length){
           // console.log("letter already solved")
@@ -160,18 +160,18 @@ class Wordle{
   
     this.attempts ++ // increment attempts 
 
-    console.log("END OF GUESS")   
-    console.log("correct;",JSON.stringify(this.correctLetters))   
-    console.log("missplaced;",JSON.stringify(this.missplacedLetters))   
-    console.log("wrong letter",JSON.stringify(this.wrongLetters))
-    console.log("already used",JSON.stringify(this.repeatedLetters))
+    // console.log("END OF GUESS")   
+    // console.log("correct;",JSON.stringify(this.correctLetters))   
+    // console.log("missplaced;",JSON.stringify(this.missplacedLetters))   
+    // console.log("wrong letter",JSON.stringify(this.wrongLetters))
+    // console.log("already used",JSON.stringify(this.repeatedLetters))
 
     //order currentGuess by index position
     currentGuess = currentGuess.sort(function(a, b) { a[1] - b[1] });
 
 
     this.previousInputs.push(currentGuess)
-    console.log("The archive version",currentGuess)
+    // console.log("The archive version",currentGuess)
   
       
     //check if correct
@@ -180,7 +180,7 @@ class Wordle{
       for(let j =0;j<this.phrase.length;j++){
         if(this.input[j] != this.phrase[j]){
           solvedCorrectly = false
-          console.log("NOT SOLVED")
+          // console.log("NOT SOLVED")
         }
       }
       if(solvedCorrectly == true){
