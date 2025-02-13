@@ -41,13 +41,17 @@ function getLeaderboard(){
         for(let i =0; i < 15;i ++){
           text(boardData[i].score + ' points',80,100+(i*30))
           text(boardData[i].username,width/2,100+(i*30))
+          push()
+          textSize(12)
+          text(boardData[i].subject,width-80,100+(i*30))
+          pop()
         }
       }else{
         for(let i = 0; i < numEntries; i ++){
           text(boardData[i].score + ' points',80,100+(i*30))
           text(boardData[i].username,width/2,100+(i*30))
           push()
-          textSize(12)
+          textSize(6)
           text(boardData[i].subject,width-80,100+(i*30))
           pop()
         }
