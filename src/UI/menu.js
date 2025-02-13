@@ -3,6 +3,7 @@ let leaderBoardButton;
 let changeSubject;
 let returnButton;
 let submitScoreButton;
+let exportButton;
 function createMenu(x,y){
   menuButton = createButton("☰")
   let xOFFSET = (windowWidth - width) / 2;
@@ -13,10 +14,12 @@ function createMenu(x,y){
   changeSubject = createCustomButton('Change Subject',140,height/1.70,'#60779e')
   returnButton = createCustomButton('Return',230,height/1.5,'#887986')
   submitScoreButton = createCustomButton('Submit Score',160,height/1.2,'#00FF00')
+  exportButton = createCustomButton("Export Score",170,height/1.25,'#60779e')
   leaderBoardButton.hide()
   returnButton.hide()
   changeSubject.hide()
   submitScoreButton.hide()
+  exportButton.hide()
 }
 
 function openMenu(){
@@ -37,6 +40,7 @@ function drawMenu(user){
   leaderBoardButton.show()
   returnButton.show()
   changeSubject.show()
+  exportButton.show()
   submitScoreButton.hide()
   background(canvasColour)
   push()
@@ -54,6 +58,7 @@ function drawMenu(user){
   leaderBoardButton.mousePressed(displayLeaderBoard)
   changeSubject.mousePressed(changeSubjectMenu)
   returnButton.mousePressed(closeMenu)
+  exportButton.mousePressed(exportScore)
 }
 
 function changeSubjectMenu(){
@@ -83,5 +88,11 @@ function closeMenu(){
  changeSubject.hide()
  returnButton.hide()
  submitScoreButton.hide()
+ exportButton.hide()
  mode = 0
+}
+
+function exportScore(){
+  closeMenu()
+  userdata.exportUser()
 }

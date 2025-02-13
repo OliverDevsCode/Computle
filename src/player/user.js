@@ -47,8 +47,20 @@ async function getUsername(){
     }
 
     exportUser(){
+      console.log("starting export")
       push()
       background(canvasColour);
+      textAlign(CENTER)
+      textFont('Inter')
+      textSize(50)
+      text("Certifcate of Score",width/2,height/2.5)
+      textSize(25)
+      text(`Username: ${this.#username}`,width/2,height/2)
+      text(`Score: ${this.#score}`,width/2,height/2 + 100)
+      text(`Subject: ${this.#curentSubject}`,width/2,height/2 + 150)
+      const date = new Date();
+      text(`Date: ${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`,width/2,height/2 + 200)
+      saveCanvas(`Score EXPORT ${this.#username}`, 'jpg')
       pop()
     }
 

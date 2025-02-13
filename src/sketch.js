@@ -21,7 +21,6 @@ function setup() {
   centreCanvas()
   goAgain = createCustomButton("Go Again",200,450,"green")
   goAgain.hide()
-  
   resetButton = createCustomButton("Reset Button",180,450,"green")
   resetButton.hide()
 
