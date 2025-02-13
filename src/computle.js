@@ -167,10 +167,10 @@ class Computle{
     // console.log("already used",JSON.stringify(this.repeatedLetters))
 
     //order currentGuess by index position
-    console.log("The archive version before",JSON.stringify(currentGuess));
+    // console.log("The archive version before",JSON.stringify(currentGuess));
     currentGuess = currentGuess.sort(function(a, b) { a[1] - b[1] });
     this.previousInputs.push(currentGuess)
-    console.log("The archive version",JSON.stringify(currentGuess));
+    // console.log("The archive version",JSON.stringify(currentGuess));
   
       
     //check if correct
