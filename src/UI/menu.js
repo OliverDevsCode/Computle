@@ -43,7 +43,7 @@ function drawMenu(user){
   textFont("Inter")
   textStyle(BOLD)
   textSize(width/20)
-  text("Comptule Menu",width/2,height/5);
+  text("Computle Menu",width/2,height/5);
   textSize(width/25)
   text(`Session Username: ${user.username}`,width/2,height/5 +100);
   text(`Session Score: ${user.score}`,width/2,height/5 +150);
