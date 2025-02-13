@@ -73,7 +73,7 @@ function changeSubjectMenu(){
     text("Select A Topic Below",width/2,height/2)
     pop()
 
-    enterButton.mousePressed(() => startWordle(subjectSelect,enterButton,subjects));
+    enterButton.mousePressed(() => startcomputle(subjectSelect,enterButton,subjects));
 }
 
 function closeMenu(){

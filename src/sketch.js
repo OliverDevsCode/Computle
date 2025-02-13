@@ -1,4 +1,4 @@
-let csWordle;
+let sessionComputle;
 let goAgain;
 let resetButton;
 let complete = false;
@@ -41,8 +41,8 @@ function draw() {
     // change leaderboard idle
   }else{
     background(220);
-    csWordle.draw()
-    goAgain.mousePressed(newWordle)
+    sessionComputle.draw()
+    goAgain.mousePressed(newcomputle)
     resetButton.mousePressed(resetProgram)
     if(complete==true){
       completePopUp()
@@ -63,18 +63,18 @@ function keyPressed(){
   if(mode ==! 1){
     if(keyCode == ENTER){
       //do guess
-      result = csWordle.guess()
+      result = sessionComputle.guess()
       if(result == true){
         goAgain.show()
       }
     }
     if(keyCode == BACKSPACE){
-      csWordle.removeLetter()
+      sessionComputle.removeLetter()
     }
     if(keyCode >=65 && keyCode <=90){
       let inputLetter = String.fromCharCode(keyCode)
       // console.log("input letter",inputLetter)
-      csWordle.inputLetter(inputLetter)
+      sessionComputle.inputLetter(inputLetter)
     }
   }
   
@@ -86,11 +86,11 @@ function touchStarted(){
   hiddenInput.elt.focus();
 }
 
-function newWordle(){
-  console.log("new wordle generated")
-  let wordle_data = selectPhrase(currentSubjectData)
-  // csWordle = new Wordle("HTML")
-  csWordle = new Wordle(wordle_data[1],wordle_data[0])
+function newcomputle(){
+  console.log("new Computle generated")
+  let computle_data = selectPhrase(currentSubjectData)
+  // sessionComputle = new Computle("HTML")
+  sessionComputle = new Computle(computle_data[1],computle_data[0])
   goAgain.hide();
 }
 
@@ -112,7 +112,7 @@ function resetProgram(){
   previousPhrases = [];
   complete = false;
   resetButton.hide();
-  newWordle();
+  newcomputle();
   
 }
 

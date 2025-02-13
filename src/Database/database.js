@@ -29,8 +29,8 @@ function processData(data) {
     // Log the loaded data to the console.
     // console.log("JSON loaded and processed:", itemsArray);
     currentSubjectData = itemsArray;
-    let wordle_data = selectPhrase(itemsArray);
-    console.log(wordle_data);
-    csWordle = new Wordle(wordle_data[1],wordle_data[0]);
+    let computle_data = selectPhrase(itemsArray);
+    console.log(computle_data);
+    sessionComputle = new Computle(computle_data[1],computle_data[0]);
     mode = 0 
   }

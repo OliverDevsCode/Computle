@@ -14,10 +14,10 @@ function drawHomeScreen(subjects){
     text("Select A Topic Below",width/2,height/2)
     pop()
 
-    enterButton.mousePressed(() => startWordle(subjectSelect,enterButton,subjects));
+    enterButton.mousePressed(() => startcomputle(subjectSelect,enterButton,subjects));
 }
 
-function startWordle(subjectSelect,enterButton,subject_list){
+function startcomputle(subjectSelect,enterButton,subject_list){
     //create menu
     createMenu(width-40,10)
     let subject = subjectSelect.value()// get user selected subject

@@ -1,4 +1,4 @@
-class Wordle{
+class Computle{
   phrase;
   answer;
   topic;
