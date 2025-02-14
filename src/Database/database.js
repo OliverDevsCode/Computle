@@ -24,7 +24,7 @@ async function loadSubject(request){
 }
 
 async function getDatabase(request){
-  return fetch('http://127.0.0.1:3000/api/database'+request, {
+  return fetch('https://computle-backend.vercel.app/api/database'+request, {
     method: 'GET',
     // credentials: 'include'  // Ensures that cookies are sent with the request POTENTIAL FIX
   })
