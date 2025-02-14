@@ -1,14 +1,17 @@
-async function getUsername(){
-    try {
-      const response = await fetch('https://usernameapiv1.vercel.app/api/random-usernames?count=1');
-      const data = await response.json();
-      // console.log('Server response:', data);
-      return data.usernames[0]; // Return the username
-    } catch (error) {
-      console.error('Error fetching username:', error);
-      return 'Guest'; // Default fallback username
-    }
+async function getUsername() {
+  try {
+    const response = await fetch('http://127.0.0.1:3000/api/getUsername', {
+      method: 'GET',
+    });
+    const data = await response.json();
+    console.log('Server response:', data);
+    return [data.username, data.hash]; 
+  } catch (error) {
+    console.error('Error fetching username:', error);
+    return ['Guest', ''];
   }
+}
+
   
   async function createUser(){
     userdata = new User();
@@ -19,6 +22,7 @@ async function getUsername(){
   
   class User{
     #username;
+    #usernameHASH;
     #score;
     #streak;
     #curentSubject;
@@ -30,7 +34,9 @@ async function getUsername(){
     }
   
     async init(){
-      this.#username = await getUsername();
+      const usernameData = await getUsername();
+      this.#username = usernameData[0]
+      this.#usernameHASH = usernameData[1]
       return this;
     }
   
@@ -44,6 +50,10 @@ async function getUsername(){
 
     setHashScore(val){
       this.#hashScore = val
+    }
+
+    get usernameHASH(){
+      return this.#usernameHASH;
     }
 
     setLeaderboardID(str){

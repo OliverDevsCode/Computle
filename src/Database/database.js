@@ -18,6 +18,7 @@ function loadSubject(filepath){
     loadJSON(filepath,processData)
 }
 
+
 let currentSubjectData = [];
 function processData(data) {
     if (data && data.items) {

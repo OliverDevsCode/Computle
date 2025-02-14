@@ -62,13 +62,13 @@ function displayScore(){
   pop()
 }
 
-async function sendScore(score,username,subject,hash){
+async function sendScore(score,username,subject,hash,usernameHASH){
   return fetch('https://computle-backend.vercel.app/api/enterScore',{
     method: 'post',
     headers: {
       'Content-type':'application/json'
     },
-    body: JSON.stringify({score:score, username: username, subject: subject, hash: hash})      
+    body: JSON.stringify({score:score, username: username, subject: subject, hash: hash, usernameHASH: usernameHASH})      
   })
   .then(response => response.json())
   .then(data => {
