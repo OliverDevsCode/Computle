@@ -1,6 +1,6 @@
 async function getUsername() {
   try {
-    const response = await fetch('http://127.0.0.1:3000/api/getUsername', {
+    const response = await fetch('https://computle-backend.vercel.app/api/getUsername', {
       method: 'GET',
     });
     const data = await response.json();
