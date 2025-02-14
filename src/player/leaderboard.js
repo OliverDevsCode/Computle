@@ -1,4 +1,4 @@
-function getLeaderboard(){
+async function getLeaderboard(){
     return fetch('https://computle-backend.vercel.app/api/leaderboard', {
       method: 'GET',
       // credentials: 'include'  // Ensures that cookies are sent with the request POTENTIAL FIX

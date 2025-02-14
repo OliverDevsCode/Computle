@@ -4,7 +4,7 @@ function getSubjects(){
     let list_of_subjects =[]
     let numOfSubs = subjectsDB.length
     for(let i=0; i < numOfSubs;i++){
-        list_of_subjects.push([subjectsDB[i].subject,subjectsDB[i].filepath])
+        list_of_subjects.push([subjectsDB[i].subject,subjectsDB[i].request])
     }
 
     // console.log(list_of_subjects)
@@ -14,8 +14,33 @@ function getSubjects(){
     return list_of_subjects
 }
 
-function loadSubject(filepath){
-    loadJSON(filepath,processData)
+// function loadSubject(filepath){
+//     loadJSON(filepath,processData)
+// }
+
+async function loadSubject(request){
+  const response = await getDatabase(request)
+  processData(response.data)
+}
+
+async function getDatabase(request){
+  return fetch('http://127.0.0.1:3000/api/database'+request, {
+    method: 'GET',
+    // credentials: 'include'  // Ensures that cookies are sent with the request POTENTIAL FIX
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data !== undefined) {
+      const subjectFile = data; // Update subjectFile with the file from the server
+      // console.log("subjectFile:", subjectFile);
+      return subjectFile
+    } else {
+      console.error('No subjectFile');
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching score:', error);
+  });
 }
 
 
