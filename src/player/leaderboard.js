@@ -25,6 +25,7 @@ async function getLeaderboard(){
     textFont("Inter")
     textStyle(NORMAL)
     closeMenu();
+    goAgain.hide()
     mode = 3;
     background(canvasColour);
     text(`You: ${userdata.username} ${userdata.score} points`,width/2,600)

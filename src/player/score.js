@@ -74,7 +74,9 @@ async function sendScore(score,username,subject,hash,usernameHASH){
   .then(data => {
     console.log(data);
     console.log(data.leaderboardID);
-    userdata.setLeaderboardID(data.leaderboardID);
+    if(data.leaderboardID != undefined){
+      userdata.setLeaderboardID(data.leaderboardID);
+    }
   })
   .then(error => {
     if(error!= undefined){

@@ -87,6 +87,7 @@ function changeSubjectMenu(){
       alerted = true
     }else{
       closeMenu()
+      goAgain.hide()
       mode = 2
       let subjects = getSubjects();
       background(canvasColour);
@@ -133,6 +134,7 @@ function exportScore(){
 
 function validatePreviousScoreMenu(){
   closeMenu()
+  goAgain.hide()
   mode = 4
   background(canvasColour)
   push()
