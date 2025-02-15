@@ -39,15 +39,31 @@ async function getLeaderboard(){
       console.log(numEntries)
       if(numEntries > 10){
         for(let i =0; i < 15;i ++){
+          push()
+          if(boardData[i]._id == userdata.leaderboardID){
+            stroke(255,255,255);
+            strokeWeight(4);
+            fill(0,255,0)
+          }else{
+            fill(0,0,0)
+          }
           text(boardData[i].score + ' points',80,100+(i*30))
           text(boardData[i].username,width/2,100+(i*30))
           push()
           textSize(12)
           text(boardData[i].subject,width-80,100+(i*30))
           pop()
+          pop()
         }
       }else{
         for(let i = 0; i < numEntries; i ++){
+          if(boardData[i]._id == leaderboardID){
+            stroke(255,255,255);
+            strokeWeight(4);
+            fill(0,255,0)
+          }else{
+            fill(0,0,0)
+          }
           text(boardData[i].score + ' points',80,100+(i*30))
           text(boardData[i].username,width/2,100+(i*30))
           push()
