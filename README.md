@@ -50,21 +50,23 @@ Try out Computle now on GitHub Pages:\
 <img src="docs/Gameplay%20Screen.png" width="400" alt="Gameplay Screen">
 - Solve the word by typing on your keyboard.
 
+### Leaderboard
+<img src="docs/Leaderboard.png" width="400" alt="Leaderboard">
+- Compete with others and track high scores.
+
 ### Pause Menu
 <img src="docs/Pause%20Menu.png" width="400" alt="Pause Menu">
 - Use the pause menu to access other features.
+
+
+### Score Certificate
+<img src="docs/Score%20Certificate.png" width="400" alt="Score Certificate">
+- Receive a certificate to share with others by exporting your score.
 
 ### Score Verification
 <img src="docs/Score%20Verification.png" width="400" alt="Score Verification">
 - Verify that a score certificate is genuine and corresponds to the leaderboard entry, ensuring authenticity and protecting user anonymity.
 
-### Leaderboard
-<img src="docs/Leaderboard.png" width="400" alt="Leaderboard">
-- Compete with others and track high scores.
-
-### Score Certificate
-<img src="docs/Score%20Certificate.png" width="400" alt="Score Certificate">
-- Receive a certificate to share with others by exporting your score.
 
 ## Contributing
 
