@@ -1,4 +1,4 @@
-function getLeaderboard(){
+async function getLeaderboard(){
     return fetch('https://computle-backend.vercel.app/api/leaderboard', {
       method: 'GET',
       // credentials: 'include'  // Ensures that cookies are sent with the request POTENTIAL FIX
@@ -26,31 +26,35 @@ function getLeaderboard(){
     textStyle(NORMAL)
     closeMenu();
     mode = 3;
-    background(220);
+    background(canvasColour);
+    text(`You: ${userdata.username} ${userdata.score} points`,width/2,600)
     try {
       // Wait until getLeaderboard resolves
       let boardData = (await getLeaderboard()).data;
       // console.log(boardData);
 
-      boardData.sort(function(a, b){return b.score - a.score})
+      // boardData.sort(function(a, b){return b.score - a.score})
   
       numEntries = boardData.length
-      console.log(numEntries)
-      if(numEntries > 10){
-        for(let i =0; i < 10;i ++){
-          text(boardData[i].score + ' points',80,100+(i*30))
-          text(boardData[i].username,width/2,100+(i*30))
-        }
-      }else{
-        for(let i = 0; i < numEntries; i ++){
+      
+      for(let i = 0; i < numEntries; i ++){
+          push()
+          if(boardData[i]._id == userdata.leaderboardID){
+            stroke(255,255,255);
+            strokeWeight(4);
+            fill(0,255,0)
+          }else{
+            fill(0,0,0)
+          }
           text(boardData[i].score + ' points',80,100+(i*30))
           text(boardData[i].username,width/2,100+(i*30))
           push()
-          textSize(12)
+          textSize(10)
           text(boardData[i].subject,width-80,100+(i*30))
           pop()
+          pop()
         }
-      }
+      
     } catch (error) {
       console.error("Error fetching leaderboard:", error);
     }
@@ -64,7 +68,31 @@ function getLeaderboard(){
   }
 
   async function updateLeaderboard(){
-    await sendScore(userdata.score,userdata.username,userdata.currentSubject)
+    await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH)
     await displayLeaderBoard()
   }
+
+  async function verifyLeaderBoardID(leaderboardID, username) {
+    try {
+      const response = await fetch('https://computle-backend.vercel.app/api/verifyLeaderboard', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ leaderboardID, username })
+      });
+  
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+  
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error('Error:', error);
+      return null; // Return null or some error object
+    }
+  }
+  
   

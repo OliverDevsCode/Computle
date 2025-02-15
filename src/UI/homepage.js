@@ -1,10 +1,14 @@
 function drawHomeScreen(subjects){
-    background(220);
+    background(canvasColour);
     //create a dropdown menu
     let subjectSelect = createDropDown(subjects,width/6,height/1.5,300,50)
     let enterButton = createCustomButton("SELECT",width/6 + 320,height/1.5,"#00FF00")
     push()
-    fill(255,0,255)
+    if(canvasColour != '#7DA6DE'){
+        fill('#7DA6DE')
+    }else{
+        fill(0)
+    }
     textAlign(CENTER)
     textFont("Inter")
     textStyle(BOLD)
@@ -14,10 +18,28 @@ function drawHomeScreen(subjects){
     text("Select A Topic Below",width/2,height/2)
     pop()
 
-    enterButton.mousePressed(() => startWordle(subjectSelect,enterButton,subjects));
+    enterButton.mousePressed(() => startcomputle(subjectSelect,enterButton,subjects));
 }
 
-function startWordle(subjectSelect,enterButton,subject_list){
+function updateHomePage(){
+    background(canvasColour);
+    push()
+    if(canvasColour != '#7DA6DE'){
+        fill('#7DA6DE')
+    }else{
+        fill(0)
+    }
+    textAlign(CENTER)
+    textFont("Inter")
+    textStyle(BOLD)
+    textSize(width/15)
+    text("Welcome To Computle!",width/2,height/4)
+    textSize(width/20)
+    text("Select A Topic Below",width/2,height/2)
+    pop()
+}
+
+function startcomputle(subjectSelect,enterButton,subject_list){
     //create menu
     createMenu(width-40,10)
     let subject = subjectSelect.value()// get user selected subject

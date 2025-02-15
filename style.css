@@ -5,3 +5,41 @@ html, body {
 canvas {
   display: block;
 }
+
+ /* Default Light Mode */
+ :root {
+  --bg-color: #7DA6DE;
+  --text-color: #000;
+}
+
+/* Dark Mode */
+.dark-mode {
+  --bg-color: #1E1E1E;
+  --text-color: #FFF;
+}
+
+/* Apply Colors */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Toggle Button Style */
+#dark-mode-toggle {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #000;
+  color: #FFF;
+}
+
+.dark-mode #dark-mode-toggle {
+  background-color: #FFF;
+  color: #000;
+}

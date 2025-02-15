@@ -1,18 +1,138 @@
 [
-    {
-        "subject":"Computer Science",
-        "filepath":"src/Database/CStopics.json"
-        
-    },
-    {
-        "subject":"Mathematics",
-        "filepath":"src/Database/MATHStopics.json"
-        
-    },
-    {
-        "subject":"Physics",
-        "filepath":"src/Database/PHYSICSStopics.json"
-        
-    }
-
+  {
+    "subject": "Business Studies KS3",
+    "request": "/?subject=Business Studies&level=KS3"
+  },
+  {
+    "subject": "Business Studies GCSE",
+    "request": "/?subject=Business Studies&level=GCSE"
+  },
+  {
+    "subject": "Business Studies A-LEVEL",
+    "request": "/?subject=Business Studies&level=A-LEVEL"
+  },
+  {
+    "subject": "Computer Science KS3",
+    "request": "/?subject=Computer Science&level=KS3"
+  },
+  {
+    "subject": "Computer Science GCSE",
+    "request": "/?subject=Computer Science&level=GCSE"
+  },
+  {
+    "subject": "Computer Science A-LEVEL",
+    "request": "/?subject=Computer Science&level=A-LEVEL"
+  },
+  {
+    "subject": "Drama KS3",
+    "request": "/?subject=Drama&level=KS3"
+  },
+  {
+    "subject": "Drama GCSE",
+    "request": "/?subject=Drama&level=GCSE"
+  },
+  {
+    "subject": "Drama A-LEVEL",
+    "request": "/?subject=Drama&level=A-LEVEL"
+  },
+  {
+    "subject": "Film Studies GCSE",
+    "request": "/?subject=Film Studies&level=GCSE"
+  },
+  {
+    "subject": "Film Studies A-LEVEL",
+    "request": "/?subject=Film Studies&level=A-LEVEL"
+  },
+  {
+    "subject": "Food Preparation and Nutrition GCSE",
+    "request": "/?subject=Food Preparation and Nutrition&level=GCSE"
+  },
+  {
+    "subject": "Geography KS3",
+    "request": "/?subject=Geography&level=KS3"
+  },
+  {
+    "subject": "Geography GCSE",
+    "request": "/?subject=Geography&level=GCSE"
+  },
+  {
+    "subject": "Geography A-LEVEL",
+    "request": "/?subject=Geography&level=A-LEVEL"
+  },
+  {
+    "subject": "History KS3",
+    "request": "/?subject=History&level=KS3"
+  },
+  {
+    "subject": "History GCSE",
+    "request": "/?subject=History&level=GCSE"
+  },
+  {
+    "subject": "History A-LEVEL",
+    "request": "/?subject=History&level=A-LEVEL"
+  },
+  {
+    "subject": "Music KS3",
+    "request": "/?subject=Music&level=KS3"
+  },
+  {
+    "subject": "Music GCSE",
+    "request": "/?subject=Music&level=GCSE"
+  },
+  {
+    "subject": "Music A-LEVEL",
+    "request": "/?subject=Music&level=A-LEVEL"
+  },
+  {
+    "subject": "Physical Education KS3",
+    "request": "/?subject=Physical Education&level=KS3"
+  },
+  {
+    "subject": "Physical Education GCSE",
+    "request": "/?subject=Physical Education&level=GCSE"
+  },
+  {
+    "subject": "Physical Education A-LEVEL",
+    "request": "/?subject=Physical Education&level=A-LEVEL"
+  },
+  {
+    "subject": "Sociology GCSE",
+    "request": "/?subject=Sociology&level=GCSE"
+  },
+  {
+    "subject": "Sociology A-LEVEL",
+    "request": "/?subject=Sociology&level=A-LEVEL"
+  },
+  {
+    "subject": "Statistics and Further Maths GCSE",
+    "request": "/?subject=Statistics and Further Maths&level=GCSE"
+  },
+  {
+    "subject": "Statistics and Further Maths A-LEVEL",
+    "request": "/?subject=Statistics and Further Maths&level=A-LEVEL"
+  },
+  {
+    "subject": "Mathematics KS3",
+    "request": "/?subject=Mathematics&level=KS3"
+  },
+  {
+    "subject": "Mathematics GCSE",
+    "request": "/?subject=Mathematics&level=GCSE"
+  },
+  {
+    "subject": "Mathematics A-LEVEL",
+    "request": "/?subject=Mathematics&level=A-LEVEL"
+  },
+  {
+    "subject": "Physics KS3",
+    "request": "/?subject=Physics&level=KS3"
+  },
+  {
+    "subject": "Physics GCSE",
+    "request": "/?subject=Physics&level=GCSE"
+  },
+  {
+    "subject": "Physics A-LEVEL",
+    "request": "/?subject=Physics&level=A-LEVEL"
+  }
 ]
