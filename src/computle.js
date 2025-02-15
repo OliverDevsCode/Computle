@@ -23,6 +23,10 @@ class Computle{
     this.previousInputs = [];
     this.repeatedLetters = [];
   }
+
+  get solved(){
+    return this.#solved
+  }
   
   inputLetter(string){
     //only add when input <= phrase.length

@@ -121,6 +121,9 @@ function closeMenu(){
  leaderIdINPUT.hide()
  submitButton.hide()
  mode = 0
+if(sessionComputle.solved == true){
+  goAgain.show()
+}
 }
 
 function exportScore(){
