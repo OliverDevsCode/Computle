@@ -76,9 +76,14 @@ function keyPressed(){
     if(keyCode == ENTER){
       //do guess
       result = sessionComputle.guess()
+      let isVisible = goAgain.elt.style.display !== "none";
+      if(isVisible){
+        newcomputle()
+      }
       if(result == true){
         goAgain.show()
       }
+      
     }
     if(keyCode == BACKSPACE){
       sessionComputle.removeLetter()
@@ -121,6 +126,7 @@ function completePopUp(){
 }
 
 function resetProgram(){
+  userdata.addScore(0)
   previousPhrases = [];
   complete = false;
   resetButton.hide();

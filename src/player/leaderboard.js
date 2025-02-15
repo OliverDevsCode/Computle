@@ -38,6 +38,7 @@ async function getLeaderboard(){
       numEntries = boardData.length
       
       for(let i = 0; i < numEntries; i ++){
+          push()
           if(boardData[i]._id == userdata.leaderboardID){
             stroke(255,255,255);
             strokeWeight(4);
@@ -50,6 +51,7 @@ async function getLeaderboard(){
           push()
           textSize(10)
           text(boardData[i].subject,width-80,100+(i*30))
+          pop()
           pop()
         }
       
