@@ -38,8 +38,8 @@ function selectPhrase(dataset){
     return ["DONE","DONE"]
   }else{
   previousPhrases.push(RandomPhrase)
-  console.log(`Topic ${RandomTopic.topic}`);
-  console.log(`Phrase ${RandomPhrase.toUpperCase()}`);
+  // console.log(`Topic ${RandomTopic.topic}`);
+  // console.log(`Phrase ${RandomPhrase.toUpperCase()}`);
   return [RandomTopic.topic,RandomPhrase]
   }
   

@@ -56,7 +56,7 @@ function processData(data) {
     // console.log("JSON loaded and processed:", itemsArray);
     currentSubjectData = itemsArray;
     let computle_data = selectPhrase(itemsArray);
-    console.log(computle_data);
+    // console.log(computle_data);
     sessionComputle = new Computle(computle_data[1],computle_data[0]);
     mode = 0 
   }
