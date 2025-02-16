@@ -61,6 +61,7 @@ function draw() {
     }
     displayScore()
   }
+  detectDevTools();
   
 }
 
@@ -132,6 +133,17 @@ function resetProgram(){
   resetButton.hide();
   newcomputle();
   
+}
+
+function detectDevTools() {
+  const start = performance.now();
+  debugger;  // Pause the execution
+  const end = performance.now();
+
+  if (end - start > 100) {  // If debugger pauses execution for more than 100ms
+    alert("Cheating detected! Please Reload Page");  // Show alert
+    noLoop();  // Stop the p5.js loop to stop the game
+  }
 }
 
 

@@ -10,6 +10,7 @@ canvas {
  :root {
   --bg-color: #7DA6DE;
   --text-color: #000;
+  --font-family: 'Inter', 'Roboto', 'Open Sans', Arial, sans-serif; /* Fallback stack */
 }
 
 /* Dark Mode */
@@ -22,7 +23,7 @@ canvas {
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: Arial, sans-serif;
+  font-family: var(--font-family);
   text-align: center;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -43,3 +44,4 @@ body {
   background-color: #FFF;
   color: #000;
 }
+
