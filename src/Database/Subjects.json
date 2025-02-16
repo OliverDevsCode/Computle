@@ -134,5 +134,13 @@
   {
     "subject": "Physics A-LEVEL",
     "request": "/?subject=Physics&level=A-LEVEL"
+  },
+  {
+    "subject": "Radiohead Studies",
+    "request": "/?subject=Radiohead Studies&level=Enrichment"
+  },
+  {
+    "subject": "Formula 1 Studies",
+    "request": "/?subject=Formula 1 Studies&level=Enrichment"
   }
 ]
