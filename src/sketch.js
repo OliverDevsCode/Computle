@@ -94,6 +94,11 @@ function keyPressed(){
       // console.log("input letter",inputLetter)
       sessionComputle.inputLetter(inputLetter)
     }
+    if(keyCode >=48 && keyCode <=57){
+      let inputLetter = String.fromCharCode(keyCode)
+      // console.log("input letter",inputLetter)
+      sessionComputle.inputLetter(inputLetter)
+    }
   }
   
 }
