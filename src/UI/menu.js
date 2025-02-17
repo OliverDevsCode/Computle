@@ -128,8 +128,13 @@ if(sessionComputle.solved == true){
 }
 
 function exportScore(){
-  closeMenu()
-  userdata.exportUser()
+  if(userdata.leaderboardID == undefined){
+    alert("Please submit score to leaderboard first!")
+  }else{
+    closeMenu()
+    userdata.exportUser()
+  }
+  
 }
 
 function validatePreviousScoreMenu(){

@@ -7,11 +7,21 @@ let userdata;
 let hiddenInput;
 
 let canvas;
+let certificateBGs = [];
 
 function preload(){
   subjectsDB = loadJSON("src/Database/Subjects.json", (data) => {
     subjectsDB = data; // assign as array
   });
+  let certificateBG = loadImage('src/assets/Certificate.png')
+  certificateBGs.push(certificateBG)
+  certificateBG = loadImage('src/assets/Certificate2.png')
+  certificateBGs.push(certificateBG)
+  certificateBG = loadImage('src/assets/Certificate3.png')
+  certificateBGs.push(certificateBG)
+
+
+
   
 }
 function setup() {

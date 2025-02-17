@@ -56,29 +56,76 @@ async function getUsername() {
       return this.#usernameHASH;
     }
 
+    get leaderboardID(){
+      return this.#leaderboardID
+    }
+
     setLeaderboardID(str){
       this.#leaderboardID = str
     }
 
     exportUser(){
       console.log("starting export")
-      push()
-      background(canvasColour);
-      textAlign(CENTER)
-      textFont('Inter')
-      textSize(50)
-      text("Certifcate of Score",width/2,height/2.5)
-      textSize(25)
-      text(`Username: ${this.#username}`,width/2,height/2)
-      text(`Score: ${this.#score}`,width/2,height/2 + 100)
-      text(`Subject: ${this.#curentSubject}`,width/2,height/2 + 150)
-      const date = new Date();
-      text(`Date: ${date.getHours()}:${date.getMinutes()} ${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`,width/2,height/2 + 200)
-      text(`Leaderboard ID: ${this.#leaderboardID}`,width/2,height/2 + 250)
-      saveCanvas(`Score EXPORT ${this.#username}`, 'jpg')
-      pop()
-    }
+      let certificate = createGraphics(2000, 1414);
 
+      if(this.#score >= 25){
+        certificate.image(certificateBGs[2], 0, 0); 
+        certificate.textSize(70); 
+        certificate.textFont('serif')
+        certificate.fill(0); 
+        certificate.textAlign(CENTER, CENTER); 
+        certificate.text(`${this.#username}`, certificate.width / 2,certificate.height / 2.35); 
+        certificate.textSize(40);
+        certificate.textStyle(NORMAL)
+        if(this.#score == 1){
+          certificate.text(`${this.#username} acheived a score of ${this.#score} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.9); // Centered text
+        }else{
+        certificate.text(`${this.#username} acheived a score of ${this.#score} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.9); // Centered text
+        }
+        certificate.text(`Leaderboard ID: ${this.#leaderboardID}`, certificate.width / 2, certificate.height /1.7);
+                    
+        save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
+      }
+      if(this.#score >= 10){
+        certificate.image(certificateBGs[1], 0, 0); 
+        certificate.textSize(70); 
+        certificate.textFont('Josefin Sans')
+        certificate.fill(0); 
+        certificate.textAlign(CENTER, CENTER); 
+        certificate.text(`${this.#username}`, certificate.width / 2,certificate.height / 2.25); 
+        certificate.textSize(50);
+        certificate.textStyle(NORMAL)
+        if(this.#score == 1){
+          certificate.text(`${this.#username} acheived a score of ${this.#score} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
+        }else{
+        certificate.text(`${this.#username} acheived a score of ${this.#score} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
+        }
+        certificate.text(`Leaderboard ID: ${this.#leaderboardID}`, certificate.width / 2, certificate.height /1.3);
+                    
+        save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
+      }
+      if(this.#score < 10){
+        certificate.image(certificateBGs[0], 0, 0); 
+        certificate.textSize(70); 
+        certificate.textFont('Josefin Sans')
+        certificate.fill(0); 
+        certificate.textAlign(CENTER, CENTER); 
+        certificate.text(`${this.#username}`, certificate.width / 2,certificate.height / 2.25); 
+        certificate.textSize(50);
+        certificate.textStyle(NORMAL)
+        if(this.#score == 1){
+          certificate.text(`${this.#username} acheived a score of ${this.#score} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
+        }else{
+        certificate.text(`${this.#username} acheived a score of ${this.#score} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
+        }
+        certificate.text(`Leaderboard ID: ${this.#leaderboardID}`, certificate.width / 2, certificate.height /1.3);
+                    
+        save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
+      }
+  
+      
+    
+    }
     set currentSubject(str){
       this.#curentSubject = str
       this.#score = 0

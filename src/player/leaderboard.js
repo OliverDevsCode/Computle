@@ -69,8 +69,13 @@ async function getLeaderboard(){
   }
 
   async function updateLeaderboard(){
-    await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH)
-    await displayLeaderBoard()
+    if(userdata.score == 0){
+      alert("Please Complete a Computle First")
+    }else{
+      await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH)
+      await displayLeaderBoard()
+    }
+    
   }
 
   async function verifyLeaderBoardID(leaderboardID, username) {
