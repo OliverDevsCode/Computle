@@ -7,6 +7,8 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/OliverDevsCode/Computle)
 ![GitHub last commit](https://img.shields.io/github/last-commit/OliverDevsCode/Computle)
 ![GitHub all releases](https://img.shields.io/github/downloads/OliverDevsCode/Computle/total)
+[![Website](https://img.shields.io/badge/Website-oliverdevscode.github.io/Computle-blue)](https://oliverdevscode.github.io/Computle/)
+
 
 
 Computle is an interactive learning program originally aimed at A-Level Computer Science students, hence the name "Computle." Since its inception, it has expanded to support a variety of subjects across different educational levels, making learning more engaging and enjoyable.
