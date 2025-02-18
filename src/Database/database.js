@@ -39,7 +39,8 @@ async function getDatabase(request){
     }
   })
   .catch(error => {
-    console.error('Error fetching score:', error);
+    console.error('Error fetching File:', error);
+    alert("Error fetching subject please refresh")
   });
 }
 

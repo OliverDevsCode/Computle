@@ -81,6 +81,7 @@ async function sendScore(score,username,subject,hash,usernameHASH){
   .then(error => {
     if(error!= undefined){
       console.log('Error:',error)
+      alert("Error Sending Score Please Try again")
     }
     })
 }

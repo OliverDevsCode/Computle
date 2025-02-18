@@ -86,7 +86,7 @@ async function getUsername() {
                     
         save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
       }
-      if(this.#score >= 10){
+      else if(this.#score >= 10){
         certificate.image(certificateBGs[1], 0, 0); 
         certificate.textSize(70); 
         certificate.textFont('Josefin Sans')
@@ -104,7 +104,7 @@ async function getUsername() {
                     
         save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
       }
-      if(this.#score < 10){
+      else if(this.#score < 10){
         certificate.image(certificateBGs[0], 0, 0); 
         certificate.textSize(70); 
         certificate.textFont('Josefin Sans')
