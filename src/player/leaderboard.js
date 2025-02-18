@@ -40,7 +40,7 @@ async function getLeaderboard(){
       
       for(let i = 0; i < numEntries; i ++){
           push()
-          if(boardData[i]._id == userdata.leaderboardID){
+          if(boardData[i].username == userdata.username && boardData[i].score == userdata.score && boardData[i].subject == userdata.subject){
             stroke(255,255,255);
             strokeWeight(4);
             fill(0,255,0)

@@ -60,6 +60,18 @@ async function getUsername() {
       return this.#leaderboardID
     }
 
+    get username(){
+      return this.#username
+    }
+
+    get score(){
+      return this.#score
+    }
+
+    get subject(){
+      return this.#curentSubject
+    }
+
     setLeaderboardID(str){
       this.#leaderboardID = str
     }
