@@ -46,6 +46,9 @@ function createDropDown(subjectList,x,y,w,h){
   let element = subjectList[p][0]
   name.option(element);
   }
+
+  name.selected("Computer Science A-LEVEL")
+
   return name
 }
 
