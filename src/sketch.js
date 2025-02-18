@@ -7,7 +7,9 @@ let userdata;
 let hiddenInput;
 
 let canvas;
-let certificateBGs = [];
+let certificateBGs = []
+let lightmodeLogo;
+let darkmodeLogo;
 
 function preload(){
   subjectsDB = loadJSON("src/Database/Subjects.json", (data) => {
@@ -19,10 +21,8 @@ function preload(){
   certificateBGs.push(certificateBG)
   certificateBG = loadImage('src/assets/Certificate3.png')
   certificateBGs.push(certificateBG)
-
-
-
-  
+  darkmodeLogo = loadImage('src/assets/darkmodeLogo.png')
+  lightmodeLogo = loadImage('src/assets/lightmodeLogo.png')
 }
 function setup() {
   canvas = createCanvas(600, 800);
@@ -35,7 +35,6 @@ function setup() {
   resetButton.hide()
 
   drawHomeScreen(getSubjects())
-
   createUser()
 
   //mobile UI

@@ -95,14 +95,24 @@ function changeSubjectMenu(){
       let subjectSelect = createDropDown(subjects,width/6,height/1.5,300,50)
       let enterButton = createCustomButton("SELECT",width/6 + 320,height/1.5,"#00FF00")
       push()
-      fill(255,0,255)
+      if(canvasColour != '#7DA6DE'){
+        stroke(255,255,255)
+        strokeWeight(4);
+        fill(0)
+        lightmodeLogo.resize(499,176)
+        image(lightmodeLogo,51,height/10)
+    }else{
+        stroke(0)
+        strokeWeight(4);
+        fill(255,255,255)
+        darkmodeLogo.resize(499,176)
+        image(darkmodeLogo,51,height/10)
+    }
       textAlign(CENTER)
       textFont("Inter")
       textStyle(BOLD)
-      textSize(width/15)
-      text("Welcome To Computle!",width/2,height/4)
       textSize(width/20)
-      text("Select A Topic Below",width/2,height/2)
+      text("Select A Topic Below",width/2,height/1.7)
       pop()
   
       enterButton.mousePressed(() => startcomputle(subjectSelect,enterButton,subjects));
