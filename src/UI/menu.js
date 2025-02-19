@@ -143,6 +143,7 @@ function exportScore(){
   }else{
     closeMenu()
     userdata.exportUser()
+    alert("If score on certificate does not match please submit score to leaderboard again");
   }
   
 }
