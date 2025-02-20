@@ -80,7 +80,7 @@ async function getUsername() {
       console.log("starting export")
       let certificate = createGraphics(2000, 1414);
 
-      if(this.#score >= 25){
+      if(this.#score >= 30){
         certificate.image(certificateBGs[2], 0, 0); 
         certificate.textSize(70); 
         certificate.textFont('serif')
@@ -98,7 +98,7 @@ async function getUsername() {
                     
         save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
       }
-      else if(this.#score >= 10){
+      else if(this.#score >= 15){
         certificate.image(certificateBGs[1], 0, 0); 
         certificate.textSize(70); 
         certificate.textFont('Josefin Sans')
@@ -116,7 +116,7 @@ async function getUsername() {
                     
         save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
       }
-      else if(this.#score < 10){
+      else if(this.#score < 15){
         certificate.image(certificateBGs[0], 0, 0); 
         certificate.textSize(70); 
         certificate.textFont('Josefin Sans')
