@@ -189,7 +189,8 @@ class Computle{
       if(solvedCorrectly == true){
         // console.log("Well Done Correct!")
           this.#solved = true
-          submitScore(parseInt(userdata.score) + 7-(this.attempts),this.#solved)
+          let pointsToAdd = Math.floor(sessionComputle.calculateMultiplier(answerStreak,7-this.attempts))
+          submitScore(parseInt(userdata.score) + pointsToAdd,this.#solved)
           answerStreak ++
           this.input = [] //reset input
           return true
@@ -213,6 +214,10 @@ class Computle{
       
     }//end of else
 
+  }
+
+  calculateMultiplier(streak, score) {
+    return (((1 - Math.pow(1.24, -(streak))) *1.15) + 1) * score;
   }
   
   boxColour(letter,index){    
