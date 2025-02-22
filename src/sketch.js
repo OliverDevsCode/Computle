@@ -60,6 +60,8 @@ function draw() {
     // change leaderboard idle
   }else if(mode ==4){
     // verify leaderboard idle
+  }else if (mode ==5){
+    //multiplayer mode
   }else{
     background(canvasColour);
     sessionComputle.draw()
@@ -70,7 +72,7 @@ function draw() {
     }
     displayScore()
   }
-  detectDevTools();
+  // detectDevTools();
   
 }
 
