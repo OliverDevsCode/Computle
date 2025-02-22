@@ -13,11 +13,10 @@ function startMultiplayer() {
     console.log("Connected as host");
     
     // Load shared object with default values.
-    partyLoadShared('main',"shared_game_data",(shared) => {
+    shared_game_data = partyLoadShared('main',"shared_game_data",(shared) => {
       console.log("Shared data is now ready!", shared);
       shared_game_data = shared;
       // Start watching the shared object for changes.
-      partyWatchShared(shared_game_data, startMultiplayerGame, true);
       partySetShared( shared, { 
         player1: { 
           phrase: sessionComputle.phrase,
@@ -36,6 +35,12 @@ function startMultiplayer() {
       });      
       
     });
+
+    setTimeout(() => {
+  partyWatchShared(shared_game_data, startMultiplayerGame, true);
+}, 2000);
+
+
   });
   
   return partyCode;  
@@ -49,12 +54,11 @@ function joinMultiplayer(partyCode) {
     console.log("Connected as client");
     
     // Load the shared object without providing defaults so we don't overwrite player1.
-    partyLoadShared('main',"shared_game_data",(shared) => {
+    shared_game_data = partyLoadShared('main',"shared_game_data",(shared) => {
       console.log("Shared data is now ready!", shared);
       shared_game_data = shared;
 
       // Watch for changes.
-      partyWatchShared(shared_game_data, startMultiplayerGame, true);
       
       // Ensure player1 exists (if not, initialize it).
       if (!shared_game_data.player1) {
@@ -78,6 +82,11 @@ function joinMultiplayer(partyCode) {
       
       
     });
+
+    setTimeout(() => {
+      partyWatchShared(shared_game_data, startMultiplayerGame, true);
+    }, 2000);
+
   });
 }
 
@@ -132,10 +141,17 @@ function multiplayerMenu() {
 
 function startMultiplayerGame() {
   // Use a proper comparison (===) instead of an assignment.
-  if (multiplayerStarted === false) {
-    console.log("Starting Multiplayer Game");
-    closeMenu();
-    // canvas.resizeCanvas(1200, 900);
-    multiplayerStarted = true;
+  if(shared_game_data.player2.topic == undefined){
+    console.log("Not Starting")
+  }else{
+    console.log("Starting Now")
+    if (multiplayerStarted === false) {
+      console.log("Starting Multiplayer Game");
+      closeMenu();
+      resizeCanvas(1200, 900);
+      multiplayerStarted = true;
+    }
+
   }
+  
 }
