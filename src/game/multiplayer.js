@@ -23,14 +23,14 @@ function startMultiplayer() {
         player1: { 
           phrase: sessionComputle.phrase,
           topic: sessionComputle.topic,
-          guessKey: null,
+          guessQueue: [],
           score: userdata.score,
           streak: answerStreak
         },
         player2: { 
           phrase: null,
           topic: null,
-          guessKey: null,
+          guessQueue: [],
           score: null,
           streak: null 
         }
@@ -67,7 +67,7 @@ function joinMultiplayer(partyCode) {
         shared_game_data.player1 = { 
           phrase: null, 
           topic: null, 
-          guessKey: null, 
+          guessQueue: [], 
           score: null, 
           streak: null 
         };
@@ -77,7 +77,7 @@ function joinMultiplayer(partyCode) {
       shared_game_data.player2 = { 
         phrase: sessionComputle.phrase, 
         topic: sessionComputle.topic, 
-        guessKey: null, 
+        guessQueue: [], 
         score: userdata.score, 
         streak: answerStreak 
       };
@@ -141,6 +141,30 @@ function multiplayerMenu() {
   pop();
 }
 
+function processInputs(player) {
+  if (player.guessQueue.length > 0) {
+    for (let i = 0; i < player.guessQueue.length; i++) {
+      let key = player.guessQueue[i];
+      
+      if (key === ENTER) {
+        opponentComputle.guess();
+        if (opponentComputle.solved) {
+          opponentComputle = new MultiplayerComputle(
+            player.phrase.join(""), player.topic, width / 2
+          );
+        }
+      } else if (key === BACKSPACE) {
+        opponentComputle.removeLetter();
+      } else if ((key >= 65 && key <= 90) || (key >= 48 && key <= 57)) {
+        let inputLetter = String.fromCharCode(key);
+        opponentComputle.inputLetter(inputLetter);
+      }
+    }
+    player.guessQueue = []; // Clear processed inputs
+  }
+}
+
+
 function startMultiplayerGame() {
   // Use a proper comparison (===) instead of an assignment.
   if(shared_game_data.player2.topic == undefined){
@@ -165,62 +189,10 @@ function startMultiplayerGame() {
     console.log("UPDATED")
     console.log(`Player1 ${JSON.stringify(shared_game_data.player1)}`)
     console.log(`Player2 ${JSON.stringify(shared_game_data.player2)}`)
-    if(isHost == true){
-      
-      if(shared_game_data.player2.guessKey != null){
-        if(shared_game_data.player2.guessKey == ENTER){
-          //do guess
-          opponentComputle.guess()
-          console.log("Other Player Guessed")
-          if(opponentComputle.solved == true){
-            console.log("Correct!")
-            opponentComputle = new MultiplayerComputle((shared_game_data.player2.phrase).join(""),shared_game_data.player2.topic,width/2)
-          }
-          
-        }
-        if(shared_game_data.player2.guessKey == BACKSPACE){
-          opponentComputle.removeLetter()
-        }
-        if(shared_game_data.player2.guessKey >=65 && shared_game_data.player2.guessKey <=90){
-          let inputLetter = String.fromCharCode(shared_game_data.player2.guessKey)
-          // console.log("input letter",inputLetter)
-          opponentComputle.inputLetter(inputLetter)
-         
-        }
-        if(shared_game_data.player1.guessKey >=48 && shared_game_data.player1.guessKey <=57){
-          let inputLetter = String.fromCharCode(shared_game_data.player1.guessKey)
-          // console.log("input letter",inputLetter)
-          opponentComputle.inputLetter(inputLetter)
-         
-        }
-      }
-    }else{
-      if(shared_game_data.player1.guessKey != null){
-        if(shared_game_data.player1.guessKey == ENTER){
-          //do guess
-          opponentComputle.guess()
-          if(opponentComputle.solved == true){
-            opponentComputle = new MultiplayerComputle((shared_game_data.player1.phrase).join(""),shared_game_data.player1.topic,width/2)
-  
-          }
-          
-        }
-        if(shared_game_data.player1.guessKey == BACKSPACE){
-          opponentComputle.removeLetter()
-        }
-        if(shared_game_data.player1.guessKey >=65 && shared_game_data.player1.guessKey <=90){
-          let inputLetter = String.fromCharCode(shared_game_data.player1.guessKey)
-          // console.log("input letter",inputLetter)
-          opponentComputle.inputLetter(inputLetter)
-         
-        }
-        if(shared_game_data.player1.guessKey >=48 && shared_game_data.player1.guessKey <=57){
-          let inputLetter = String.fromCharCode(shared_game_data.player1.guessKey)
-          // console.log("input letter",inputLetter)
-          opponentComputle.inputLetter(inputLetter)
-         
-        }
-      }
+    if (isHost) {
+      processInputs(shared_game_data.player2);
+    } else {
+      processInputs(shared_game_data.player1);
     }
     shared_game_data.player1.guessKey = null
     shared_game_data.player2.guessKey = null

@@ -36,7 +36,7 @@ function keyPressed(){
     //MultiplayerMode
     if(multiplayerMode == true){
       if(isHost == true){
-        shared_game_data.player1.guessKey = keyCode 
+        shared_game_data.player1.guessQueue.push(keyCode);
         if(keyCode == ENTER){
           //do guess
           result = sessionComputle.guess()
@@ -46,7 +46,7 @@ function keyPressed(){
             shared_game_data.player1 = { 
               phrase: sessionComputle.phrase, 
               topic: sessionComputle.topic, 
-              guessKey: null, 
+              guessQueue: [], 
               score: userdata.score, 
               streak: answerStreak 
             };
@@ -67,7 +67,7 @@ function keyPressed(){
           sessionComputle.inputLetter(inputLetter)
         }
       }else{
-        shared_game_data.player2.guessKey = keyCode 
+        shared_game_data.player2.guessQueue.push(keyCode);
         if(keyCode == ENTER){
           //do guess
           result = sessionComputle.guess()
@@ -77,7 +77,7 @@ function keyPressed(){
             shared_game_data.player2 = { 
               phrase: sessionComputle.phrase, 
               topic: sessionComputle.topic, 
-              guessKey: null, 
+              guessQueue: [], 
               score: userdata.score, 
               streak: answerStreak 
             };
