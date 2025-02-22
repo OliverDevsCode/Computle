@@ -1,85 +1,141 @@
 let shared_game_data;
 let isHost = false;
-let multiplayerMode = false
+let multiplayerMode = false;
+let multiplayerStarted = false;
 let clientID;
 
-async function startMultiplayer(){
-  multiplayerMode = true
-  let partyCode = Math.round(Math.random()*1000)
-  await partyConnect("wss://demoserver.p5party.org", `computle${partyCode}`);
-  //format 
-  shared_game_data = await partyLoadShared("shared_game_data", { player1: {phrase: sessionComputle.phrase,topic:sessionComputle.topic,guessKey:null,score:userdata.score,streak:answerStreak} , player2: {phrase:null,topic:null,guessKey:null,score:null,streak:null}});
-
-
-  return partyCode
-}
-
-async function joinMultiplayer(partyCode) {
+function startMultiplayer() {
   multiplayerMode = true;
-  await partyConnect("wss://demoserver.p5party.org", `computle${partyCode}`);
-
-  // Load existing shared data without overwriting player1
-  shared_game_data = await partyLoadShared("shared_game_data", {});
-
-  // If player1 already exists, keep it. Otherwise, use default data.
-  if (!shared_game_data.player1) {
-    shared_game_data.player1 = { phrase: null, topic: null, guessKey: null, score: null, streak: null };
-  }
-
-  // Set player2 data without changing player1
-  shared_game_data.player2 = { 
-    phrase: sessionComputle.phrase, 
-    topic: sessionComputle.topic, 
-    guessKey: null, 
-    score: userdata.score, 
-    streak: answerStreak 
-  };
+  let partyCode = Math.round(Math.random() * 1000);
+  
+  // Connect using a callback for when the connection is ready.
+  partyConnect("wss://demoserver.p5party.org", `computle${partyCode}`,'main', () => {
+    console.log("Connected as host");
+    
+    // Load shared object with default values.
+    partyLoadShared('main',"shared_game_data",(shared) => {
+      console.log("Shared data is now ready!", shared);
+      shared_game_data = shared;
+      // Start watching the shared object for changes.
+      partyWatchShared(shared_game_data, startMultiplayerGame, true);
+      partySetShared( shared, { 
+        player1: { 
+          phrase: sessionComputle.phrase,
+          topic: sessionComputle.topic,
+          guessKey: null,
+          score: userdata.score,
+          streak: answerStreak
+        },
+        player2: { 
+          phrase: null,
+          topic: null,
+          guessKey: null,
+          score: null,
+          streak: null 
+        }
+      });      
+      
+    });
+  });
+  
+  return partyCode;  
 }
 
+function joinMultiplayer(partyCode) {
+  multiplayerMode = true;
+  
+  // Connect using the provided partyCode.
+  partyConnect("wss://demoserver.p5party.org", `computle${partyCode}`,'main', () => {
+    console.log("Connected as client");
+    
+    // Load the shared object without providing defaults so we don't overwrite player1.
+    partyLoadShared('main',"shared_game_data",(shared) => {
+      console.log("Shared data is now ready!", shared);
+      shared_game_data = shared;
 
-async function multiplayerMenu(){
-  closeMenu()
-  joinButton.show()
-  createPartyButton.show()
-  partyInput.show()
+      // Watch for changes.
+      partyWatchShared(shared_game_data, startMultiplayerGame, true);
+      
+      // Ensure player1 exists (if not, initialize it).
+      if (!shared_game_data.player1) {
+        shared_game_data.player1 = { 
+          phrase: null, 
+          topic: null, 
+          guessKey: null, 
+          score: null, 
+          streak: null 
+        };
+      }
+      
+      // Update player2 data.
+      shared_game_data.player2 = { 
+        phrase: sessionComputle.phrase, 
+        topic: sessionComputle.topic, 
+        guessKey: null, 
+        score: userdata.score, 
+        streak: answerStreak 
+      };
+      
+      
+    });
+  });
+}
 
-  mode = 5 
-  goAgain.hide()
-  background(canvasColour)
+function multiplayerMenu() {
+  multiplayerStarted = false;
+  push();
+  closeMenu();
+  joinButton.show();
+  createPartyButton.show();
+  partyInput.show();
+
+  mode = 5;
+  goAgain.hide();
+  background(canvasColour);
+
+  textAlign(CENTER);
+  textFont("Inter");
+  textStyle(BOLD);
+  textSize(25);
+
+  text("Works On PC Landscape Only", width / 2, height / 10);
 
   let partyCode;
-  createPartyButton.mousePressed(async ()=>{
-    if(multiplayerMode == true){
-      alert("Party Already Created")
-    }else{
-      partyCode = await startMultiplayer();
-      console.log(`partyCode: ${partyCode}`)
-      if(partyCode!= undefined){
-        push()
-        textAlign(CENTER)
-        textFont("Inter")
-        textStyle(BOLD)
-        textSize(25)
-        text(`Party Code: ${partyCode}`,width/2,height/5)
-        pop()
+  createPartyButton.mousePressed(() => {
+    if (multiplayerMode) {
+      alert("Party Already Created");
+    } else {
+      partyCode = startMultiplayer();
+      console.log(`partyCode: ${partyCode}`);
+      if (partyCode !== undefined) {
+        push();
+        textAlign(CENTER);
+        textFont("Inter");
+        textStyle(BOLD);
+        textSize(25);
+        text(`Party Code: ${partyCode}`, width / 2, height / 5);
+        pop();
       }
     }
-  })
+  });
 
-  joinButton.mousePressed(async ()=>{
-    if(multiplayerMode == true){
-      alert("Already Joined")
-    }else{
-      await joinMultiplayer(partyInput.value());
+  joinButton.mousePressed(() => {
+    if (multiplayerMode) {
+      alert("Already Joined");
+    } else {
+      joinMultiplayer(partyInput.value());
     }
-  })
+  });
   
+  pop();
 }
 
-
-class MultiplayerComputle extends Computle{
-  constructor(phrase,topic){
-    super(phrase,topic)
+function startMultiplayerGame() {
+  // Use a proper comparison (===) instead of an assignment.
+  if (multiplayerStarted === false) {
+    console.log("Starting Multiplayer Game");
+    closeMenu();
+    // canvas.resizeCanvas(1200, 900);
+    multiplayerStarted = true;
   }
-
 }
