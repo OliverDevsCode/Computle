@@ -25,6 +25,82 @@ function keyPressed(){
       // console.log("input letter",inputLetter)
       sessionComputle.inputLetter(inputLetter)
     }
+
+    
+  }
+  if(mode == 5){
+
+    if(keyCode == BACKSPACE){
+      sessionComputle.removeLetter()
+    }
+    //MultiplayerMode
+    if(multiplayerMode == true){
+      if(isHost == true){
+        shared_game_data.player1.guessKey = keyCode 
+        if(keyCode == ENTER){
+          //do guess
+          result = sessionComputle.guess()
+          let isVisible = goAgain.elt.style.display !== "none";
+          if(isVisible){
+            newcomputle()
+            shared_game_data.player1 = { 
+              phrase: sessionComputle.phrase, 
+              topic: sessionComputle.topic, 
+              guessKey: null, 
+              score: userdata.score, 
+              streak: answerStreak 
+            };
+          }
+          if(result == true){
+            goAgain.show()
+          }
+          
+        }
+        if(keyCode >=65 && keyCode <=90){
+          let inputLetter = String.fromCharCode(keyCode)
+          // console.log("input letter",inputLetter)
+          sessionComputle.inputLetter(inputLetter)
+        }
+        if(keyCode >=48 && keyCode <=57){
+          let inputLetter = String.fromCharCode(keyCode)
+          // console.log("input letter",inputLetter)
+          sessionComputle.inputLetter(inputLetter)
+        }
+      }else{
+        shared_game_data.player2.guessKey = keyCode 
+        if(keyCode == ENTER){
+          //do guess
+          result = sessionComputle.guess()
+          let isVisible = goAgain.elt.style.display !== "none";
+          if(isVisible){
+            newcomputle()
+            shared_game_data.player2 = { 
+              phrase: sessionComputle.phrase, 
+              topic: sessionComputle.topic, 
+              guessKey: null, 
+              score: userdata.score, 
+              streak: answerStreak 
+            };
+          }
+          if(result == true){
+            goAgain.show()
+          }
+          
+        }
+        if(keyCode >=65 && keyCode <=90){
+          let inputLetter = String.fromCharCode(keyCode)
+          // console.log("input letter",inputLetter)
+          sessionComputle.inputLetter(inputLetter)
+         
+        }
+        if(keyCode >=48 && keyCode <=57){
+          let inputLetter = String.fromCharCode(keyCode)
+          // console.log("input letter",inputLetter)
+          sessionComputle.inputLetter(inputLetter)
+         
+        }
+      }
+    }
   }
   
 }

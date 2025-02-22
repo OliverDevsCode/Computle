@@ -7,21 +7,22 @@ class MultiplayerComputle extends Computle{
   get solved(){
     return super.solved
   }
+
   
   inputLetter(string){
     //only add when input <= phrase.length
-    if(super.input.length == super.phrase.length || super.solved == true){
+    if(this.input.length == this.phrase.length || super.solved == true){
       //full
       // console.log("full")
     }else{
-      super.input.push(string)
+      this.input.push(string)
     }
-    // console.log("added",super.input)
+    // console.log("added",this.input)
   }
   
   removeLetter(){
-    super.input.pop()
-    // console.log("removed",super.input)
+    this.input.pop()
+    // console.log("removed",this.input)
   
   }
   
@@ -29,139 +30,139 @@ class MultiplayerComputle extends Computle{
 
     let currentGuess = []
     
-    // console.log("Correct Word",super.phrase)
-    if(super.input.length<super.phrase.length){
+    // console.log("Correct Word",this.phrase)
+    if(this.input.length<this.phrase.length){
       // console.log("PLEASE COMPLETE WORD")
     }else{
-    // super.previousInputs.push(super.input)
-    super.correctLetters = [];
-    super.wrongLetters = [];
-    super.missplacedLetters = [];
-    super.repeatedLetters = [];
-    for(let i =0; i <super.input.length;i++){
-      if(super.input[i]==super.phrase[i]){
+    // this.previousInputs.push(this.input)
+    this.correctLetters = [];
+    this.wrongLetters = [];
+    this.missplacedLetters = [];
+    this.repeatedLetters = [];
+    for(let i =0; i <this.input.length;i++){
+      if(this.input[i]==this.phrase[i]){
         //correct place
-        let value = [super.input[i],i]
+        let value = [this.input[i],i]
         let add = true;
-        for(let k =0; k < super.correctLetters.length;k++){
-          if(super.correctLetters[k][0]==value[0] && super.correctLetters[k][1]==value[1]){
+        for(let k =0; k < this.correctLetters.length;k++){
+          if(this.correctLetters[k][0]==value[0] && this.correctLetters[k][1]==value[1]){
             add = false
           }
         }
         if(add == true){
         //check if missplaced includes it and remove it
-        // console.log("TRUE -- missplaced",JSON.stringify(super.missplacedLetters))
-        // console.log("checking if",JSON.stringify([super.input[i],i]))
+        // console.log("TRUE -- missplaced",JSON.stringify(this.missplacedLetters))
+        // console.log("checking if",JSON.stringify([this.input[i],i]))
 
-        for(let p=0; p< super.missplacedLetters.length;p++){
-          if(super.missplacedLetters.includes([super.input[i],i])){
-            // console.log("missplaced",JSON.stringify(super.missplacedLetters))
+        for(let p=0; p< this.missplacedLetters.length;p++){
+          if(this.missplacedLetters.includes([this.input[i],i])){
+            // console.log("missplaced",JSON.stringify(this.missplacedLetters))
             // console.log("REMOVE from missplaced now")
-            super.missplacedLetters.slice(p,p)
+            this.missplacedLetters.slice(p,p)
           }
         }
 
-        // console.log(" END OF TRUE IF The list of missplaced letters is",super.missplacedLetters)
+        // console.log(" END OF TRUE IF The list of missplaced letters is",this.missplacedLetters)
 
-        super.correctLetters.push([super.input[i],i,'#00FF00'])
-        currentGuess.push([super.input[i],i,'#00FF00'])
+        this.correctLetters.push([this.input[i],i,'#00FF00'])
+        currentGuess.push([this.input[i],i,'#00FF00'])
         
         }  
       }
     }//correct letters loop end - must got before rest to find duplicates
-    for(let i=0; i<super.input.length;i++){
+    for(let i=0; i<this.input.length;i++){
       
-      if(super.phrase.includes(super.input[i]) == true && (super.input[i]==super.phrase[i]) == false){
+      if(this.phrase.includes(this.input[i]) == true && (this.input[i]==this.phrase[i]) == false){
 
-        // console.log(`${super.phrase} INCLUDES ${super.input[i]}`)
+        // console.log(`${this.phrase} INCLUDES ${this.input[i]}`)
 
-        let letterToCheck = super.phrase.filter(letter => letter === super.input[i]);
+        let letterToCheck = this.phrase.filter(letter => letter === this.input[i]);
         let occurence = 0;
-        for(let k = 0; k < super.correctLetters.length;k++){
-          // console.log("super.correctLetters[k][0]",super.correctLetters[k][0])
-          // console.log("super.input[i]",super.input[i])
-          if(super.correctLetters[k][0] == super.input[i]){
+        for(let k = 0; k < this.correctLetters.length;k++){
+          // console.log("this.correctLetters[k][0]",this.correctLetters[k][0])
+          // console.log("this.input[i]",this.input[i])
+          if(this.correctLetters[k][0] == this.input[i]){
             occurence ++
           }
         }
-        // console.log(`How many time,${super.phrase[i]}, appears in phrase ${letterToCheck.length}`)
-        // console.log("Repeated Letters",JSON.stringify(super.repeatedLetters))
+        // console.log(`How many time,${this.phrase[i]}, appears in phrase ${letterToCheck.length}`)
+        // console.log("Repeated Letters",JSON.stringify(this.repeatedLetters))
         // console.log("OCCURENCE BEFORE SECOND LOOP",occurence)
         if(occurence != letterToCheck.length){
           // console.log("Checking repeated aswell")
-          for(let k = 0; k < super.missplacedLetters.length;k++){
-            // console.log("super.missplacedLetters[k][0]",super.missplacedLetters[k][0])
-            // console.log("super.input[i]",super.input[i])
-            if(super.missplacedLetters[k][0] == super.input[i]){
+          for(let k = 0; k < this.missplacedLetters.length;k++){
+            // console.log("this.missplacedLetters[k][0]",this.missplacedLetters[k][0])
+            // console.log("this.input[i]",this.input[i])
+            if(this.missplacedLetters[k][0] == this.input[i]){
               occurence ++
             }
         } 
         }
         // console.log("compaer to:",letterToCheck.length)
         // console.log("occurence",occurence)
-        // console.log("Repeated letters",JSON.stringify(super.repeatedLetters))
+        // console.log("Repeated letters",JSON.stringify(this.repeatedLetters))
 
         if(occurence == letterToCheck.length){
           // console.log("letter already solved")
-          super.repeatedLetters.push([super.input[i],i,'#FF0000'])
-          currentGuess.push([super.input[i],i,'#FF0000'])
+          this.repeatedLetters.push([this.input[i],i,'#FF0000'])
+          currentGuess.push([this.input[i],i,'#FF0000'])
 
           
         }else{
           //wrong place
-        let value = [super.input[i],i]
+        let value = [this.input[i],i]
         let add = true;
-        for(let k =0; k < super.missplacedLetters.length;k++){
-          if(super.missplacedLetters[k][0]==value[0] && super.missplacedLetters[k][1]==value[1]){
+        for(let k =0; k < this.missplacedLetters.length;k++){
+          if(this.missplacedLetters[k][0]==value[0] && this.missplacedLetters[k][1]==value[1]){
             add = false
           }
         }
         if(add == true){
-        super.missplacedLetters.push([super.input[i],i,'#FFFF00'])
-        currentGuess.push([super.input[i],i,'#FFFF00'])
+        this.missplacedLetters.push([this.input[i],i,'#FFFF00'])
+        currentGuess.push([this.input[i],i,'#FFFF00'])
         } 
         }
         
         
       }
-      if(super.phrase.includes(super.input[i]) == false){
+      if(this.phrase.includes(this.input[i]) == false){
         //wrong letter
-        let value = [super.input[i],i]
+        let value = [this.input[i],i]
         let add = true;
-        for(let k =0; k < super.wrongLetters.length;k++){
-          if(super.wrongLetters[k][0]==value[0] && super.wrongLetters[k][1]==value[1]){
+        for(let k =0; k < this.wrongLetters.length;k++){
+          if(this.wrongLetters[k][0]==value[0] && this.wrongLetters[k][1]==value[1]){
             add = false
           }
         }
         if(add == true){
-        super.wrongLetters.push([super.input[i],i,'#FF0000'])
-        currentGuess.push([super.input[i],i,'#FF0000'])
+        this.wrongLetters.push([this.input[i],i,'#FF0000'])
+        currentGuess.push([this.input[i],i,'#FF0000'])
         
         } 
     }
       
     }//end of for loop
   
-    super.attempts ++ // increment attempts 
+    this.attempts ++ // increment attempts 
 
     // console.log("END OF GUESS")   
-    // console.log("correct;",JSON.stringify(super.correctLetters))   
-    // console.log("missplaced;",JSON.stringify(super.missplacedLetters))   
-    // console.log("wrong letter",JSON.stringify(super.wrongLetters))
-    // console.log("already used",JSON.stringify(super.repeatedLetters))
+    // console.log("correct;",JSON.stringify(this.correctLetters))   
+    // console.log("missplaced;",JSON.stringify(this.missplacedLetters))   
+    // console.log("wrong letter",JSON.stringify(this.wrongLetters))
+    // console.log("already used",JSON.stringify(this.repeatedLetters))
 
     //order currentGuess by index position
     // console.log("The archive version before",JSON.stringify(currentGuess));
     currentGuess = currentGuess.sort((a, b) => a[1] - b[1]);
-    super.previousInputs.push(currentGuess)
+    this.previousInputs.push(currentGuess)
     // console.log("The archive version",JSON.stringify(currentGuess));
   
       
     //check if correct
-    if(super.correctLetters.length == super.phrase.length){
+    if(this.correctLetters.length == this.phrase.length){
       let solvedCorrectly = true
-      for(let j =0;j<super.phrase.length;j++){
-        if(super.input[j] != super.phrase[j]){
+      for(let j =0;j<this.phrase.length;j++){
+        if(this.input[j] != this.phrase[j]){
           solvedCorrectly = false
           // console.log("NOT SOLVED")
         }
@@ -169,26 +170,26 @@ class MultiplayerComputle extends Computle{
       if(solvedCorrectly == true){
         // console.log("Well Done Correct!")
           super.solved = true
-          // let pointsToAdd = Math.floor(sessionComputle.calculateMultiplier(answerStreak,7-super.attempts))
+          // let pointsToAdd = Math.floor(sessionComputle.calculateMultiplier(answerStreak,7-this.attempts))
           // submitScore(parseInt(userdata.score) + pointsToAdd,super.solved)
           console.log("correct")
           answerStreak ++
-          super.input = [] //reset input
+          this.input = [] //reset input
           return true
       }else{
-          if(super.attempts==5){
+          if(this.attempts==5){
           answerStreak = 0
           }
-          super.input = [] //reset input
+          this.input = [] //reset input
           return false
       }
       
     }else{
       // console.log("try again")
-      if(super.attempts==5){
+      if(this.attempts==5){
         answerStreak = 0
       }
-      super.input = [] //reset input
+      this.input = [] //reset input
       return false
     }
 
@@ -202,39 +203,39 @@ class MultiplayerComputle extends Computle{
   }
   
   boxColour(letter,index){    
-    if(super.correctLetters.length > 0){
-      for(let i =0;i<super.correctLetters.length;i++){
-        if(super.correctLetters[i][0] == letter && super.correctLetters[i][1] == index){
+    if(this.correctLetters.length > 0){
+      for(let i =0;i<this.correctLetters.length;i++){
+        if(this.correctLetters[i][0] == letter && this.correctLetters[i][1] == index){
         return "#00FF00"
         }
       }
     }//if end
     
-    if(super.missplacedLetters.length > 0){
-      for(let i =0;i<super.missplacedLetters.length;i++){
-        if(super.missplacedLetters[i][0] == letter && (super.missplacedLetters[i][1] == index)){
+    if(this.missplacedLetters.length > 0){
+      for(let i =0;i<this.missplacedLetters.length;i++){
+        if(this.missplacedLetters[i][0] == letter && (this.missplacedLetters[i][1] == index)){
         return "#FFFF00"
         }
       }
     }//if end
     
-    if(super.wrongLetters.length > 0){
-      for(let i =0;i<super.wrongLetters.length;i++){
-        if(super.wrongLetters[i][0] == letter && (super.wrongLetters[i][1] == index)){
+    if(this.wrongLetters.length > 0){
+      for(let i =0;i<this.wrongLetters.length;i++){
+        if(this.wrongLetters[i][0] == letter && (this.wrongLetters[i][1] == index)){
         return "#FF0000"
         }
       }
     }//if end
 
-    if(super.repeatedLetters.length > 0){
-      for(let i =0;i<super.repeatedLetters.length;i++){
-        if(super.repeatedLetters[i][0] == letter && (super.repeatedLetters[i][1] == index)){
+    if(this.repeatedLetters.length > 0){
+      for(let i =0;i<this.repeatedLetters.length;i++){
+        if(this.repeatedLetters[i][0] == letter && (this.repeatedLetters[i][1] == index)){
         return "#FF0000"// actual colour
         }
       }
     }//if end
 
-    if(super.repeatedLetters.length == 0 && super.wrongLetters ==0 && super.correctLetters == 0 && super.repeatedLetters ==0){
+    if(this.repeatedLetters.length == 0 && this.wrongLetters ==0 && this.correctLetters == 0 && this.repeatedLetters ==0){
       return "#FF0000"// actual colour
       
     }
@@ -242,55 +243,55 @@ class MultiplayerComputle extends Computle{
   }
   
   draw(){
-    let boxW = 520/super.phrase.length
-    let maxH = (800-(boxW*1.2*2.75))/super.phrase.length
+    let boxW = 520/this.phrase.length
+    let maxH = (800-(boxW*1.2*2.75))/this.phrase.length
     
     if(maxH < boxW){
       boxW = maxH;
     }
     //center the boxes
-    let rowLength = boxW * super.phrase.length
+    let rowLength = boxW * this.phrase.length
     let maxDepth = boxW * 5;
     let offsetX = (600-rowLength)/2
     let offsetY = (600-maxDepth)/2
     for(let i = 0; i <= 5;i++){
-      for(let w =0; w < super.phrase.length;w++){
+      for(let w =0; w < this.phrase.length;w++){
         push()
         fill(230)
-        rect(offsetX + (boxW *w)+ super.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
-        if(i==super.attempts && super.input.length>0){
+        rect(offsetX + (boxW *w)+ this.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
+        if(i==this.attempts && this.input.length>0){
         push()
         fill(255)
-        rect(offsetX + (boxW *w)+ super.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
+        rect(offsetX + (boxW *w)+ this.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
         fill(0)
         textAlign(CENTER)
         textFont("Inter")
         textStyle(BOLD)
         textSize(boxW*0.8)
-        // text(super.input[w],80 + (boxW *w),110 + (boxW *(i*1.2)))
-        text(super.input[w],offsetX + (boxW *w) + boxW/2+ super.xOffset,offsetX + (boxW *(i*1.2)) + (boxW*0.8))
+        // text(this.input[w],80 + (boxW *w),110 + (boxW *(i*1.2)))
+        text(this.input[w],offsetX + (boxW *w) + boxW/2+ this.xOffset,offsetX + (boxW *(i*1.2)) + (boxW*0.8))
         pop()
         }
         pop()
       }//enf of for
       
       //drawing each previous
-      if(super.attempts>0 && i<super.attempts){
-        // console.log(super.previousInputs)
-        for(let w = 0; w < super.previousInputs[i].length;w++){
+      if(this.attempts>0 && i<this.attempts){
+        // console.log(this.previousInputs)
+        for(let w = 0; w < this.previousInputs[i].length;w++){
         //check fill of box
         push()
         // fill(230)
-        // console.log("super.previousInputs[i][w][2]",super.previousInputs[i][w])
-        fill(super.previousInputs[i][w][2])
-        rect(offsetX + (boxW *w)+ super.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
+        // console.log("this.previousInputs[i][w][2]",this.previousInputs[i][w])
+        fill(this.previousInputs[i][w][2])
+        rect(offsetX + (boxW *w)+ this.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
         fill(0)
         textAlign(CENTER)
         textFont("Inter")
         textStyle(BOLD)
         textSize(boxW*0.8)
-        // text(super.previousInputs[i][w],80 + (boxW *w),110 + (boxW *(i*1.2)))
-        text(super.previousInputs[i][w][0],offsetX + (boxW *w) + boxW/2+ super.xOffset,offsetX + (boxW *(i*1.2)) + (boxW*0.8))
+        // text(this.previousInputs[i][w],80 + (boxW *w),110 + (boxW *(i*1.2)))
+        text(this.previousInputs[i][w][0],offsetX + (boxW *w) + boxW/2+ this.xOffset,offsetX + (boxW *(i*1.2)) + (boxW*0.8))
         pop()
       }//enf of for
       
@@ -300,17 +301,17 @@ class MultiplayerComputle extends Computle{
     if(super.solved == true){
       push()
       fill('#00FF00')
-      rect(100+ super.xOffset,320,400,110,10)
+      rect(100+ this.xOffset,320,400,110,10)
       fill(0)
       textAlign(CENTER)
       textFont("Inter")
       textStyle(BOLD)
       textSize(600/8)
-      text("Well Done!",600/2 + super.xOffset,height/2 - 50)
+      text("Well Done!",600/2 + this.xOffset,height/2 - 50)
       pop()
     }
     
-    if(super.solved == false && super.attempts == 6){
+    if(super.solved == false && this.attempts == 6){
       push()
       fill('#FCE205')
       rect(100,320,400,110,10)
@@ -318,7 +319,7 @@ class MultiplayerComputle extends Computle{
       textAlign(CENTER)
       textFont("Inter")
       textStyle(BOLD)
-      let message = `Unlucky! Answer:${super.answer}`
+      let message = `Unlucky! Answer:${this.answer}`
       let charWidthFactor = 0.6; // Adjust as needed for Inter
       textSize(400/ (message.length * charWidthFactor))
       text(message,width/2,height/2)
@@ -332,8 +333,8 @@ class MultiplayerComputle extends Computle{
     textFont("Inter")
     textStyle(BOLD)
     textSize(600/25)
-    let topicPos = offsetX + (boxW * super.phrase.length)/2
-    text(`Topic: ${super.topic}`,topicPos+ super.xOffset,maxH/3 + 20)
+    let topicPos = offsetX + (boxW * this.phrase.length)/2
+    text(`Topic: ${this.topic}`,topicPos+ this.xOffset,maxH/3 + 20)
     pop()
   }
 

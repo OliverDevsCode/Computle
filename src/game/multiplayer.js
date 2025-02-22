@@ -3,9 +3,11 @@ let isHost = false;
 let multiplayerMode = false;
 let multiplayerStarted = false;
 let clientID;
+let opponentComputle;
 
 function startMultiplayer() {
   multiplayerMode = true;
+  isHost = true
   let partyCode = Math.round(Math.random() * 1000);
   
   // Connect using a callback for when the connection is ready.
@@ -148,9 +150,80 @@ function startMultiplayerGame() {
     if (multiplayerStarted === false) {
       console.log("Starting Multiplayer Game");
       closeMenu();
-      resizeCanvas(1200, 900);
+      mode = 5;
+      resizeCanvas(1200, 800);
+      centreCanvas()
       multiplayerStarted = true;
+      console.log(shared_game_data.player2.phrase)
+      if(isHost === true){
+        console.log("phrase",(shared_game_data.player2.phrase).join(""))
+        opponentComputle = new MultiplayerComputle((shared_game_data.player2.phrase).join(""),shared_game_data.player2.topic,width/2)
+      }else{
+        opponentComputle = new MultiplayerComputle((shared_game_data.player1.phrase).join(""),shared_game_data.player1.topic,width/2)
+      }
     }
+    console.log("UPDATED")
+    console.log(`Player1 ${JSON.stringify(shared_game_data.player1)}`)
+    console.log(`Player2 ${JSON.stringify(shared_game_data.player2)}`)
+    if(isHost == true){
+      
+      if(shared_game_data.player2.guessKey != null){
+        if(shared_game_data.player2.guessKey == ENTER){
+          //do guess
+          opponentComputle.guess()
+          console.log("Other Player Guessed")
+          if(opponentComputle.solved == true){
+            console.log("Correct!")
+            opponentComputle = new MultiplayerComputle((shared_game_data.player2.phrase).join(""),shared_game_data.player2.topic,width/2)
+          }
+          
+        }
+        if(shared_game_data.player2.guessKey == BACKSPACE){
+          opponentComputle.removeLetter()
+        }
+        if(shared_game_data.player2.guessKey >=65 && shared_game_data.player2.guessKey <=90){
+          let inputLetter = String.fromCharCode(shared_game_data.player2.guessKey)
+          // console.log("input letter",inputLetter)
+          opponentComputle.inputLetter(inputLetter)
+         
+        }
+        if(shared_game_data.player1.guessKey >=48 && shared_game_data.player1.guessKey <=57){
+          let inputLetter = String.fromCharCode(shared_game_data.player1.guessKey)
+          // console.log("input letter",inputLetter)
+          opponentComputle.inputLetter(inputLetter)
+         
+        }
+      }
+    }else{
+      if(shared_game_data.player1.guessKey != null){
+        if(shared_game_data.player1.guessKey == ENTER){
+          //do guess
+          opponentComputle.guess()
+          if(opponentComputle.solved == true){
+            opponentComputle = new MultiplayerComputle((shared_game_data.player1.phrase).join(""),shared_game_data.player1.topic,width/2)
+  
+          }
+          
+        }
+        if(shared_game_data.player1.guessKey == BACKSPACE){
+          opponentComputle.removeLetter()
+        }
+        if(shared_game_data.player1.guessKey >=65 && shared_game_data.player1.guessKey <=90){
+          let inputLetter = String.fromCharCode(shared_game_data.player1.guessKey)
+          // console.log("input letter",inputLetter)
+          opponentComputle.inputLetter(inputLetter)
+         
+        }
+        if(shared_game_data.player1.guessKey >=48 && shared_game_data.player1.guessKey <=57){
+          let inputLetter = String.fromCharCode(shared_game_data.player1.guessKey)
+          // console.log("input letter",inputLetter)
+          opponentComputle.inputLetter(inputLetter)
+         
+        }
+      }
+    }
+    shared_game_data.player1.guessKey = null
+    shared_game_data.player2.guessKey = null
 
   }
   

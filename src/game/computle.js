@@ -27,6 +27,9 @@ class Computle{
   get solved(){
     return this.#solved
   }
+  set solved(value) {
+    this.#solved = value;
+  }
   
   inputLetter(string){
     //only add when input <= phrase.length
@@ -324,8 +327,8 @@ class Computle{
       textAlign(CENTER)
       textFont("Inter")
       textStyle(BOLD)
-      textSize(width/8)
-      text("Well Done!",width/2,height/2)
+      textSize(600/8)
+      text("Well Done!",600/2,height/2)
       pop()
     }
     
@@ -338,9 +341,9 @@ class Computle{
       textFont("Inter")
       textStyle(BOLD)
       let message = `Unlucky! Answer:${this.answer}`
-      let charWidthFactor = 0.6; // Adjust as needed for Inter
-      textSize(400/ (message.length * charWidthFactor))
-      text(message,width/2,height/2)
+      let char600Factor = 0.6; // Adjust as needed for Inter
+      textSize(400/ (message.length * char600Factor))
+      text(message,600/2,height/2)
       pop()
       goAgain.show()
     }
@@ -350,8 +353,8 @@ class Computle{
     textAlign(CENTER)
     textFont("Inter")
     textStyle(BOLD)
-    textSize(width/25)
-    text(`Topic: ${this.topic}`,width/2,maxH/3)
+    textSize(600/25)
+    text(`Topic: ${this.topic}`,600/2,maxH/3)
     pop()
   }
   

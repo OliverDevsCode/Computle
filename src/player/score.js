@@ -55,9 +55,9 @@ function displayScore(){
   textSize(25)
   if(answerStreak>0){
     // text(`Score: ${userdata.score+(Math.floor(answerStreak*0.5))}`,width/2,height-10) might be added 
-    text(`Score: ${userdata.score}`,width/2,height-10)
+    text(`Score: ${userdata.score}`,600/2,height-10)
   }else{
-    text(`Score: ${userdata.score}`,width/2,height-10)
+    text(`Score: ${userdata.score}`,600/2,height-10)
   }
   pop()
 }
