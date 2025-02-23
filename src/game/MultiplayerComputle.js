@@ -314,7 +314,7 @@ class MultiplayerComputle extends Computle{
     if(super.solved == false && this.attempts == 6){
       push()
       fill('#FCE205')
-      rect(100,320,400,110,10)
+      rect(100+this.xOffset,320,400,110,10)
       fill(0)
       textAlign(CENTER)
       textFont("Inter")
@@ -322,9 +322,8 @@ class MultiplayerComputle extends Computle{
       let message = `Unlucky! Answer:${this.answer}`
       let charWidthFactor = 0.6; // Adjust as needed for Inter
       textSize(400/ (message.length * charWidthFactor))
-      text(message,width/2,height/2)
+      text(message,300+ this.xOffset,height/2)
       pop()
-      goAgain.show()
     }
     
     push()
