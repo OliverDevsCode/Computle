@@ -334,7 +334,7 @@ class MultiplayerComputle extends Computle{
     textStyle(BOLD)
     textSize(600/25)
     let topicPos = offsetX + (boxW * this.phrase.length)/2
-    text(`Topic: ${this.topic}`,topicPos+ this.xOffset,maxH/3 + 20)
+    text(`Topic: ${this.topic}`,topicPos+ this.xOffset,maxH/3)
     pop()
   }
 

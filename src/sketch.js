@@ -78,9 +78,9 @@ function draw() {
       textStyle(BOLD)
       textSize(25)
       if(isHost == true){
-        text(`Score: ${shared_game_data.player2.score}`,600/2,height-10)
+        text(`Score: ${shared_game_data.player2.score}`,600/2 + 600,height-10)
       }else{
-        text(`Score: ${shared_game_data.player1.score}`,600/2,height-10)
+        text(`Score: ${shared_game_data.player1.score}`,600/2 + 600,height-10)
       }
       
   pop()

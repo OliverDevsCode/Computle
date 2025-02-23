@@ -165,6 +165,8 @@ function processInputs(player) {
 }
 
 
+
+
 function startMultiplayerGame() {
   // Use a proper comparison (===) instead of an assignment.
   if(shared_game_data.player2.topic == undefined){
@@ -176,6 +178,9 @@ function startMultiplayerGame() {
       closeMenu();
       mode = 5;
       resizeCanvas(1200, 800);
+      let yOFFSET = (windowHeight - height) / 2;
+      let xOFFSET = (windowWidth - width) / 2;
+      menuButton.position(xOFFSET+1150,yOFFSET+10)
       centreCanvas()
       multiplayerStarted = true;
       console.log(shared_game_data.player2.phrase)
@@ -191,8 +196,20 @@ function startMultiplayerGame() {
     console.log(`Player2 ${JSON.stringify(shared_game_data.player2)}`)
     if (isHost) {
       processInputs(shared_game_data.player2);
+      if (JSON.stringify(opponentComputle.phrase) !== JSON.stringify(shared_game_data.player2.phrase)) {
+        console.log("Making a new computle")
+        opponentComputle = new MultiplayerComputle(
+          shared_game_data.player2.phrase.join(""), shared_game_data.player2.topic, width / 2
+        );
+      }
     } else {
       processInputs(shared_game_data.player1);
+      if (JSON.stringify(opponentComputle.phrase) !== JSON.stringify(shared_game_data.player1.phrase)) {
+        console.log("Making a new computle")
+        opponentComputle = new MultiplayerComputle(
+          shared_game_data.player1.phrase.join(""), shared_game_data.player1.topic, width / 2
+        );
+      }
     }
   }
   

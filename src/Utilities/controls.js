@@ -56,7 +56,7 @@ function keyPressed() {
               clearInterval(hostBufferInterval);
               hostBufferIntervalRunning = false;
             }
-          }, 500); // 100ms delay between pushes
+          }, 300); // 100ms delay between pushes
         }
         
         // Process immediate actions for ENTER and letters as needed:
@@ -100,7 +100,7 @@ function keyPressed() {
               clearInterval(clientBufferInterval);
               clientBufferIntervalRunning = false;
             }
-          }, 500);
+          }, 300);
         }
         if (keyCode === ENTER) {
           result = sessionComputle.guess();
