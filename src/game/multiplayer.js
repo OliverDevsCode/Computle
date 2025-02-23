@@ -4,6 +4,7 @@ let multiplayerMode = false;
 let multiplayerStarted = false;
 let clientID;
 let opponentComputle;
+let ExperimentalWarning = false
 
 function startMultiplayer() {
   multiplayerMode = true;
@@ -93,52 +94,66 @@ function joinMultiplayer(partyCode) {
 }
 
 function multiplayerMenu() {
-  multiplayerStarted = false;
-  push();
-  closeMenu();
-  joinButton.show();
-  createPartyButton.show();
-  partyInput.show();
 
-  mode = 5;
-  goAgain.hide();
-  background(canvasColour);
+  if(ExperimentalWarning == false){
+    showMultiplayerWarning()
+    ExperimentalWarning = true
+  }else{
+    multiplayerStarted = false;
 
-  textAlign(CENTER);
-  textFont("Inter");
-  textStyle(BOLD);
-  textSize(25);
-
-  text("Works On PC Landscape Only", width / 2, height / 10);
-
-  let partyCode;
-  createPartyButton.mousePressed(() => {
-    if (multiplayerMode) {
-      alert("Party Already Created");
-    } else {
-      partyCode = startMultiplayer();
-      console.log(`partyCode: ${partyCode}`);
-      if (partyCode !== undefined) {
-        push();
-        textAlign(CENTER);
-        textFont("Inter");
-        textStyle(BOLD);
-        textSize(25);
-        text(`Party Code: ${partyCode}`, width / 2, height / 5);
-        pop();
-      }
-    }
-  });
-
-  joinButton.mousePressed(() => {
-    if (multiplayerMode) {
-      alert("Already Joined");
-    } else {
-      joinMultiplayer(partyInput.value());
-    }
-  });
+    opponentComputle = undefined;
+    
+    push();
+    closeMenu();
+    
+    joinButton.show();
+    createPartyButton.show();
+    partyInput.show();
   
-  pop();
+    mode = 5;
+    goAgain.hide();
+    background(canvasColour);
+  
+    textAlign(CENTER);
+    textFont("Inter");
+    textStyle(BOLD);
+    textSize(25);
+  
+    text("Works On PC Landscape Only", width / 2, height / 10);
+  
+    let partyCode;
+    createPartyButton.mousePressed(() => {
+      if (multiplayerMode) {
+        alert("Party Already Created! Please Refresh");
+      } else {
+        partyCode = startMultiplayer();
+        console.log(`partyCode: ${partyCode}`);
+        if (partyCode !== undefined) {
+          push();
+          textAlign(CENTER);
+          textFont("Inter");
+          textStyle(BOLD);
+          textSize(25);
+          text(`Party Code: ${partyCode}`, width / 2, height / 5);
+          pop();
+        }
+      }
+    });
+  
+    joinButton.mousePressed(() => {
+      if (multiplayerMode) {
+        alert("Already In Party! Please Refresh");
+      } else {
+        joinMultiplayer(partyInput.value());
+      }
+    });
+    
+    pop();
+  }
+}
+
+function showMultiplayerWarning() {
+  alert("Multiplayer is still Experimental, Warning!")
 }
 
 function processInputs(player) {

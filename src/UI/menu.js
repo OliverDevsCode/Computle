@@ -67,6 +67,13 @@ function openMenu(){
   if(mode == 5){
     closeMenu()
     mode = -1
+    drawMenu(userdata)
+    resizeCanvas(600, 800);
+    centreCanvas()
+    let xOFFSET = (windowWidth - width) / 2;
+    let yOFFSET = (windowHeight - height) / 2;
+    let x = width-40
+    menuButton.position(x+xOFFSET,10+yOFFSET)
   }
   console.log("menu pressed")
 }
