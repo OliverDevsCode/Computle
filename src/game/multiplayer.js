@@ -194,9 +194,6 @@ function startMultiplayerGame() {
     } else {
       processInputs(shared_game_data.player1);
     }
-    shared_game_data.player1.guessKey = null
-    shared_game_data.player2.guessKey = null
-
   }
   
 }
