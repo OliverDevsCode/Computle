@@ -72,7 +72,12 @@ async function getLeaderboard(){
     if(userdata.score == 0){
       alert("Please Complete a Computle First")
     }else{
-      await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH)
+      if(localStorage.getItem("msal_userName") != null){
+        let username = localStorage.getItem("msal_userName")
+        await sendScore(userdata.score,username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH)
+      }else{
+        await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH)
+      }
       await displayLeaderBoard()
     }
     
