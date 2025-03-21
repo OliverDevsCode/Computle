@@ -30,6 +30,18 @@ async function getMSUsername(username) {
   }
 }
 
+function getFirstNameAndInitial(fullName) {
+  const parts = fullName.split(" ");
+  
+  if (parts.length >= 2) {
+    const firstName = parts[0];
+    const lastInitial = parts[1].charAt(0);
+    return `${firstName} ${lastInitial}.`;
+  } else {
+    return "Please provide a full name with at least two parts.";
+  }
+}
+
   
   async function createUser(){
     userdata = new User();
@@ -58,7 +70,8 @@ async function getMSUsername(username) {
       if(localStorage.getItem("msal_userName") != null){
         //getHash
         console.log(localStorage.getItem("msal_userName"))
-        this.#username = localStorage.getItem("msal_userName")
+        let msal_Username = localStorage.getItem("msal_userName")
+        this.#username = getFirstNameAndInitial(msal_Username)
         console.log(localStorage.getItem("msal_accountId"))
         this.#usernameHASH = await getMSUsername(localStorage.getItem("msal_accountId"))
       }
