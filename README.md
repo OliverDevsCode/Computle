@@ -7,7 +7,7 @@
 ![GitHub contributors](https://img.shields.io/github/contributors/OliverDevsCode/Computle)
 ![GitHub last commit](https://img.shields.io/github/last-commit/OliverDevsCode/Computle)
 ![GitHub all releases](https://img.shields.io/github/downloads/OliverDevsCode/Computle/total)
-[![Website](https://img.shields.io/badge/Website-oliverdevscode.github.io/Computle-blue)](https://oliverdevscode.github.io/Computle/)
+[![Website](https://img.shields.io/badge/Website-oliverdevscode.github.io/Computle-blue)](https://computle.vercel.app/)
 
 
 
