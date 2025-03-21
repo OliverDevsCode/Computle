@@ -12,6 +12,24 @@ async function getUsername() {
   }
 }
 
+async function getMSUsername(username) {
+  try {
+    const response = await fetch('https://computle-backend.vercel.app/api/getMSUsername', {
+      method: 'post',
+      headers: {
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify({username: username})      
+    });
+    const data = await response.json();
+    console.log('Server response:', data);
+    return data 
+  } catch (error) {
+    console.error('Error fetching username:', error);
+    return ['Guest', ''];
+  }
+}
+
   
   async function createUser(){
     userdata = new User();
@@ -35,14 +53,16 @@ async function getUsername() {
   
     async init(){
       const usernameData = await getUsername();
+      this.#username = usernameData[0]
+      this.#usernameHASH = usernameData[1]
       if(localStorage.getItem("msal_userName") != null){
         //getHash
         console.log(localStorage.getItem("msal_userName"))
+        this.#username = localStorage.getItem("msal_userName")
         console.log(localStorage.getItem("msal_accountId"))
-        
+        this.#usernameHASH = await getMSUsername(localStorage.getItem("msal_accountId"))
       }
-      this.#username = usernameData[0]
-      this.#usernameHASH = usernameData[1]
+      
       return this;
     }
   
