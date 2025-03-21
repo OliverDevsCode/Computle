@@ -37,7 +37,9 @@ async function getUsername() {
       const usernameData = await getUsername();
       if(localStorage.getItem("msal_userName") != null){
         //getHash
-        console.log("fetching hash")
+        console.log(localStorage.getItem("msal_userName"))
+        console.log(localStorage.getItem("msal_accountId"))
+        
       }
       this.#username = usernameData[0]
       this.#usernameHASH = usernameData[1]

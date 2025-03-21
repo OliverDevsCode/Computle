@@ -49,6 +49,7 @@ function saveUserInfo(account) {
 
     // Store the user's name in localStorage for use on other pages
     localStorage.setItem("msal_userName", account.name);
+    localStorage.setItem("msal_accountId", account.localAccountId);
 }
 
 // A function to trigger login using a popup (with async/await)
