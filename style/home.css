@@ -9,51 +9,115 @@ html, body {
   --bg-color: #7DA6DE;
   --text-color: #000;
   --font-family: 'Inter', 'Roboto', 'Open Sans', Arial, sans-serif;
+  --primary-btn-bg: #0078d4;
+  --primary-btn-hover: #005ea6;
+  --dark-btn-bg: #000;
+  --dark-btn-text: #FFF;
 }
 
-/* Dark Mode variables */
-.dark-mode {
-  --bg-color: #1E1E1E;
-  --text-color: #FFF;
-}
-
-/* Apply colours and styling */
+/* Light Mode (Default) */
 body {
-  background-color: var(--bg-color);
+  background: linear-gradient(135deg, #7DA6DE, #ffffff);
   color: var(--text-color);
   font-family: var(--font-family);
   text-align: center;
   padding: 50px;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background 0.5s ease, color 0.3s ease;
+  min-height: 100vh;
+  animation: fadeInLight 1s ease-in;
 }
 
-/* General button styling */
+/* Light Mode (Default) */
+h1 {
+  color: var(--text-color);  /* Black text for light mode */
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Dark Mode */
+.dark-mode h1 {
+  color: #FFF;  /* White text for dark mode */
+}
+
+/* Dark Mode */
+.dark-mode {
+  background: linear-gradient(135deg, #000000, #1E1E1E); /* Black to Dark Grey */
+  color: var(--text-color);
+  animation: fadeInDark 1s ease-in;
+}
+
+/* Light Mode Fade Animation */
+@keyframes fadeInLight {
+  from { background: linear-gradient(135deg, #ffffff, #7DA6DE); opacity: 0; }
+  to { background: linear-gradient(135deg, #7DA6DE, #ffffff); opacity: 1; }
+}
+
+/* Dark Mode Fade Animation */
+@keyframes fadeInDark {
+  from { background: linear-gradient(135deg, #000000, #000000); opacity: 0; }
+  to { background: linear-gradient(135deg, #000000, #1E1E1E); opacity: 1; }
+}
+
+
+/* Increase welcome text size */
+h1.welcome {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Container to center buttons */
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* General button styling with smooth hover effects */
 button {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: large;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin: 10px;
+  font-family: var(--font-family);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Dark mode toggle button */
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode toggle button for light mode */
 #dark-mode-toggle {
-  background-color: #000;
-  color: #FFF;
-}
-.dark-mode #dark-mode-toggle {
-  background-color: #FFF;
-  color: #000;
+  background-color: #444444; /* Dark grey background */
+  color: #dddddd;            /* Light grey text */
+  border: 1px solid #666;    /* Optional subtle border */
+  
 }
 
-/* Microsoft Sign-In button */
-#ms-login-btn {
-  background-color: #0078d4;
-  color: #FFF;
+/* Dark mode toggle button for dark mode */
+.dark-mode #dark-mode-toggle {
+  background-color: #f0f0f0; /* Light grey background */
+  color: #333333;           /* Dark grey text */
+  border: 1px solid #ccc;   /* Optional subtle border */
 }
+
+
+/* Microsoft Sign-In button with logo */
+#ms-login-btn {
+  background-color: var(--primary-btn-bg);
+  color: #FFF;
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg');
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  background-position: 10px center;
+  padding-left: 40px; /* Extra padding to fit the logo */
+}
+
 #ms-login-btn:hover {
-  background-color: #005ea6;
+  background-color: var(--primary-btn-hover);
 }
 
 /* Guest button */
@@ -61,6 +125,15 @@ button {
   background-color: #333;
   color: #FFF;
 }
+
 #guest-btn:hover {
   background-color: #555;
 }
+
+#logo {
+  display: block;
+  margin: 20px auto; /* Centers the image and adds space */
+  max-width: 100%;
+  height: auto;
+}
+

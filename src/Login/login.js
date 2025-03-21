@@ -6,12 +6,30 @@ if (localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark-mode');
 }
 
+
+
 // Dark mode toggle
 const darkModeToggle = document.getElementById('dark-mode-toggle');
+const logo = document.getElementById('logo');
+
 darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
-  localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+  if (document.body.classList.contains('dark-mode')) {
+    // Dark mode is enabled
+    localStorage.setItem('theme', 'dark');
+    darkModeToggle.textContent = "☀️ Light Mode";
+    logo.src = 'src/assets/darkmodeLogo.png';
+  } else {
+    // Light mode is enabled
+    localStorage.setItem('theme', 'light');
+    darkModeToggle.textContent = "🌙 Dark Mode";
+    logo.src = 'src/assets/lightmodeLogo.png';
+  }
 });
+
+
+
+   
 
 // Handle Microsoft sign-in
 const msLoginBtn = document.getElementById('ms-login-btn');
