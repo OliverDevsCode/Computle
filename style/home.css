@@ -1,0 +1,66 @@
+/* Reset default margins/padding */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Default Light Mode variables */
+:root {
+  --bg-color: #7DA6DE;
+  --text-color: #000;
+  --font-family: 'Inter', 'Roboto', 'Open Sans', Arial, sans-serif;
+}
+
+/* Dark Mode variables */
+.dark-mode {
+  --bg-color: #1E1E1E;
+  --text-color: #FFF;
+}
+
+/* Apply colours and styling */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  text-align: center;
+  padding: 50px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* General button styling */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* Dark mode toggle button */
+#dark-mode-toggle {
+  background-color: #000;
+  color: #FFF;
+}
+.dark-mode #dark-mode-toggle {
+  background-color: #FFF;
+  color: #000;
+}
+
+/* Microsoft Sign-In button */
+#ms-login-btn {
+  background-color: #0078d4;
+  color: #FFF;
+}
+#ms-login-btn:hover {
+  background-color: #005ea6;
+}
+
+/* Guest button */
+#guest-btn {
+  background-color: #333;
+  color: #FFF;
+}
+#guest-btn:hover {
+  background-color: #555;
+}
