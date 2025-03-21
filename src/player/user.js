@@ -23,7 +23,7 @@ async function getMSUsername(username) {
     });
     const data = await response.json();
     console.log('Server response:', data);
-    return data 
+    return data.hash 
   } catch (error) {
     console.error('Error fetching username:', error);
     return ['Guest', ''];
