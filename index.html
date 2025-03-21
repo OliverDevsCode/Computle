@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.1/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.pdf.js"></script>
-    <script src="https://unpkg.com/p5.party@latest/dist/p5.party.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome To Computle</title>
+    <link rel="icon" href="src/assets/favicon.png" type="image/x-icon" />
+    <!-- Link to your new CSS file -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="style/home.css" />
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-    <link rel="icon" href ="src/assets/favicon.png" type="image/x-icon"/>
-
+    <!-- Import map for @azure/msal-browser if needed -->
+    <script type="importmap">
+      {
+        "imports": {
+          "@azure/msal-browser": "https://esm.sh/@azure/msal-browser@2.34.0"
+        }
+      }
+    </script>
   </head>
   <body>
-    <button id="dark-mode-toggle">🌙 Dark Mode</button>
-    <main>
-    </main>
+    <!-- Dark Mode Toggle Button -->
+    <button id="dark-mode-toggle">Dark Mode</button>
 
-    <script src="src/UI/homepage.js"></script>
-    <script src="src/UI/background.js"></script>
-    <script src="src/UI/menu.js"></script>
-    <script src="src/UI/mobile.js"></script>
-    <script src="src/player/leaderboard.js"></script>
-    <script src="src/Database/phraseSelector.js"></script>
-    <script src="src/Database/database.js"></script>
-    <script src="src/game/computle.js"></script>
-    <script src="src/game/multiplayer.js"></script>
-    <script src="src/game/MultiplayerComputle.js"></script>
-    <script src="src/game/gameManager.js"></script>
-    <script src="src/player/score.js"></script>
-    <script src="src/player/user.js"></script>
-    <script src="src/Utilities/p5_elements.js"></script>
-    <script src="src/Utilities/controls.js"></script>
-    <script src="src/sketch.js"></script>
+    <h1>Welcome to Computle</h1>
+
+    <!-- Microsoft Sign-In Button -->
+    <button id="ms-login-btn">Sign in with Microsoft</button>
+    <!-- Play as Guest Button -->
+    <button id="guest-btn">Play as Guest</button>
+
+    <!-- Link to the login JS file -->
+    <script type="module" src="src\Login\login.js"></script>
   </body>
 </html>
