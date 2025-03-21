@@ -27,7 +27,7 @@ msLoginBtn.addEventListener('click', async () => {
     isLoginInProgress = true; // Mark login as in progress
     console.log('Trying login, please wait...');
     await login();  // Await the login function from auth.js
-    window.location.href = 'computle.html';
+    // window.location.href = 'computle.html';
   } catch (error) {
     console.error('Microsoft login error:', error);
   } finally {
