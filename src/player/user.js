@@ -79,7 +79,8 @@ async function getUsername() {
     exportUser(){
       console.log("starting export")
       let certificate = createGraphics(2000, 1414);
-
+      let txtArr = [this.#username,this.#leaderboardID];
+      saveStrings(txtArr, "Leaderboard Entry",'txt',false);
       if(this.#score >= 30){
         certificate.image(certificateBGs[2], 0, 0); 
         certificate.textSize(70); 

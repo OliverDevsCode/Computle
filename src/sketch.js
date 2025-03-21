@@ -60,6 +60,31 @@ function draw() {
     // change leaderboard idle
   }else if(mode ==4){
     // verify leaderboard idle
+  }else if (mode ==5){
+    //multiplayer mode
+    if(opponentComputle != undefined){
+      background(canvasColour);
+      sessionComputle.draw()
+      opponentComputle.draw()
+      if(complete==true){
+        completePopUp()
+      }
+      displayScore()
+      //display opponent score
+      push()
+      fill(0)
+      textAlign(CENTER)
+      textFont("Inter")
+      textStyle(BOLD)
+      textSize(25)
+      if(isHost == true){
+        text(`Score: ${shared_game_data.player2.score}`,600/2 + 600,height-10)
+      }else{
+        text(`Score: ${shared_game_data.player1.score}`,600/2 + 600,height-10)
+      }
+      
+  pop()
+    }
   }else{
     background(canvasColour);
     sessionComputle.draw()

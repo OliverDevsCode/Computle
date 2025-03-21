@@ -8,21 +8,36 @@ let validateButton;
 let usernameINPUT;
 let leaderIdINPUT;
 let submitButton;
+let multiplayerButton;
+let joinButton;
+let createPartyButton;
 function createMenu(x,y){
   menuButton = createButton("☰")
   let xOFFSET = (windowWidth - width) / 2;
   let yOFFSET = (windowHeight - height) / 2;
   menuButton.position(x+xOFFSET,y+yOFFSET)
   menuButton.mousePressed(openMenu)
+  //general menu
+  multiplayerButton = createCustomButton('Multiplayer',20,height/30,'#60779e')
   leaderBoardButton = createCustomButton('View Leaderboard',125,height/2,'#00FF00')
   changeSubject = createCustomButton('Change Subject',140,height/1.70,'#60779e')
   returnButton = createCustomButton('Return',230,height/1.5,'#887986')
   submitScoreButton = createCustomButton('Submit Score',160,height/1.2,'#00FF00')
   exportButton = createCustomButton("Export Score",170,height/1.25,'#60779e')
+  //verification screen
   validateButton = createCustomButton("Validate Previous Score",72,height/1.1,'#FFA500')
   submitButton = createCustomButton("Submit Details",160,height/1.5,'#00FF00')
   usernameINPUT = createCustomInput(35,height/2.5)
   leaderIdINPUT = createCustomInput(35,height/1.8)
+  //multiplayer screen
+  createPartyButton = createCustomButton("Create Game",170,height/2.5,'#00FF00')
+  joinButton = createCustomButton("Join Game",190,height/1.3,'#60779e')
+  partyInput = createCustomInput(35,height/1.5)
+
+  joinButton.hide()
+  multiplayerButton.hide()
+  createPartyButton.hide()
+  partyInput.hide()
   usernameINPUT.hide()
   leaderIdINPUT.hide()
   validateButton.hide()
@@ -32,6 +47,7 @@ function createMenu(x,y){
   submitScoreButton.hide()
   exportButton.hide()
   submitButton.hide()
+  
 }
 
 function openMenu(){
@@ -48,11 +64,23 @@ function openMenu(){
     closeMenu()
     mode = -1
   }
+  if(mode == 5){
+    closeMenu()
+    mode = -1
+    drawMenu(userdata)
+    resizeCanvas(600, 800);
+    centreCanvas()
+    let xOFFSET = (windowWidth - width) / 2;
+    let yOFFSET = (windowHeight - height) / 2;
+    let x = width-40
+    menuButton.position(x+xOFFSET,10+yOFFSET)
+  }
   console.log("menu pressed")
 }
 
 function drawMenu(user){
   goAgain.hide()
+  multiplayerButton.show()
   leaderBoardButton.show()
   returnButton.show()
   changeSubject.show()
@@ -72,6 +100,7 @@ function drawMenu(user){
   text(`Session Score: ${user.score}`,width/2,height/5 +150);
   pop()
 
+  multiplayerButton.mousePressed(multiplayerMenu)
   leaderBoardButton.mousePressed(displayLeaderBoard)
   changeSubject.mousePressed(changeSubjectMenu)
   returnButton.mousePressed(closeMenu)
@@ -122,6 +151,7 @@ function changeSubjectMenu(){
 }
 
 function closeMenu(){
+ multiplayerButton.hide()
  leaderBoardButton.hide()
  changeSubject.hide()
  returnButton.hide()
@@ -131,6 +161,9 @@ function closeMenu(){
  usernameINPUT.hide()
  leaderIdINPUT.hide()
  submitButton.hide()
+ joinButton.hide()
+ partyInput.hide()
+ createPartyButton.hide()
  mode = 0
 if(sessionComputle.solved == true){
   goAgain.show()

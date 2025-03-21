@@ -1,39 +1,17 @@
-class Computle{
-  phrase;
-  answer;
-  topic;
-  attempts;
-  #solved;
-  input;
-  correctLetters;
-  wrongLetters;
-  missplacedLetters;
-  previousInputs;
-  
-  constructor(phrase,topic){
-    this.phrase = phrase.split("");
-    this.answer = phrase
-    this.topic = topic;
-    this.attempts = 0;
-    this.#solved = false;
-    this.input = [];
-    this.correctLetters = [];
-    this.wrongLetters = [];
-    this.missplacedLetters = [];
-    this.previousInputs = [];
-    this.repeatedLetters = [];
+class MultiplayerComputle extends Computle{
+  xOffset;
+  constructor(phrase,topic,x){
+    super(phrase,topic);
+    this.xOffset = x;
+  }
+  get solved(){
+    return super.solved
   }
 
-  get solved(){
-    return this.#solved
-  }
-  set solved(value) {
-    this.#solved = value;
-  }
   
   inputLetter(string){
     //only add when input <= phrase.length
-    if(this.input.length == this.phrase.length || this.#solved == true){
+    if(this.input.length == this.phrase.length || super.solved == true){
       //full
       // console.log("full")
     }else{
@@ -191,9 +169,10 @@ class Computle{
       }
       if(solvedCorrectly == true){
         // console.log("Well Done Correct!")
-          this.#solved = true
-          let pointsToAdd = Math.floor(sessionComputle.calculateMultiplier(answerStreak,7-this.attempts))
-          submitScore(parseInt(userdata.score) + pointsToAdd,this.#solved)
+          super.solved = true
+          // let pointsToAdd = Math.floor(sessionComputle.calculateMultiplier(answerStreak,7-this.attempts))
+          // submitScore(parseInt(userdata.score) + pointsToAdd,super.solved)
+          console.log("correct")
           answerStreak ++
           this.input = [] //reset input
           return true
@@ -279,18 +258,18 @@ class Computle{
       for(let w =0; w < this.phrase.length;w++){
         push()
         fill(230)
-        rect(offsetX + (boxW *w),offsetX + (boxW *(i*1.2)),boxW,boxW)
+        rect(offsetX + (boxW *w)+ this.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
         if(i==this.attempts && this.input.length>0){
         push()
         fill(255)
-        rect(offsetX + (boxW *w),offsetX + (boxW *(i*1.2)),boxW,boxW)
+        rect(offsetX + (boxW *w)+ this.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
         fill(0)
         textAlign(CENTER)
         textFont("Inter")
         textStyle(BOLD)
         textSize(boxW*0.8)
         // text(this.input[w],80 + (boxW *w),110 + (boxW *(i*1.2)))
-        text(this.input[w],offsetX + (boxW *w) + boxW/2,offsetX + (boxW *(i*1.2)) + (boxW*0.8))
+        text(this.input[w],offsetX + (boxW *w) + boxW/2+ this.xOffset,offsetX + (boxW *(i*1.2)) + (boxW*0.8))
         pop()
         }
         pop()
@@ -305,47 +284,46 @@ class Computle{
         // fill(230)
         // console.log("this.previousInputs[i][w][2]",this.previousInputs[i][w])
         fill(this.previousInputs[i][w][2])
-        rect(offsetX + (boxW *w),offsetX + (boxW *(i*1.2)),boxW,boxW)
+        rect(offsetX + (boxW *w)+ this.xOffset,offsetX + (boxW *(i*1.2)),boxW,boxW)
         fill(0)
         textAlign(CENTER)
         textFont("Inter")
         textStyle(BOLD)
         textSize(boxW*0.8)
         // text(this.previousInputs[i][w],80 + (boxW *w),110 + (boxW *(i*1.2)))
-        text(this.previousInputs[i][w][0],offsetX + (boxW *w) + boxW/2,offsetX + (boxW *(i*1.2)) + (boxW*0.8))
+        text(this.previousInputs[i][w][0],offsetX + (boxW *w) + boxW/2+ this.xOffset,offsetX + (boxW *(i*1.2)) + (boxW*0.8))
         pop()
       }//enf of for
       
       }//end of if
     }
     
-    if(this.#solved == true){
+    if(super.solved == true){
       push()
       fill('#00FF00')
-      rect(100,320,400,110,10)
+      rect(100+ this.xOffset,320,400,110,10)
       fill(0)
       textAlign(CENTER)
       textFont("Inter")
       textStyle(BOLD)
       textSize(600/8)
-      text("Well Done!",600/2,height/2)
+      text("Well Done!",600/2 + this.xOffset,height/2 - 50)
       pop()
     }
     
-    if(this.#solved == false && this.attempts == 6){
+    if(super.solved == false && this.attempts == 6){
       push()
       fill('#FCE205')
-      rect(100,320,400,110,10)
+      rect(100+this.xOffset,320,400,110,10)
       fill(0)
       textAlign(CENTER)
       textFont("Inter")
       textStyle(BOLD)
       let message = `Unlucky! Answer:${this.answer}`
-      let char600Factor = 0.6; // Adjust as needed for Inter
-      textSize(400/ (message.length * char600Factor))
-      text(message,600/2,height/2)
+      let charWidthFactor = 0.6; // Adjust as needed for Inter
+      textSize(400/ (message.length * charWidthFactor))
+      text(message,300+ this.xOffset,height/2)
       pop()
-      goAgain.show()
     }
     
     push()
@@ -354,10 +332,9 @@ class Computle{
     textFont("Inter")
     textStyle(BOLD)
     textSize(600/25)
-    text(`Topic: ${this.topic}`,600/2,maxH/3)
+    let topicPos = offsetX + (boxW * this.phrase.length)/2
+    text(`Topic: ${this.topic}`,topicPos+ this.xOffset,maxH/3)
     pop()
   }
-  
- 
-  
+
 }

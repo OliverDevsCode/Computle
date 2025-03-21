@@ -71,6 +71,9 @@ Try out Computle now on GitHub Pages:\
 <img src="docs/Score%20Verification.png" width="400" alt="Score Verification">
 - Verify that a score certificate is genuine and corresponds to the leaderboard entry, ensuring authenticity and protecting user anonymity.
 
+### Coming Soon
+- Multiplayer computle mode coming soon
+
 
 ## Contributing
 

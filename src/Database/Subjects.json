@@ -36,6 +36,18 @@
     "request": "/?subject=Drama&level=A-LEVEL"
   },
   {
+    "subject": "English Literature A-LEVEL",
+    "request": "/?subject=English Literature&level=A-LEVEL"
+  },
+  {
+    "subject": "English Literature GCSE",
+    "request": "/?subject=English Literature&level=GCSE"
+  },
+  {
+    "subject": "English Language A-LEVEL",
+    "request": "/?subject=English Language&level=A-LEVEL"
+  },
+  {
     "subject": "Film Studies GCSE",
     "request": "/?subject=Film Studies&level=GCSE"
   },
