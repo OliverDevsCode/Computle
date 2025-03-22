@@ -23,8 +23,8 @@ Computle is an interactive learning program originally aimed at A-Level Computer
 
 ## Play the Game
 
-Try out Computle now on GitHub Pages:\
-[🔗 Play Now](https://oliverdevscode.github.io/Computle/)
+Try out Computle now:\
+[🔗 Play Now](https://computle.vercel.app/)
 
 ## How to Run Locally
 
