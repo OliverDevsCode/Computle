@@ -1,16 +1,26 @@
 // Import the Microsoft login function from your auth file
 import { login } from './microsoft.js';
 
+// Dark mode toggle
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const logo = document.getElementById('logo');
+
 // Check and apply dark mode setting on page load
 if (localStorage.getItem('theme') === 'dark') {
+  // Dark mode is enabled
   document.body.classList.add('dark-mode');
+  darkModeToggle.textContent = "☀️ Light Mode";
+  logo.src = 'src/assets/darkmodeLogo.png';
+}
+if (localStorage.getItem('theme') === 'light') {
+  document.body.classList.add('light-mode');
+  darkModeToggle.textContent = "🌙 Dark Mode";
+  logo.src = 'src/assets/lightmodeLogo.png';
 }
 
 
 
-// Dark mode toggle
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-const logo = document.getElementById('logo');
+
 
 darkModeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
