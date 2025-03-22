@@ -40,13 +40,25 @@ async function getLeaderboard(){
       
       for(let i = 0; i < numEntries; i ++){
           push()
-          if(boardData[i].username == userdata.username && boardData[i].score == userdata.score && boardData[i].subject == userdata.subject){
-            stroke(255,255,255);
-            strokeWeight(4);
-            fill(0,255,0)
-          }else{
+          if(localStorage.getItem("msal_userName") != null){
+            if(boardData[i].username == userdata.username && boardData[i].msHASH == userdata.usernameHASH && boardData[i].subject == userdata.subject){
+              stroke(255,255,255);
+              strokeWeight(4);
+              fill(0,255,0)
+            }
+            else{
             fill(0,0,0)
+            }
+          }else{
+            if(boardData[i].username == userdata.username && boardData[i].subject == userdata.subject){
+              stroke(255,255,255);
+              strokeWeight(4);
+              fill(0,255,0)
+            }else{
+              fill(0,0,0)
+            }
           }
+          
           text(boardData[i].score + ' points',80,100+(i*30))
           text(boardData[i].username,width/2,100+(i*30))
           push()
