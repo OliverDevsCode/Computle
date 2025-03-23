@@ -4,9 +4,12 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const leaderboardRouter = require(path.join(__dirname, 'src', 'api', 'leaderboard'));
+
 // Serve static files correctly
 app.use(express.static(path.join(__dirname, 'src'))); // Serve src files
 app.use(express.static(path.join(__dirname, 'style'))); // Serve CSS
+app.use('/api', leaderboardRouter);
 
 // ✅ Fix: Serve JS and other files correctly before the wildcard route
 app.get('/*.js', (req, res) => {
