@@ -1,0 +1,167 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+canvas {
+  display: block;
+}
+
+/* Default Light Mode */
+:root {
+  --bg-color: #7DA6DE;
+  --text-color: #000;
+  --font-family: 'Inter', 'Roboto', 'Open Sans', Arial, sans-serif; /* Fallback stack */
+  --table-bg: #f9f9f9; /* Light table background */
+  --table-header-bg: #e0e0e0; /* Light table header background */
+  --table-row-bg: #f4f4f4; /* Light table row background */
+  --table-hover-bg: #11b80b; /* Light hover effect */
+}
+
+/* Dark Mode */
+.dark-mode {
+  --bg-color: #1E1E1E;
+  --text-color: #FFF;
+  --table-bg: #2c2c2c; /* Dark table background */
+  --table-header-bg: #444; /* Dark table header background */
+  --table-row-bg: #333; /* Dark table row background */
+  --table-hover-bg: #11b80b; /* Dark hover effect */
+}
+
+/* Apply Colors */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Toggle Button Style */
+#dark-mode-toggle {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #000;
+  color: #FFF;
+}
+
+.dark-mode #dark-mode-toggle {
+  background-color: #FFF;
+  color: #000;
+}
+
+#home-button{
+  position: absolute;
+  top: 10px;  /* Adjusts distance from the top */
+  left: 10px; /* Moves it to the right */
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #000;
+  color: #FFF;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: #c4c1c1;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+  color: rgb(255, 243, 243);
+}
+
+.filters {
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: var(--table-header-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.filter-input {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: var(--table-header-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.list-length{
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background: var(--table-header-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 8px 16px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+.filter-btn:hover {
+  background: var(--table-hover-bg);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--table-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+th {
+  background: var(--table-header-bg);
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--table-row-bg);
+}
+
+tbody tr:hover {
+  background: var(--table-hover-bg);
+  color: rgb(215, 201, 201);
+}

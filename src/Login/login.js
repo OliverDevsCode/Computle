@@ -68,3 +68,10 @@ const guestBtn = document.getElementById('guest-btn');
 guestBtn.addEventListener('click', () => {
   window.location.href = 'computle.html';
 });
+
+
+// Leaderboard button
+const leaderboard = document.getElementById('leaderboard-btn');
+leaderboard.addEventListener('click', () => {
+  window.location.href = 'leaderboard.html';
+});

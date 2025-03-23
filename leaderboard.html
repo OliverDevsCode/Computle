@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="style/leaderboard.css" />
+</head>
+<body>
+  <button id="dark-mode-toggle">🌙 Dark Mode</button>
+  <a href="index.html" id="home-button">Go Home</a>
+
+  <h1>Leaderboard 🏆</h1>
+
+  <div class="filters">
+    <button class="filter-btn" data-subject="all">All</button>
+    <button class="filter-btn" data-subject="A-LEVEL">A-LEVEL</button>
+    <button class="filter-btn" data-subject="GCSE">GCSE</button>
+    <button class="filter-btn" data-subject="KS3">KS3</button>
+    <input type="text" type="search" class="filter-input" id="subject-input" placeholder="Other...Enter subject">
+    <select class="list-length" id="list-select">
+      <optgroup label="Display:">
+          <option value="15">Top: 15</option>
+          <option value="30">Top: 30</option>
+          <option value="45">Top: 45</option>
+          <option value="60">Top: 60</option>
+          <option value="75">Top: 75</option>
+          <option value="90">Top: 90</option>
+          <option value="105">Top: 100</option>
+      </optgroup>
+      <optgroup label="Extreme:">
+        <option value="ALL">All Entries</option>
+    </optgroup>
+  </select>
+  </div>
+
+  <table id="leaderboard-table">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Username</th>
+        <th>Score</th>
+        <th>Subject</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="src\leaderboard\leaderboardpage.js"></script>
+</body>
+</html>
