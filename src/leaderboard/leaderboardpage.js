@@ -73,7 +73,7 @@ async function displayLeaderboard(subjectFilter = "all") {
   if(currentUser != null){
     userHash = await getMSUsername(currentUser)
   }
-  
+
   filteredData.forEach((entry, index) => {
     const row = document.createElement('tr');
 
