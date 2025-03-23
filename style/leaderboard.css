@@ -53,7 +53,7 @@ body {
   color: #000;
 }
 
-#home-button{
+#home-button {
   position: absolute;
   top: 10px;  /* Adjusts distance from the top */
   left: 10px; /* Moves it to the right */
@@ -63,8 +63,16 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #000;
-  color: #FFF;
+  text-decoration: none; /* Removes underline */
+  font-weight: bold;
+  background: var(--table-header-bg); /* Matches theme */
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#home-button:hover {
+  background: var(--table-hover-bg); /* Matches hover effect */
+  color: #fff; /* Ensures contrast */
 }
 
 .container {
