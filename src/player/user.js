@@ -58,6 +58,7 @@ function getFirstNameAndInitial(fullName) {
     #curentSubject;
     #hashScore;
     #leaderboardID;  
+    #leaderboardScore;
     constructor(){
       this.#score = 0
       this.#streak = 0
@@ -111,16 +112,23 @@ function getFirstNameAndInitial(fullName) {
       return this.#curentSubject
     }
 
+    get leaderboardScore(){
+      return this.#leaderboardScore
+    }
+
     setLeaderboardID(str){
       this.#leaderboardID = str
     }
 
-    exportUser(){
+    async exportUser(){
       console.log("starting export")
+      //get score from leaderboard
+      const leaderboard_data = await verifyLeaderBoardID(this.#leaderboardID,this.#username);
+      this.#leaderboardScore = leaderboard_data.score
       let certificate = createGraphics(2000, 1414);
       let txtArr = [this.#username,this.#leaderboardID];
       saveStrings(txtArr, "Leaderboard Entry",'txt',false);
-      if(this.#score >= 30){
+      if(this.#leaderboardScore >= 30){
         certificate.image(certificateBGs[2], 0, 0); 
         certificate.textSize(70); 
         certificate.textFont('serif')
@@ -129,16 +137,16 @@ function getFirstNameAndInitial(fullName) {
         certificate.text(`${this.#username}`, certificate.width / 2,certificate.height / 2.35); 
         certificate.textSize(40);
         certificate.textStyle(NORMAL)
-        if(this.#score == 1){
-          certificate.text(`${this.#username} acheived a score of ${this.#score} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.9); // Centered text
+        if(this.#leaderboardScore == 1){
+          certificate.text(`${this.#username} acheived a score of ${this.#leaderboardScore} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.9); // Centered text
         }else{
-        certificate.text(`${this.#username} acheived a score of ${this.#score} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.9); // Centered text
+        certificate.text(`${this.#username} acheived a score of ${this.#leaderboardScore} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.9); // Centered text
         }
         certificate.text(`Leaderboard ID: ${this.#leaderboardID}`, certificate.width / 2, certificate.height /1.7);
                     
         save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
       }
-      else if(this.#score >= 15){
+      else if(this.#leaderboardScore >= 15){
         certificate.image(certificateBGs[1], 0, 0); 
         certificate.textSize(70); 
         certificate.textFont('Josefin Sans')
@@ -147,16 +155,16 @@ function getFirstNameAndInitial(fullName) {
         certificate.text(`${this.#username}`, certificate.width / 2,certificate.height / 2.25); 
         certificate.textSize(50);
         certificate.textStyle(NORMAL)
-        if(this.#score == 1){
-          certificate.text(`${this.#username} acheived a score of ${this.#score} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
+        if(this.#leaderboardScore == 1){
+          certificate.text(`${this.#username} acheived a score of ${this.#leaderboardScore} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
         }else{
-        certificate.text(`${this.#username} acheived a score of ${this.#score} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
+        certificate.text(`${this.#username} acheived a score of ${this.#leaderboardScore} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
         }
         certificate.text(`Leaderboard ID: ${this.#leaderboardID}`, certificate.width / 2, certificate.height /1.3);
                     
         save(certificate, `Score EXPORT ${this.#username}.png`);// Save the image
       }
-      else if(this.#score < 15){
+      else if(this.#leaderboardScore < 15){
         certificate.image(certificateBGs[0], 0, 0); 
         certificate.textSize(70); 
         certificate.textFont('Josefin Sans')
@@ -165,10 +173,10 @@ function getFirstNameAndInitial(fullName) {
         certificate.text(`${this.#username}`, certificate.width / 2,certificate.height / 2.25); 
         certificate.textSize(50);
         certificate.textStyle(NORMAL)
-        if(this.#score == 1){
-          certificate.text(`${this.#username} acheived a score of ${this.#score} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
+        if(this.#leaderboardScore == 1){
+          certificate.text(`${this.#username} acheived a score of ${this.#leaderboardScore} point on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
         }else{
-        certificate.text(`${this.#username} acheived a score of ${this.#score} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
+        certificate.text(`${this.#username} acheived a score of ${this.#leaderboardScore} points on ${this.#curentSubject}`, certificate.width / 2,       certificate.height / 1.75); // Centered text
         }
         certificate.text(`Leaderboard ID: ${this.#leaderboardID}`, certificate.width / 2, certificate.height /1.3);
                     
