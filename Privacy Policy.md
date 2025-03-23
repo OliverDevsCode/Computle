@@ -13,6 +13,8 @@ When you use our Site, we may collect the following types of information:
 - **Anonymous Identifier:** A randomly generated name created using a third-party name API. This identifier is used on our public leaderboard and is not directly linked to personally identifiable information.
 - **Game Data:** Information related to your interaction with the educational content, such as your score and the subject or topic you are working on.
 
+- **(If using Microsoft Login):** Additional Information is store to allow you to continue where you left off, this includes a hashed version of your accountID and your First name and initial
+
 ---
 
 ## 2. How We Use Your Information
