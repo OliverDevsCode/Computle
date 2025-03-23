@@ -28,10 +28,14 @@ toggleButton.addEventListener("click", () => {
 
 async function getLeaderboard() {
   try {
+    const sampleSize = document.getElementById('list-select').value
+    console.log(sampleSize)
     const response = await fetch('https://computle-backend.vercel.app/api/leaderboard', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      
+      body: JSON.stringify({
+        sampleSize: sampleSize
+      })
     });
 
     if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
@@ -107,3 +111,13 @@ function logInputType(event) {
   const subject = 'other'
   displayLeaderboard(subject);
 }
+
+const resultsLength = document.getElementById('list-select')
+// Selection Button
+document.addEventListener('DOMContentLoaded', () => {
+    resultsLength.addEventListener('input', () => {
+      console.log("list length change")
+      displayLeaderboard('all');
+    });
+});
+
