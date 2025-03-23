@@ -41,12 +41,6 @@ function saveUserInfo(account) {
 
     console.log("User Info:", account);
 
-    // Update the UI if the element exists
-    const userInfoEl = document.getElementById("user-info");
-    if (userInfoEl) {
-        userInfoEl.innerText = `Hello, ${account.name}`;
-    }
-
     // Store the user's name in localStorage for use on other pages
     localStorage.setItem("msal_userName", account.name);
     localStorage.setItem("msal_accountId", account.localAccountId);

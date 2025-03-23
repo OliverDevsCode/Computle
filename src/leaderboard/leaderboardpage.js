@@ -68,17 +68,22 @@ async function displayLeaderboard(subjectFilter = "all") {
   }
 
   // Get current user
-  const currentUser = localStorage.getItem("msal_userName");
-
+  const currentUser = localStorage.getItem("msal_accountId");
+  let userHash
+  if(currentUser != null){
+    userHash = await getMSUsername(currentUser)
+  }
+  
   filteredData.forEach((entry, index) => {
     const row = document.createElement('tr');
 
     // Highlight the current user in green
-    if (entry.username === currentUser) {
-      row.style.backgroundColor = "lightgreen";
-      row.style.fontWeight = "bold";
+    if(currentUser!=null){
+      if (entry.msHASH === userHash){
+        row.style.backgroundColor = "lightgreen";
+        row.style.fontWeight = "bold";
+      }
     }
-
     row.innerHTML = `
       <td>${index + 1}</td>
       <td>${entry.username}</td>
@@ -88,6 +93,24 @@ async function displayLeaderboard(subjectFilter = "all") {
 
     tableBody.appendChild(row);
   });
+}
+
+async function getMSUsername(username) {
+  try {
+    const response = await fetch('https://computle-backend.vercel.app/api/getMSUsername', {
+      method: 'post',
+      headers: {
+        'Content-type':'application/json'
+      },
+      body: JSON.stringify({username: username})      
+    });
+    const data = await response.json();
+    console.log('Server response:', data);
+    return data.hash 
+  } catch (error) {
+    console.error('Error fetching username:', error);
+    return ['Guest', ''];
+  }
 }
 
 // Filter buttons
