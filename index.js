@@ -4,10 +4,8 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const leaderboardRouter = require('./api/leaderboard.js');
 
 // Serve static files correctly
-app.use('/api', leaderboardRouter);
 app.use(express.static(path.join(__dirname, 'src'))); // Serve src files
 app.use(express.static(path.join(__dirname, 'style'))); // Serve CSS
 

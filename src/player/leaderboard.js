@@ -1,6 +1,6 @@
 async function getLeaderboard(){
-  return fetch('/api/leaderboard', {
-    method: 'GET',
+  return fetch('https://computle-backend.vercel.app/api/leaderboard', {
+    method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     }
