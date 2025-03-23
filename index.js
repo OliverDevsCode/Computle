@@ -4,7 +4,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const leaderboardRouter = require('src/api/leaderboard.js');
+const leaderboardRouter = require('.src/api/leaderboard.js');
 
 // Serve static files correctly
 app.use('/api', leaderboardRouter);
