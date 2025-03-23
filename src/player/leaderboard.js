@@ -1,5 +1,5 @@
 async function getLeaderboard(){
-  return fetch('/api/leaderboard', {
+  return fetch('/leaderboard', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
