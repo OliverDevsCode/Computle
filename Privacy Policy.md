@@ -2,7 +2,7 @@
 
 **Effective Date:** 12/02/2025
 
-This Privacy Policy explains how Computle ("we," "us," or "our") collects, uses, and protects the information you provide when using our educational website hosted on GitHub Pages (the "Site"). By accessing or using the Site, you agree to the terms outlined in this Privacy Policy.
+This Privacy Policy explains how Computle ("we," "us," or "our") collects, uses, and protects the information you provide when using our educational website hosted on Vercel and GitHub Pages (the "Site"). By accessing or using the Site, you agree to the terms outlined in this Privacy Policy.
 
 ---
 
