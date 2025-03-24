@@ -19,7 +19,7 @@ When you use our Site, we may collect the following types of information:
 
 ## 2. How We Use Your Information
 
-We use the information we collect for several purposes, including:
+We use the information we collect for one purpose:
 
 - **Displaying Leaderboard Data:** To present your game performance on a public leaderboard using your anonymous identifier.
 
@@ -28,7 +28,7 @@ We use the information we collect for several purposes, including:
 ## 3. Data Sharing and Third-Party Services
 
 - **Random Username API:** We use the [Random Username API](https://github.com/randomusernameapi/randomusernameapi.github.io) to generate anonymous identifiers for our leaderboard. The data exchanged with this API is used solely for generating these identifiers. Please refer to the API provider's documentation or privacy policy (if available) for more details on how they handle data.
-- **Public Data Display:** Data displayed on the leaderboard is anonymized and does not reveal personal information about you.
+- **Public Data Display:** Data displayed on the leaderboard is anonymized and does not reveal personal information about you (unless you use microsoft login where first name and initial is displayed).
 
 ---
 
