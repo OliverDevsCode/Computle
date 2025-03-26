@@ -75,3 +75,10 @@ const leaderboard = document.getElementById('leaderboard-btn');
 leaderboard.addEventListener('click', () => {
   window.location.href = 'leaderboard.html';
 });
+
+//Integration to Mr Dennehy's Code
+const referrer = document.referrer;
+console.log(referrer)
+if(referrer == 'https://cs-exam-game-v5.vercel.app/'){
+  sessionStorage.setItem('referrer',referrer)
+}

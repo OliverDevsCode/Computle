@@ -91,6 +91,7 @@ async function getLeaderboard(){
       if(localStorage.getItem("msal_userName") != null){
         let MSusername = localStorage.getItem("msal_accountId")
         await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH,MSusername)
+        sendScoreNDE(userdata.score)
       }else{
         await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH)
       }
@@ -119,6 +120,41 @@ async function getLeaderboard(){
     } catch (error) {
       console.error('Error:', error);
       return null; // Return null or some error object
+    }
+  }
+
+  //Mr Dennehy integration 
+  function sendScoreNDE(score) {
+    // Retrieve player name from "user-info" element; if not found, fallback to localStorage.
+    let playerName = localStorage.getItem("msal_userName")
+
+    
+    if (playerName) {
+      // Submit the score to the database.
+      fetch(`https://cs-exam-game-v5.vercel.app/api/score`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          studentName: playerName,
+          score: score,
+          scoreSource: "Computle"
+        })
+      })
+      .then(response => {
+        if (!response.ok) {
+          return response.json().then(err => { throw new Error(err.error || "Unknown error"); });
+        }
+        return response.json();
+      })
+      .then(data => {
+        alert(`Score submitted successfully! (ID: ${data.insertedId})`);
+      })
+      .catch(error => {
+        console.error('Error submitting score:', error);
+        alert("Score submission failed: " + error.message);
+      });
+    } else {
+      alert("No user info available; score not submitted.");
     }
   }
   
