@@ -90,7 +90,10 @@ async function getLeaderboard(){
     }else{
       if(localStorage.getItem("msal_userName") != null){
         let MSusername = localStorage.getItem("msal_accountId")
-        sendScoreNDE(userdata.score)
+        let reference = sessionStorage.getItem("referrer");
+        if(reference == 'https://cs-exam-game-v5.vercel.app/'){
+          sendScoreNDE(userdata.score)
+        }
         await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH,MSusername)
       }else{
         await sendScore(userdata.score,userdata.username,userdata.currentSubject,userdata.hashValue,userdata.usernameHASH)
