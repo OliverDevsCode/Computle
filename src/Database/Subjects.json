@@ -108,6 +108,10 @@
     "request": "/?subject=Physical Education&level=A-LEVEL"
   },
   {
+    "subject": "Psychology A-LEVEL",
+    "request": "/?subject=Psychology&level=A-LEVEL"
+  },
+  {
     "subject": "Sociology GCSE",
     "request": "/?subject=Sociology&level=GCSE"
   },
