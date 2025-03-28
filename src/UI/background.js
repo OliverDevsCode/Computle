@@ -33,3 +33,22 @@ toggleButton.addEventListener("click", () => {
 
     }
 });
+
+// Accessibility - Colourblind Mode
+const toggleColourBlind = document.getElementById("colour-blind-toggle");
+const body = document.body;
+
+// Check Local Storage on Page Load
+document.addEventListener("DOMContentLoaded", () => {
+    const colourblindEnabled = localStorage.getItem("colourblind") === "true"; 
+    if (colourblindEnabled) {
+        body.classList.add("colourblind-mode-on");
+    }
+});
+
+// Toggle Colourblind Mode
+toggleColourBlind.addEventListener("click", () => {
+    const isColourblindMode = body.classList.toggle("colourblind-mode-on"); 
+    localStorage.setItem("colourblind", isColourblindMode); 
+});
+

@@ -50,6 +50,10 @@ class Computle{
   
   guess(){
 
+    //ACCESSIBLITY
+    const colourConfig = localStorage.getItem("colourblind")
+    console.log(colourConfig)
+
     let currentGuess = []
     
     // console.log("Correct Word",this.phrase)
@@ -85,6 +89,8 @@ class Computle{
         }
 
         // console.log(" END OF TRUE IF The list of missplaced letters is",this.missplacedLetters)
+
+
 
         this.correctLetters.push([this.input[i],i,'#00FF00'])
         currentGuess.push([this.input[i],i,'#00FF00'])
@@ -126,8 +132,14 @@ class Computle{
 
         if(occurence == letterToCheck.length){
           // console.log("letter already solved")
-          this.repeatedLetters.push([this.input[i],i,'#FF0000'])
-          currentGuess.push([this.input[i],i,'#FF0000'])
+          if(colourConfig =="false"){
+            this.repeatedLetters.push([this.input[i],i,'#FF0000'])
+            currentGuess.push([this.input[i],i,'#FF0000'])
+          }else{
+            this.repeatedLetters.push([this.input[i],i,'#555555'])
+            currentGuess.push([this.input[i],i,'#555555'])
+          }
+          
 
           
         }else{
@@ -140,8 +152,14 @@ class Computle{
           }
         }
         if(add == true){
-        this.missplacedLetters.push([this.input[i],i,'#FFFF00'])
-        currentGuess.push([this.input[i],i,'#FFFF00'])
+        if(colourConfig == "false"){
+          this.missplacedLetters.push([this.input[i],i,'#FFFF00'])
+          currentGuess.push([this.input[i],i,'#FFFF00'])
+        }else{
+          this.missplacedLetters.push([this.input[i],i,'#1E90FF'])
+          currentGuess.push([this.input[i],i,'#1E90FF'])
+        }
+        
         } 
         }
         
@@ -157,8 +175,13 @@ class Computle{
           }
         }
         if(add == true){
-        this.wrongLetters.push([this.input[i],i,'#FF0000'])
-        currentGuess.push([this.input[i],i,'#FF0000'])
+        if(colourConfig == "false"){
+          this.wrongLetters.push([this.input[i],i,'#FF0000'])
+          currentGuess.push([this.input[i],i,'#FF0000'])
+        }else{
+          this.wrongLetters.push([this.input[i],i,'#1E90FF'])
+        currentGuess.push([this.input[i],i,'#1E90FF'])
+        }
         
         } 
     }

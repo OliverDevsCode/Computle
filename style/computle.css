@@ -40,6 +40,18 @@ body {
   color: #FFF;
 }
 
+/* Toggle Button Style */
+#dark-mode-toggle {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #000;
+  color: #FFF;
+}
+
 .dark-mode #dark-mode-toggle {
   background-color: #FFF;
   color: #000;
@@ -85,3 +97,42 @@ body {
   opacity: 0.8; /* Subtle hover effect */
 }
 
+/* Dark Mode */
+.colourblind-mode {
+  --cb-bg-color: #1E1E1E;
+  --cb-text-color: #FFF;
+}
+
+.colourblind-mode-on {
+  --cb-bg-color: #2c9dc0;
+  --cb-text-color: #FFF;
+}
+
+#colour-blind-toggle {
+  position: absolute;
+  top: 10px;  /* Adjusts distance from the top */
+  right: 10px; /*Moves it to the right */
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none; /* Removes underline */
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.colourblind-mode #colour-blind-toggle {
+  background-color: var(--cb-text-color);
+  color: var(--cb-bg-color);
+}
+
+.colourblind-mode-on #colour-blind-toggle {
+  background-color: var(--cb-text-color);
+  color: var(--cb-bg-color);
+}
+
+#colour-blind-toggle:hover {
+  opacity: 0.8; /* Subtle hover effect */
+}
