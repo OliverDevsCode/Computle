@@ -95,7 +95,7 @@ function draw() {
     }
     displayScore()
   }
-  // detectDevTools();//uncomment after testing
+  detectDevTools();//uncomment after testing
   
 }
 
