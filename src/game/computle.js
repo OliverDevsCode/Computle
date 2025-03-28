@@ -179,8 +179,8 @@ class Computle{
           this.wrongLetters.push([this.input[i],i,'#FF0000'])
           currentGuess.push([this.input[i],i,'#FF0000'])
         }else{
-          this.wrongLetters.push([this.input[i],i,'#1E90FF'])
-        currentGuess.push([this.input[i],i,'#1E90FF'])
+          this.wrongLetters.push([this.input[i],i,'#555555'])
+        currentGuess.push([this.input[i],i,'#555555'])
         }
         
         } 
