@@ -11,6 +11,12 @@ let certificateBGs = []
 let lightmodeLogo;
 let darkmodeLogo;
 
+document.addEventListener('DOMContentLoaded', () => {
+  const wordbank = document.getElementById('letter-bank');
+  wordbank.style.display = 'none';
+});
+
+
 function preload(){
   subjectsDB = loadJSON("src/Database/Subjects.json", (data) => {
     subjectsDB = data; // assign as array
@@ -94,6 +100,8 @@ function draw() {
       completePopUp()
     }
     displayScore()
+    const wordbank = document.getElementById('letter-bank');
+    wordbank.style.display = 'table';
   }
   detectDevTools();//uncomment after testing
   

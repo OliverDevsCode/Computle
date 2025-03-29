@@ -136,3 +136,38 @@ body {
 #colour-blind-toggle:hover {
   opacity: 0.8; /* Subtle hover effect */
 }
+
+#letter-bank {
+  position: absolute;
+  top: 10vh;
+  right: 10px;
+}
+
+table {
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  font-weight: bold;
+  width: 20px;
+  color: #000;
+}
+
+th, td {
+  padding: 2px;
+  border-bottom: 1px solid #444;
+}
+
+th {
+  background: var(--table-header-bg); /* Background fill */
+  color: var(--text-color);
+  text-align: center;
+  padding: 6px; /* Increase padding for better spacing */
+  display: block; /* Makes background span the width */
+  border-top-left-radius: 10px;  /* Curved top left */
+  border-top-right-radius: 10px; /* Curved top right */
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--table-row-bg);
+}
+

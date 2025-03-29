@@ -9,6 +9,7 @@ class Computle{
   wrongLetters;
   missplacedLetters;
   previousInputs;
+  letterbank;
   
   constructor(phrase,topic){
     this.phrase = phrase.split("");
@@ -22,6 +23,13 @@ class Computle{
     this.missplacedLetters = [];
     this.previousInputs = [];
     this.repeatedLetters = [];
+    this.resetLetterdBank();
+    this.letterbank = [];
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    alphabet.forEach(letter => {
+      const data = [letter.toUpperCase(),'null']
+      this.letterbank.push(data)
+    });
   }
 
   get solved(){
@@ -94,6 +102,7 @@ class Computle{
 
         this.correctLetters.push([this.input[i],i,'#00FF00'])
         currentGuess.push([this.input[i],i,'#00FF00'])
+        this.checkletterbank(this.input[i],'correct','#00FF00')
         
         }  
       }
@@ -135,9 +144,12 @@ class Computle{
           if(colourConfig =="false"){
             this.repeatedLetters.push([this.input[i],i,'#FF0000'])
             currentGuess.push([this.input[i],i,'#FF0000'])
+            this.checkletterbank(this.input[i],'incorrect','#FF0000')
+
           }else{
             this.repeatedLetters.push([this.input[i],i,'#555555'])
             currentGuess.push([this.input[i],i,'#555555'])
+            this.checkletterbank(this.input[i],'incorrect','#FF0000')
           }
           
 
@@ -155,9 +167,13 @@ class Computle{
         if(colourConfig == "false"){
           this.missplacedLetters.push([this.input[i],i,'#FFFF00'])
           currentGuess.push([this.input[i],i,'#FFFF00'])
+          this.checkletterbank(this.input[i],'missplaced','#FFFF00')
+          
         }else{
           this.missplacedLetters.push([this.input[i],i,'#1E90FF'])
           currentGuess.push([this.input[i],i,'#1E90FF'])
+          this.checkletterbank(this.input[i],'missplaced','#1E90FF')
+
         }
         
         } 
@@ -178,9 +194,12 @@ class Computle{
         if(colourConfig == "false"){
           this.wrongLetters.push([this.input[i],i,'#FF0000'])
           currentGuess.push([this.input[i],i,'#FF0000'])
+          this.checkletterbank(this.input[i],'incorrect','#FF0000')
+
         }else{
           this.wrongLetters.push([this.input[i],i,'#555555'])
-        currentGuess.push([this.input[i],i,'#555555'])
+          currentGuess.push([this.input[i],i,'#555555'])
+          this.checkletterbank(this.input[i],'incorrect','#555555')
         }
         
         } 
@@ -380,7 +399,53 @@ class Computle{
     text(`Topic: ${this.topic}`,600/2,maxH/3)
     pop()
   }
-  
- 
-  
+
+  updateWordBank(letter,colour){
+    const rows = document.querySelectorAll('#letter-bank tbody tr');
+    rows.forEach((row) => {
+      const cell = row.querySelector('td');
+      console.log('cell-colour',cell.style.backgroundColor)
+      if (cell.textContent === letter) {
+         cell.style.backgroundColor = colour;
+      }
+      });
+  }
+
+  resetLetterdBank(){
+    const rows = document.querySelectorAll('#letter-bank tbody tr');
+    rows.forEach((row) => {
+      const cell = row.querySelector('td');
+      cell.style.backgroundColor = canvasColour;
+      });
+
+  }
+
+  checkletterbank(letter,state,colour){
+    this.letterbank.forEach(element => {
+      if(element[0] == letter){
+        if(element[1] == "correct"){
+          //add correct
+          if(state == "correct"){
+            this.updateWordBank(letter,colour)
+          }
+          element[1] = state
+        }else if(element[1] == "missplaced"){
+          //add missplaced
+          if(state == "missplaced" || state == "correct"){
+            this.updateWordBank(letter,colour)
+          }
+          element[1] = state
+        }else if (element[1] == "incorrect"){
+          if(state == "missplaced" || state == "correct" || state == "incorrect"){
+            this.updateWordBank(letter,colour)
+          }
+          element[1] = state
+        }else if(element[1] == "null"){
+          this.updateWordBank(letter,colour)
+          element[1] = state
+        }
+      }
+    });
+  }
+
 }
