@@ -400,7 +400,7 @@ class Computle{
     pop()
   }
 
-  updateWordBank(letter,colour){
+  updateLetterBank(letter,colour){
     const rows = document.querySelectorAll('#letter-bank tbody tr');
     rows.forEach((row) => {
       const cell = row.querySelector('td');
@@ -426,22 +426,22 @@ class Computle{
         if(element[1] == "correct"){
           //add correct
           if(state == "correct"){
-            this.updateWordBank(letter,colour)
+            this.updateLetterBank(letter,colour)
           }
           element[1] = state
         }else if(element[1] == "missplaced"){
           //add missplaced
           if(state == "missplaced" || state == "correct"){
-            this.updateWordBank(letter,colour)
+            this.updateLetterBank(letter,colour)
           }
           element[1] = state
         }else if (element[1] == "incorrect"){
           if(state == "missplaced" || state == "correct" || state == "incorrect"){
-            this.updateWordBank(letter,colour)
+            this.updateLetterBank(letter,colour)
           }
           element[1] = state
         }else if(element[1] == "null"){
-          this.updateWordBank(letter,colour)
+          this.updateLetterBank(letter,colour)
           element[1] = state
         }
       }
