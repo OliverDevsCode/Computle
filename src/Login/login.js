@@ -76,6 +76,12 @@ leaderboard.addEventListener('click', () => {
   window.location.href = 'leaderboard.html';
 });
 
+// how to button
+const howToButton = document.getElementById('help-btn');
+howToButton.addEventListener('click', () => {
+  window.location.href = 'demo.html';
+});
+
 //Integration to Mr Dennehy's Code
 const referrer = document.referrer;
 console.log(referrer)

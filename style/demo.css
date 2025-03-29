@@ -1,0 +1,49 @@
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #142234;
+    color: #ffffff;
+    font-family: 'Inter', 'Roboto', 'Open Sans', Arial, sans-serif;
+  }
+  
+  /* Center the main heading */
+  h1 {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  /* Carousel container styling */
+  #carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding: 20px;
+  }
+  
+  /* Feature panel styling with increased width */
+  .feature {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    background: #1d2b40;
+    border-radius: 8px;
+    margin-right: 20px;
+    padding: 10px;
+    width: 500px;
+    text-align: center;
+  }
+  
+  .feature h2 {
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive images with full width */
+  .feature img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
