@@ -1,9 +1,6 @@
 // Import the Microsoft login function from your auth file
 import { login } from './microsoft.js'
 
-//vercel analyitics 
-import { inject } from "@vercel/analytics";
-
 // Dark mode toggle
 const darkModeToggle = document.getElementById('dark-mode-toggle');
 const logo = document.getElementById('logo');
@@ -49,7 +46,6 @@ const msLoginBtn = document.getElementById('ms-login-btn');
 let isLoginInProgress = false; // To track if login is in progress
 
 msLoginBtn.addEventListener('click', async () => {
-  inject("Microsoft_Login_Clicked");
   if (isLoginInProgress) {
     console.log('Login is already in progress, please wait...');
     return;
@@ -71,7 +67,6 @@ msLoginBtn.addEventListener('click', async () => {
 const guestBtn = document.getElementById('guest-btn');
 guestBtn.addEventListener('click', () => {
   window.location.href = 'computle.html';
-  inject("Guest_Mode_Activated");
 });
 
 
@@ -79,16 +74,12 @@ guestBtn.addEventListener('click', () => {
 const leaderboard = document.getElementById('leaderboard-btn');
 leaderboard.addEventListener('click', () => {
   window.location.href = 'leaderboard.html';
-  inject("Leaderboard_View");
-
 });
 
 // how to button
 const howToButton = document.getElementById('help-btn');
 howToButton.addEventListener('click', () => {
   window.location.href = 'demo.html';
-  inject("Demo_View");
-
 });
 
 //Integration to Mr Dennehy's Code
