@@ -22,6 +22,7 @@ toggleButton.addEventListener("click", () => {
         canvasColour = "#7DA6DE"
         canvas.style('border', '4px solid white')
         updateHomePage()
+        sessionComputle.updateLetterBankColour()
 
         
     } else {
@@ -30,6 +31,8 @@ toggleButton.addEventListener("click", () => {
         canvasColour = "#DCDCDC";
         canvas.style('border', '4px solid black')
         updateHomePage()
+        sessionComputle.updateLetterBankColour()
+
 
     }
 });

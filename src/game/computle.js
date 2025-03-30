@@ -420,6 +420,18 @@ class Computle{
 
   }
 
+  updateLetterBankColour(){
+    const rows = document.querySelectorAll('#letter-bank tbody tr');
+    let index = 0;
+    rows.forEach(row => {
+      const cell = row.querySelector('td');
+      if(this.letterbank[index][1]=="null"){
+        this.updateLetterBank(this.letterbank[index][0],canvasColour)
+      }
+      index ++
+    });
+  }
+
   checkletterbank(letter,state,colour){
     this.letterbank.forEach(element => {
       if(element[0] == letter){
