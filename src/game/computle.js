@@ -427,19 +427,19 @@ class Computle{
           //add correct
           if(state == "correct"){
             this.updateLetterBank(letter,colour)
+            element[1] = state
           }
-          element[1] = state
         }else if(element[1] == "missplaced"){
           //add missplaced
           if(state == "missplaced" || state == "correct"){
             this.updateLetterBank(letter,colour)
+            element[1] = state
           }
-          element[1] = state
         }else if (element[1] == "incorrect"){
           if(state == "missplaced" || state == "correct" || state == "incorrect"){
             this.updateLetterBank(letter,colour)
+            element[1] = state
           }
-          element[1] = state
         }else if(element[1] == "null"){
           this.updateLetterBank(letter,colour)
           element[1] = state
