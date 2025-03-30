@@ -3,9 +3,9 @@ import { PublicClientApplication } from '@azure/msal-browser';
 // MSAL configuration object
 const msalConfig = {
     auth: {
-        clientId: 'db78800c-5db9-4c80-8e6b-c3ba7ab1a454', // Your Application (client) ID from Entra ID
-        authority: `https://login.microsoftonline.com/737b9d9f-9b7b-4dd2-b7d3-aef85aef5565`, // Tenant-specific endpotint
-        redirectUri: 'https://computle.vercel.app' // Must match your registered redirect URI
+        clientId: import.meta.env.VITE_AZURE_CLIENT_ID,
+        authority: `https://login.microsoftonline.com/${import.meta.env.VITE_AZURE_TENANT_ID}`,
+        redirectUri: import.meta.env.VITE_AZURE_REDIRECT_URI
     },
     cache: {
         cacheLocation: "sessionStorage", // Options: "sessionStorage" or "localStorage"
