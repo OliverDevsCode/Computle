@@ -80,6 +80,7 @@ function openMenu(){
 
 function drawMenu(user){
   goAgain.hide()
+  resetButton.hide()
   multiplayerButton.show()
   leaderBoardButton.show()
   returnButton.show()
