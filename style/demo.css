@@ -47,3 +47,24 @@ html, body {
     border-radius: 4px;
   }
   
+  #home-button {
+    position: absolute;
+    top: 10px;  /* Adjusts distance from the top */
+    left: 10px; /* Moves it to the right */
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Removes underline */
+    font-weight: bold;
+    background: white; /* Matches theme */
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  #home-button:hover {
+    background: var(--table-hover-bg); /* Matches hover effect */
+    color: #fff; /* Ensures contrast */
+  }
