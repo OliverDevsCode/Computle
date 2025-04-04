@@ -40,6 +40,10 @@ toggleButton.addEventListener("click", () => {
 // Accessibility - Colourblind Mode
 const toggleColourBlind = document.getElementById("colour-blind-toggle");
 const body = document.body;
+const storedMode = localStorage.getItem("colourblind")
+if(!storedMode){
+    localStorage.setItem("colourblind", false); 
+}
 
 // Check Local Storage on Page Load
 document.addEventListener("DOMContentLoaded", () => {
