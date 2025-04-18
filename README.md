@@ -28,24 +28,6 @@ Computle is an interactive learning program originally aimed at A-Level Computer
 Try out Computle now:\
 [🔗 Play Now](https://computle.vercel.app/)
 
-## How to Run Locally
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/OliverDevsCode/Computle.git
-   ```
-2. Navigate to the project folder:
-   ```sh
-   cd Computle
-   ```
-3. Start a local development server using Live Server:
-   - If you have VS Code, install the [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) and click "Go Live."
-   - Alternatively, run the following command if you have Python installed:
-     ```sh
-     python -m http.server
-     ```
-4. Open `http://localhost:8000` in your browser.
-
 ## Screenshots
 
 ### Home Screen
