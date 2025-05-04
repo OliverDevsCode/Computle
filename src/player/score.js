@@ -63,6 +63,7 @@ function displayScore(){
 }
 
 async function sendScore(score,username,subject,hash,usernameHASH,MSusername){
+  userdata.addScore(0)//reset to prevent double click exploit 
   return fetch('https://computle-backend.vercel.app/api/enterScore',{
     method: 'post',
     headers: {
@@ -76,13 +77,14 @@ async function sendScore(score,username,subject,hash,usernameHASH,MSusername){
     console.log(data.leaderboardID);
     if(data.leaderboardID != undefined){
       userdata.setLeaderboardID(data.leaderboardID);
-      userdata.addScore(0)
+      userdata.addScore(0)//reset score
     }
   })
   .then(error => {
     if(error!= undefined){
       console.log('Error:',error)
       alert("Error Sending Score Please Try again")
+      userdata.addScore(score)//reset score if fail
     }
     })
 }
