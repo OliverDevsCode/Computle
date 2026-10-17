@@ -15,13 +15,13 @@ Computle is an interactive learning program originally aimed at A-Level Computer
 
 ## Features
 
-- 🎮 **Interactive Learning** - Play an engaging game while reinforcing knowledge.
-- 📚 **Multiple Subjects** - Learn topics from Computer Science to Business Studies.
-- 📜 **Score Certificates** - Get proof of your achievements with certificates.
-- 🔒 **Score Verification** - Ensure the authenticity of your scores and leaderboard rankings.
-- 🌍 **Web-Based** - No installation required, play directly in your browser!
-- 🔍 **Accessiblity** - Colour blindness filters have been added to allow even more players to enjoy the game
-- 📊 **Leaderboard** - View the entire leaderboard and see where you rank amongst all the players
+-  **Interactive Learning** - Play an engaging game while reinforcing knowledge.
+-  **Multiple Subjects** - Learn topics from Computer Science to Business Studies.
+-  **Score Certificates** - Get proof of your achievements with certificates.
+-  **Score Verification** - Ensure the authenticity of your scores and leaderboard rankings.
+-  **Web-Based** - No installation required, play directly in your browser!
+-  **Accessiblity** - Colour blindness filters have been added to allow even more players to enjoy the game
+-  **Leaderboard** - View the entire leaderboard and see where you rank amongst all the players
 
 ## Play the Game
 
